@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrappy Stack — Free & cheap tools to start your own thing</title>
+<style>
+  :root{
+    --white:#FFFFFF;
+    --cloud:#F4F6FB;
+    --cloud-line:#E4E7EF;
+    --ink:#1A1F36;
+    --ink-soft:#5A6072;
+    --ink-faint:#9A9FAE;
+    --indigo:#4F5BFF;
+    --indigo-dark:#3A44CC;
+    --indigo-bg:#EDEEFF;
+    --coral:#FF6F59;
+    --coral-dark:#C2422E;
+    --coral-bg:#FFEDE9;
+    --mint:#1FC8A0;
+    --mint-dark:#0E8064;
+    --mint-bg:#E6FAF3;
+    --gold:#FFC542;
+    --gold-dark:#92670A;
+    --gold-bg:#FFF6E0;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Archivo Black','Arial Black',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .label{
+    font-family:'JetBrains Mono','Courier New',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--ink-faint);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  :focus-visible{outline:3px solid var(--indigo); outline-offset:2px;}
+
+  .nav{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:26px 24px 10px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.15rem;
+  }
+  .logo-mark{
+    width:30px;height:30px;
+    background:var(--indigo);
+    border-radius:8px;
+    position:relative;
+  }
+  .logo-mark::after{
+    content:"";
+    position:absolute;
+    top:7px;left:50%;
+    width:6px;height:6px;
+    background:#fff;
+    border-radius:50%;
+    transform:translateX(-50%);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .nav-links a{text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px;}
+  .nav-links a:hover{border-bottom-color:var(--indigo);}
+
+  .hero-wrap{
+    background:var(--cloud);
+    border-bottom:1px solid var(--cloud-line);
+  }
+  .hero{
+    max-width:1100px;
+    margin:0 auto;
+    padding:64px 24px 90px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--indigo-bg);
+    color:var(--indigo-dark);
+    padding:7px 14px;
+    border-radius:20px;
+    margin-bottom:20px;
+    font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.7rem;
+    font-weight:700;
+  }
+  .hero-eyebrow .dot{width:7px;height:7px;background:var(--indigo);border-radius:50%;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.06;
+  }
+  .hero h1 .accent{color:var(--indigo);}
+  .hero p.sub{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-top:20px;
+    line-height:1.55;
+  }
+  .hero-ctas{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-weight:700;
+    font-size:0.95rem;
+    padding:14px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid transparent;
+    transition:transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:var(--indigo);
+    color:#fff;
+    box-shadow:0 4px 14px rgba(79,91,255,0.35);
+  }
+  .btn-primary:hover{box-shadow:0 8px 18px rgba(79,91,255,0.4);}
+  .btn-ghost{
+    background:var(--white);
+    color:var(--ink);
+    border-color:var(--cloud-line);
+  }
+
+  .tag-art{
+    position:relative;
+    height:340px;
+  }
+  .tag-row{
+    position:absolute;
+    display:flex;
+    gap:18px;
+  }
+  .tag-row.r1{top:0; left:8%;}
+  .tag-row.r2{top:120px; left:0;}
+  .tag-row.r3{top:240px; left:14%;}
+  .tool-tag{
+    background:var(--card);
+    border:1px solid var(--cloud-line);
+    border-radius:10px;
+    padding:10px 16px;
+    box-shadow:0 6px 16px rgba(26,31,54,0.08);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.8rem;
+    font-weight:700;
+    white-space:nowrap;
+    transform:rotate(var(--tilt,0deg));
+  }
+  .tool-tag.indigo{border-color:var(--indigo); color:var(--indigo-dark);}
+  .tool-tag.coral{border-color:var(--coral); color:var(--coral-dark);}
+  .tool-tag.mint{border-color:var(--mint); color:var(--mint-dark);}
+  .tool-tag.gold{border-color:var(--gold); color:var(--gold-dark);}
+
+  .why{
+    max-width:1100px;
+    margin:0 auto;
+    padding:80px 24px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+  }
+  .why-card{
+    background:var(--card);
+    border:1px solid var(--cloud-line);
+    border-radius:14px;
+    padding:28px 24px;
+  }
+  .why-card .num{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--indigo);
+  }
+  .why-card h3{
+    font-size:1.15rem;
+    margin:14px 0 10px;
+  }
+  .why-card p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    line-height:1.55;
+  }
+
+  .shelves{
+    max-width:1100px;
+    margin:0 auto;
+    padding:20px 24px 90px;
+  }
+  .shelves-head{
+    text-align:left;
+    margin-bottom:48px;
+    max-width:560px;
+  }
+  .shelves-head h2{
+    font-size:clamp(1.8rem,3vw,2.4rem);
+    margin-top:10px;
+  }
+  .shelves-head p{
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    margin-top:14px;
+    line-height:1.55;
+  }
+  .category{
+    margin-bottom:56px;
+  }
+  .shelf-label{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:18px;
+  }
+  .shelf-label h3{
+    font-size:1.3rem;
+  }
+  .shelf-label .count{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.75rem;
+    font-weight:700;
+    color:var(--ink-faint);
+  }
+  .shelf-line{
+    height:1px;
+    background:var(--cloud-line);
+    margin-bottom:22px;
+  }
+  .tool-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .tool-card{
+    background:var(--card);
+    border:1px solid var(--cloud-line);
+    border-radius:14px;
+    padding:20px;
+    transition:box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .tool-card:hover{
+    box-shadow:0 10px 24px rgba(26,31,54,0.08);
+    transform:translateY(-2px);
+  }
+  .tool-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .tool-icon{
+    width:36px;height:36px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Archivo Black',sans-serif;
+    font-size:1rem;
+    color:#fff;
+  }
+  .badge{
+    font-size:0.72rem;
+    font-weight:700;
+    padding:5px 11px;
+    border-radius:20px;
+  }
+  .badge.free{ background:var(--mint-bg); color:var(--mint-dark); }
+  .badge.tier{ background:var(--coral-bg); color:var(--coral-dark); }
+  .tool-card h4{
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.02rem;
+    margin:0 0 8px;
+  }
+  .tool-card p{
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+    margin:0 0 14px;
+  }
+  .tool-card .go{
+    font-size:0.85rem;
+    font-weight:700;
+    color:var(--indigo);
+    text-decoration:none;
+  }
+  .tool-card .go:hover{ text-decoration:underline; }
+
+  .suggest{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px 100px;
+    text-align:center;
+  }
+  .suggest h2{
+    font-size:clamp(1.7rem,3vw,2.2rem);
+    margin:12px 0 14px;
+  }
+  .suggest p{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    line-height:1.55;
+    margin:0 auto 30px;
+    max-width:520px;
+  }
+  .suggest-form{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .suggest-form input{
+    flex:1 1 220px;
+    padding:14px 16px;
+    border-radius:10px;
+    border:1px solid var(--cloud-line);
+    font-family:inherit;
+    font-size:0.95rem;
+    background:var(--white);
+    color:var(--ink);
+  }
+  .suggest-form input:focus{
+    outline:none;
+    border-color:var(--indigo);
+    box-shadow:0 0 0 3px var(--indigo-bg);
+  }
+  .suggest-form .btn{
+    flex:0 0 auto;
+    border:none;
+    cursor:pointer;
+  }
+
+  footer{
+    border-top:1px solid var(--cloud-line);
+    padding:32px 24px;
+    text-align:center;
+  }
+  footer p{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    margin:0;
+  }
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; padding-bottom:60px;}
+    .tag-art{display:none;}
+    .why{grid-template-columns:1fr;}
+    .tool-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .tool-grid{grid-template-columns:1fr;}
+    .suggest-form{flex-direction:column;}
+    .suggest-form .btn{width:100%;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-wrap">
+  <nav class="nav">
+    <div class="logo"><div class="logo-mark"></div>Scrappy Stack</div>
+    <div class="nav-links">
+      <a href="#categories">Tools</a>
+      <a href="#why">Why this exists</a>
+      <a href="#suggest">Suggest a tool</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>Built for first-time founders</div>
+      <h1>You're starting<br>your own thing.<br><span class="accent">Don't pay for it yet.</span></h1>
+      <p class="sub">A hand-picked shelf of free and nearly-free software — the stuff you actually need on day one, before there's any revenue to justify a subscription.</p>
+      <div class="hero-ctas">
+        <a href="#categories" class="btn btn-primary">See the stack</a>
+        <a href="#suggest" class="btn btn-ghost">Suggest a tool</a>
+      </div>
+    </div>
+    <div class="tag-art" aria-hidden="true">
+      <div class="tag-row r1">
+        <div class="tool-tag mint" style="--tilt:-3deg">WAVE</div>
+        <div class="tool-tag indigo" style="--tilt:2deg">CANVA</div>
+      </div>
+      <div class="tag-row r2">
+        <div class="tool-tag coral" style="--tilt:1deg">CAL.COM</div>
+        <div class="tool-tag gold" style="--tilt:-2deg">ZAPIER</div>
+      </div>
+      <div class="tag-row r3">
+        <div class="tool-tag indigo" style="--tilt:3deg">FIGMA</div>
+        <div class="tool-tag mint" style="--tilt:-1deg">ZOHO</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="why" id="why">
+  <div class="why-card">
+    <span class="num">01</span>
+    <h3>No vendor fees, no fluff</h3>
+    <p>Every tool here is picked because it's genuinely useful at $0 — not because someone's paying to be listed first.</p>
+  </div>
+  <div class="why-card">
+    <span class="num">02</span>
+    <h3>For starting, not stalling</h3>
+    <p>This isn't a "rebuild your life" directory. It's for people who already decided to bet on themselves — and need the right tools fast.</p>
+  </div>
+  <div class="why-card">
+    <span class="num">03</span>
+    <h3>Kept current</h3>
+    <p>Free tiers change. We re-check every listing so you're not the one who finds out a "free plan" quietly disappeared.</p>
+  </div>
+</section>
+
+<section class="shelves" id="categories">
+  <div class="shelves-head">
+    <div class="label">The shelf</div>
+    <h2>Five categories. Zero guesswork.</h2>
+    <p>Everything a one-person business needs to get off the ground, organized the way you'd actually go looking for it.</p>
+  </div>
+
+  <div class="category">
+    <div class="shelf-label">
+      <h3>Accounting &amp; invoicing</h3>
+      <span class="count">// 03 TOOLS</span>
+    </div>
+    <div class="shelf-line"></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--mint)">W</div><span class="badge free">Free forever</span></div>
+        <h4>Wave</h4>
+        <p>Full invoicing and accounting with no monthly fee — you only pay if you use payment processing or payroll.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--coral)">Z</div><span class="badge tier">Free tier</span></div>
+        <h4>Zoho Invoice</h4>
+        <p>Clean, professional invoices with recurring billing — free up to a generous number of clients per month.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--gold)">B</div><span class="badge tier">Free tier</span></div>
+        <h4>Bonsai</h4>
+        <p>Contracts, invoices, and proposals built for freelancers — free plan covers your first few clients.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="shelf-label">
+      <h3>Design</h3>
+      <span class="count">// 03 TOOLS</span>
+    </div>
+    <div class="shelf-line"></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--indigo)">C</div><span class="badge tier">Free tier</span></div>
+        <h4>Canva</h4>
+        <p>Social posts, flyers, logos, and slide decks with zero design background required.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--coral)">F</div><span class="badge tier">Free tier</span></div>
+        <h4>Figma</h4>
+        <p>If you need an actual website or product mockup, this is the real professional tool — free for individual use.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--gold)">P</div><span class="badge free">Free forever</span></div>
+        <h4>Photopea</h4>
+        <p>A full Photoshop-style photo editor that runs in your browser — no install, no subscription, ever.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="shelf-label">
+      <h3>Email &amp; outreach</h3>
+      <span class="count">// 03 TOOLS</span>
+    </div>
+    <div class="shelf-line"></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--mint)">Z</div><span class="badge tier">Free tier</span></div>
+        <h4>Zoho Mail</h4>
+        <p>A real custom-domain inbox (you@yourbusiness.com) free for a small team, no credit card needed.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--coral)">M</div><span class="badge tier">Free tier</span></div>
+        <h4>MailerLite</h4>
+        <p>Newsletters and automated sequences free up to your first thousand subscribers.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--gold)">K</div><span class="badge tier">Free tier</span></div>
+        <h4>ConvertKit</h4>
+        <p>Built for creators selling something — landing pages and email in one place, free to start.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="shelf-label">
+      <h3>Scheduling</h3>
+      <span class="count">// 03 TOOLS</span>
+    </div>
+    <div class="shelf-line"></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--mint)">C</div><span class="badge tier">Free tier</span></div>
+        <h4>Cal.com</h4>
+        <p>Open-source booking pages that sync to your calendar — self-host it free or use their free hosted plan.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--coral)">C</div><span class="badge tier">Free tier</span></div>
+        <h4>Calendly</h4>
+        <p>The familiar one — one booking page, synced calendar, free for a single event type.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--gold)">A</div><span class="badge tier">Free tier</span></div>
+        <h4>Acuity Scheduling</h4>
+        <p>More built-in client management if you take payments at the time of booking.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category">
+    <div class="shelf-label">
+      <h3>AI &amp; automation</h3>
+      <span class="count">// 03 TOOLS</span>
+    </div>
+    <div class="shelf-line"></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--mint)">Z</div><span class="badge tier">Free tier</span></div>
+        <h4>Zapier</h4>
+        <p>Connects the other tools on this shelf so they talk to each other automatically. Free for light use.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--coral)">M</div><span class="badge tier">Free tier</span></div>
+        <h4>Make</h4>
+        <p>Same idea as Zapier, more visual, more generous free tier for complex workflows.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-top"><div class="tool-icon" style="background:var(--gold)">G</div><span class="badge tier">Free tier</span></div>
+        <h4>ChatGPT</h4>
+        <p>Drafting copy, answering customer questions, brainstorming — the free tier is plenty to start.</p>
+        <a class="go" href="#">Visit site →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="suggest" id="suggest">
+  <div class="label">Know one we're missing?</div>
+  <h2>Suggest a tool for the shelf</h2>
+  <p>If it's free or close to it, and it actually helped you get your business off the ground, we want to hear about it.</p>
+  <form class="suggest-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" name="email" placeholder="Your email" required>
+    <input type="text" name="tool" placeholder="Tool name + link" required>
+    <button class="btn btn-primary" type="submit">Send it in</button>
+  </form>
+</section>
+
+<footer>
+  <p>SCRAPPY STACK · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
+</footer>
+
+</body>
+</html>
