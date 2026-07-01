@@ -160,18 +160,6 @@
     .faq-answer { display: none; padding-bottom: 22px; color: var(--muted); font-size: 15px; line-height: 1.75; }
     .faq-item.open .faq-answer { display: block; }
 
-    /* SHELF */
-    .shelf-section { background: var(--card); }
-    .shelf-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .shelf-visual { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
-    .shelf-visual-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 16px; }
-    .shelf-tool { display: flex; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--border); }
-    .shelf-tool:last-child { border-bottom: none; }
-    .tool-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-    .tool-name { font-size: 15px; font-weight: 500; }
-    .tool-tag { margin-left: auto; font-size: 11px; font-weight: 500; color: var(--green-txt); background: var(--green-bg); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
-    .shelf-copy .btn { margin-top: 32px; display: inline-flex; }
-
     /* NEWSLETTER */
     .newsletter-section { background: var(--accent); padding: var(--section-pad) 0; }
     .newsletter-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -202,7 +190,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .hero-inner,.shelf-inner,.newsletter-inner,.faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-inner,.newsletter-inner,.faq-inner { grid-template-columns: 1fr; gap: 48px; }
       .hero h1 { font-size: 52px; }
       .steps-grid { grid-template-columns: 1fr; }
       .deliv-grid { grid-template-columns: 1fr 1fr; }
@@ -237,7 +225,7 @@
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#shelf">The Shelf</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
     </ul>
   </div>
@@ -400,6 +388,7 @@
       </div>
       <form class="gs-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
         <input type="hidden" name="_subject" value="New Scrappy Stacks signup" />
+        <input type="hidden" name="source" value="Get Started" />
         <div class="gs-field">
           <label for="gs-name">Name</label>
           <input type="text" id="gs-name" name="name" required />
@@ -493,47 +482,6 @@
   </div>
 </section>
 
-<!-- SHELF -->
-<section id="shelf" class="shelf-section">
-  <div class="container">
-    <div class="shelf-inner">
-      <div class="shelf-copy">
-        <p class="label">The Shelf</p>
-        <h2 class="section-title">The tools we actually<br>run this business on.</h2>
-        <p class="section-sub">No bloated tech stack — just a handful of tools that pull their weight. Here's what powers Scrappy Stacks behind the scenes.</p>
-        <a href="#pricing" class="btn btn-outline">See Pricing</a>
-      </div>
-      <div class="shelf-visual">
-        <p class="shelf-visual-title">Currently On The Shelf</p>
-        <div class="shelf-tool">
-          <span class="tool-dot"></span>
-          <span class="tool-name">Trello</span>
-          <span class="tool-tag">Design Board</span>
-        </div>
-        <div class="shelf-tool">
-          <span class="tool-dot"></span>
-          <span class="tool-name">Figma</span>
-          <span class="tool-tag">Design</span>
-        </div>
-        <div class="shelf-tool">
-          <span class="tool-dot"></span>
-          <span class="tool-name">Webflow</span>
-          <span class="tool-tag">Websites</span>
-        </div>
-        <div class="shelf-tool">
-          <span class="tool-dot"></span>
-          <span class="tool-name">Stripe</span>
-          <span class="tool-tag">Billing</span>
-        </div>
-        <div class="shelf-tool">
-          <span class="tool-dot"></span>
-          <span class="tool-name">Loom</span>
-          <span class="tool-tag">Feedback</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- NEWSLETTER -->
 <section class="newsletter-section">
@@ -543,8 +491,11 @@
         <p class="label">Stay In The Loop</p>
         <h2 class="section-title">Design tips, straight<br>to your inbox.</h2>
         <p class="section-sub">One short email a month — no spam, no fluff. Just practical design and branding advice for small businesses.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault();">
-          <input type="email" placeholder="you@yourbusiness.com" required />
+        <form class="newsletter-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
+          <input type="hidden" name="_subject" value="New Scrappy Stacks newsletter signup" />
+          <input type="hidden" name="source" value="Newsletter" />
+          <input type="hidden" name="message" value="Newsletter signup" />
+          <input type="email" name="email" placeholder="you@yourbusiness.com" required />
           <button type="submit" class="btn">Subscribe</button>
         </form>
         <p class="newsletter-note">Unsubscribe anytime. We respect your inbox.</p>
@@ -571,12 +522,11 @@
       <ul class="footer-links">
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#shelf">The Shelf</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#get-started">Get Started</a></li>
       </ul>
       <div class="footer-right">
-        <p class="footer-email">hello@scrappystacks.com</p>
+        <p class="footer-email"><a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
         <p class="footer-legal">&copy; 2026 Scrappy Stacks. All rights reserved.</p>
       </div>
     </div>
@@ -596,3 +546,4 @@
 
 </body>
 </html>
+
