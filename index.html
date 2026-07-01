@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -128,6 +129,26 @@
     .price-card .btn-primary { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
     .price-card.featured .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
     .pricing-reassurance { text-align: center; margin-top: 36px; font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* GET STARTED FORM */
+    .get-started-section { background: var(--card); }
+    .get-started-inner { max-width: 640px; margin: 0 auto; }
+    .get-started-header { text-align: center; margin-bottom: 40px; }
+    .get-started-header .section-sub { margin: 16px auto 0; }
+    .gs-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .gs-form .gs-full { grid-column: 1 / -1; }
+    .gs-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+    .gs-field .gs-optional { font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+    .gs-field input, .gs-field select, .gs-field textarea {
+      width: 100%; padding: 13px 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--bg); font-family: 'Inter', sans-serif; font-size: 15px; color: var(--ink); outline: none;
+    }
+    .gs-field input:focus, .gs-field select:focus, .gs-field textarea:focus { border-color: var(--accent); }
+    .gs-field textarea { resize: vertical; min-height: 100px; }
+    .gs-submit { grid-column: 1 / -1; margin-top: 8px; }
+    .gs-submit .btn { width: 100%; justify-content: center; }
+    .gs-note { grid-column: 1 / -1; text-align: center; font-size: 13px; color: var(--muted); margin-top: -4px; }
+    @media (max-width: 600px) { .gs-form { grid-template-columns: 1fr; } }
 
     /* FAQ */
     .faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
@@ -342,7 +363,7 @@
           <li>Source files always included</li>
           <li>Pause or cancel anytime</li>
         </ul>
-        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#get-started" class="btn btn-primary" onclick="document.getElementById('plan-select').value='Starter';">Get Started</a>
       </div>
       <div class="price-card featured">
         <div class="popular-badge">Most Popular</div>
@@ -361,10 +382,58 @@
           <li>Priority queue</li>
           <li>Pause or cancel anytime</li>
         </ul>
-        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#get-started" class="btn btn-primary" onclick="document.getElementById('plan-select').value='Stack';">Get Started</a>
       </div>
     </div>
     <p class="pricing-reassurance">No contracts. No setup fees. Source files are yours to keep — always.</p>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section id="get-started" class="get-started-section">
+  <div class="container">
+    <div class="get-started-inner">
+      <div class="get-started-header">
+        <p class="label">Get Started</p>
+        <h2 class="section-title">Let's get your first<br>design moving.</h2>
+        <p class="section-sub">Fill this out and we'll set up your board within one business day.</p>
+      </div>
+      <form class="gs-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
+        <input type="hidden" name="_subject" value="New Scrappy Stacks signup" />
+        <div class="gs-field">
+          <label for="gs-name">Name</label>
+          <input type="text" id="gs-name" name="name" required />
+        </div>
+        <div class="gs-field">
+          <label for="gs-business">Business name</label>
+          <input type="text" id="gs-business" name="business" required />
+        </div>
+        <div class="gs-field">
+          <label for="gs-email">Email</label>
+          <input type="email" id="gs-email" name="email" required />
+        </div>
+        <div class="gs-field">
+          <label for="gs-phone">Phone <span class="gs-optional">(optional)</span></label>
+          <input type="tel" id="gs-phone" name="phone" />
+        </div>
+        <div class="gs-field gs-full">
+          <label for="plan-select">Which plan?</label>
+          <select id="plan-select" name="plan" required>
+            <option value="" disabled selected>Select a plan</option>
+            <option value="Starter">Starter — $995/mo</option>
+            <option value="Stack">Stack — $1,795/mo</option>
+          </select>
+        </div>
+        <div class="gs-field gs-full">
+          <label for="gs-need">What do you need first?</label>
+          <textarea id="gs-need" name="first_request" placeholder="e.g. A logo and a matching Instagram template set" required></textarea>
+        </div>
+        <div class="gs-submit">
+          <button type="submit" class="btn btn-primary">Send It</button>
+        </div>
+        <p class="gs-note">We'll reply within one business day to get your board set up.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -504,6 +573,7 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#shelf">The Shelf</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="#get-started">Get Started</a></li>
       </ul>
       <div class="footer-right">
         <p class="footer-email">hello@scrappystacks.com</p>
