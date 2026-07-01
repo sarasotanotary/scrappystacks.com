@@ -1,417 +1,528 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G1Y193VRP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3G1Y193VRP');
-  </script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scrappy Stacks — Free & cheap tools to start your own thing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --desk:#E8E4D8;
-    --paper:#FFFCEA;
-    --rule:#AFCBE8;
-    --margin:#D9534F;
-    --ink:#23324A;
-    --ink-soft:#46506B;
-    --ink-faint:#8A8F7E;
-    --check:#3F7D52;
-    --tag:#9C6B1F;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--desk);
-    color:var(--ink);
-    font-family:'Patrick Hand', cursive;
-  }
-  h1,h2,h3,h4{
-    font-family:'Kalam', cursive;
-    font-weight:700;
-    margin:0;
-    color:var(--ink);
-  }
-  a{color:var(--ink);}
-  img{max-width:100%;display:block;}
-  :focus-visible{outline:3px solid var(--margin); outline-offset:2px;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrappy Stacks — Design Subscriptions for Small Businesses</title>
+  <meta name="description" content="Flat-rate design subscriptions for small businesses. Logos, social media, landing pages, print, and more. 24-hour turnaround. No contracts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --green: #22C55E; --green-bg: #DCFCE7; --green-txt: #15803D;
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07); --section-pad: 100px;
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .display em { font-style: italic; }
+    .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    h2.section-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 48px; line-height: 1.15; letter-spacing: -0.02em; margin-top: 12px; }
+    p.section-sub { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: var(--section-pad) 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
 
-  .paper{
-    position:relative;
-    max-width:780px;
-    margin:36px auto;
-    background-color:var(--paper);
-    background-image:repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 35px,
-      var(--rule) 35px,
-      var(--rule) 37px
-    );
-    box-shadow:0 14px 40px rgba(35,50,74,0.18);
-    border-radius:3px;
-  }
-  .paper::before{
-    content:"";
-    position:absolute;
-    top:0; bottom:0; left:66px;
-    width:2px;
-    background:var(--margin);
-    opacity:0.85;
-  }
-  .inner{
-    padding:30px 34px 30px 92px;
-  }
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
 
-  .nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:8px 0 6px;
-  }
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-family:'Kalam',cursive;
-    font-weight:700;
-    font-size:1.25rem;
-    text-decoration:none;
-    color:var(--ink);
-  }
-  .logo-mark{
-    width:16px;height:16px;
-    border-radius:50%;
-    background:var(--margin);
-    box-shadow:0 0 0 2px var(--paper), 0 0 0 3px var(--ink-faint);
-  }
-  .nav-links{
-    display:flex;
-    gap:20px;
-    font-size:1rem;
-  }
-  .nav-links a{text-decoration:none; border-bottom:2px dashed transparent;}
-  .nav-links a:hover, .nav-links a.current{border-bottom-color:var(--margin);}
+    /* HERO */
+    .hero { padding: 80px 0 90px; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero h1 { font-size: 74px; margin-bottom: 24px; }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 480px; line-height: 1.65; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .status-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--green-bg); color: var(--green-txt); font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 999px; }
+    .status-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 140px); gap: 14px; }
+    .work-card { border-radius: var(--radius-card); box-shadow: var(--shadow); display: flex; align-items: flex-end; padding: 12px; overflow: hidden; }
+    .wc-label { font-size: 11px; font-weight: 600; color: #fff; background: rgba(0,0,0,0.35); padding: 4px 10px; border-radius: 999px; backdrop-filter: blur(4px); }
+    .wc-1{background:linear-gradient(135deg,#E8392A,#F4714A);}
+    .wc-2{background:linear-gradient(135deg,#7C3AED,#C084FC);}
+    .wc-3{background:linear-gradient(135deg,#0EA5E9,#38BDF8);}
+    .wc-4{background:linear-gradient(135deg,#F59E0B,#FCD34D);}
+    .wc-5{background:linear-gradient(135deg,#10B981,#6EE7B7);}
+    .wc-6{background:linear-gradient(135deg,#EC4899,#F9A8D4);}
 
-  .hero{ padding:26px 0 18px; }
-  .hero h1{
-    font-size:clamp(1.9rem, 5vw, 2.7rem);
-    line-height:1.25;
-  }
-  .hero h1 .accent{
-    text-decoration:underline;
-    text-decoration-style:wavy;
-    text-decoration-color:var(--margin);
-    text-decoration-thickness:2px;
-    text-underline-offset:4px;
-  }
-  .hero p.sub{
-    font-size:1.15rem;
-    color:var(--ink-soft);
-    max-width:540px;
-    margin-top:14px;
-    line-height:1.6;
-  }
-  .hero-jot{
-    margin-top:14px;
-    font-size:0.95rem;
-    color:var(--ink-faint);
-  }
-  .hero-jot .check{ color:var(--check); font-weight:700; }
-  .hero-ctas{
-    margin-top:22px;
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .btn{
-    font-family:'Kalam',cursive;
-    font-weight:700;
-    font-size:1rem;
-    padding:10px 20px;
-    border-radius:6px;
-    text-decoration:none;
-    display:inline-block;
-    transform:rotate(-1deg);
-    border:2px solid var(--ink);
-  }
-  .btn-primary{ background:var(--margin); color:#fff; border-color:var(--margin); }
-  .btn-ghost{ background:transparent; color:var(--ink); }
+    /* PROOF */
+    .proof-strip { padding: 26px 0; background: #EDE9E3; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .proof-strip .container { display: flex; align-items: center; justify-content: center; }
+    .proof-strip blockquote { font-size: 15px; font-style: italic; color: var(--muted); text-align: center; }
+    .proof-strip blockquote strong { color: var(--ink); font-style: normal; }
 
-  .tear{
-    border:none;
-    border-top:2px dashed var(--ink-faint);
-    margin:26px 0;
-  }
+    /* HOW IT WORKS */
+    .how-header { text-align: center; margin-bottom: 64px; }
+    .how-header .section-sub { margin: 16px auto 0; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .step-card { background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 36px 32px; text-align: center; }
+    .step-icon { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; }
+    .step-icon svg { width: 32px; height: 32px; fill: #fff; }
+    .step-icon.s1{background:linear-gradient(135deg,#E8392A,#F4714A);}
+    .step-icon.s2{background:linear-gradient(135deg,#7C3AED,#C084FC);}
+    .step-icon.s3{background:linear-gradient(135deg,#10B981,#6EE7B7);}
+    .step-num { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .step-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+    .step-card p { color: var(--muted); font-size: 15px; }
 
-  .why{ padding:6px 0 6px; }
-  .why-row{
-    display:flex;
-    gap:12px;
-    margin-bottom:16px;
-    align-items:flex-start;
-  }
-  .why-row .dash{ color:var(--margin); font-weight:700; font-size:1.2rem; line-height:1.3; }
-  .why-row h3{ font-size:1.15rem; margin-bottom:4px; }
-  .why-row p{ margin:0; color:var(--ink-soft); font-size:1.02rem; line-height:1.5; }
+    /* DELIVERABLES */
+    .deliverables { background: var(--card); }
+    .deliv-header { margin-bottom: 56px; }
+    .deliv-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .deliv-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 22px 18px; display: flex; align-items: center; gap: 14px; transition: box-shadow 0.2s, transform 0.2s; }
+    .deliv-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .deliv-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .deliv-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .di-1{background:linear-gradient(135deg,#E8392A,#F4714A);}
+    .di-2{background:linear-gradient(135deg,#7C3AED,#C084FC);}
+    .di-3{background:linear-gradient(135deg,#0EA5E9,#38BDF8);}
+    .di-4{background:linear-gradient(135deg,#F59E0B,#FCD34D);}
+    .di-5{background:linear-gradient(135deg,#10B981,#6EE7B7);}
+    .di-6{background:linear-gradient(135deg,#EC4899,#F9A8D4);}
+    .di-7{background:linear-gradient(135deg,#E8392A,#F4714A);}
+    .di-8{background:linear-gradient(135deg,#7C3AED,#C084FC);}
+    .di-9{background:linear-gradient(135deg,#0EA5E9,#38BDF8);}
+    .di-10{background:linear-gradient(135deg,#F59E0B,#FCD34D);}
+    .di-11{background:linear-gradient(135deg,#10B981,#6EE7B7);}
+    .di-12{background:linear-gradient(135deg,#EC4899,#F9A8D4);}
+    .deliv-card span { font-size: 14px; font-weight: 500; }
 
-  .shelf-head{ padding:6px 0 10px; }
-  .shelf-head .label{
-    font-family:'Kalam',cursive;
-    font-weight:700;
-    font-size:0.85rem;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--margin);
-  }
-  .shelf-head h2{
-    font-size:clamp(1.5rem,3vw,1.9rem);
-    margin-top:6px;
-  }
-  .shelf-head p{ color:var(--ink-soft); margin-top:8px; font-size:1.02rem; }
+    /* PRICING */
+    .pricing-section { background: var(--dark); }
+    .pricing-header { text-align: center; margin-bottom: 56px; }
+    .pricing-header .label { color: var(--coral); }
+    .pricing-header h2.section-title { color: #fff; }
+    .pricing-header .section-sub { color: rgba(255,255,255,0.5); margin: 16px auto 0; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto; }
+    .price-card { background: #2A2A2C; border-radius: 20px; padding: 40px 36px; position: relative; border: 1px solid rgba(255,255,255,0.08); }
+    .price-card.featured { border-color: var(--accent); }
+    .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 5px 16px; border-radius: 999px; white-space: nowrap; }
+    .price-card h3 { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .price-desc { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+    .price-amount { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 4px; }
+    .price-amount sub { font-family: 'Inter', sans-serif; font-size: 18px; color: rgba(255,255,255,0.5); vertical-align: baseline; }
+    .price-period { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 32px; }
+    .price-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+    .price-features { list-style: none; margin-bottom: 36px; }
+    .price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.75); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .price-card .btn { width: 100%; justify-content: center; }
+    .price-card .btn-primary { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+    .price-card.featured .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .pricing-reassurance { text-align: center; margin-top: 36px; font-size: 13px; color: rgba(255,255,255,0.3); }
 
-  .category{ padding:14px 0 4px; }
-  .category h3{ font-size:1.3rem; margin-bottom:10px; }
-  .tool-item{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-    padding:9px 0;
-  }
-  .tool-item .check{
-    color:var(--check);
-    font-weight:700;
-    font-size:1.2rem;
-    line-height:1.4;
-    flex-shrink:0;
-    width:20px;
-  }
-  .tool-item .tool-text h4{
-    font-size:1.08rem;
-    display:inline;
-  }
-  .tool-item .tier{
-    font-family:'Patrick Hand',cursive;
-    color:var(--tag);
-    font-size:0.92rem;
-    margin-left:6px;
-  }
-  .tool-item p{
-    margin:3px 0 0;
-    color:var(--ink-soft);
-    font-size:1rem;
-    line-height:1.5;
-  }
-  .tool-item .go{
-    margin-left:auto;
-    flex-shrink:0;
-    font-size:0.95rem;
-    font-weight:700;
-    text-decoration:none;
-    border-bottom:2px dashed var(--margin);
-    white-space:nowrap;
-    align-self:center;
-  }
+    /* FAQ */
+    .faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+    .faq-sticky { position: sticky; top: 90px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; background: none; border: none; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; color: var(--ink); cursor: pointer; text-align: left; gap: 24px; }
+    .faq-chevron { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.3s; color: var(--muted); }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { display: none; padding-bottom: 22px; color: var(--muted); font-size: 15px; line-height: 1.75; }
+    .faq-item.open .faq-answer { display: block; }
 
-  .newsletter{ padding:18px 0; }
-  .newsletter .label{
-    font-family:'Kalam',cursive;
-    font-weight:700;
-    font-size:0.85rem;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--margin);
-  }
-  .newsletter h2{ font-size:clamp(1.4rem,3vw,1.7rem); margin-top:6px; }
-  .newsletter p{ color:var(--ink-soft); margin-top:8px; max-width:480px; font-size:1.02rem; }
-  .pad-form{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    align-items:flex-end;
-    margin-top:18px;
-  }
-  .pad-form input{
-    flex:1 1 220px;
-    border:none;
-    border-bottom:2px solid var(--ink-soft);
-    background:transparent;
-    font-family:'Patrick Hand',cursive;
-    font-size:1.05rem;
-    color:var(--ink);
-    padding:6px 2px;
-  }
-  .pad-form input:focus{ outline:none; border-bottom-color:var(--margin); }
-  .pad-form .btn{ flex:0 0 auto; border:none; cursor:pointer; }
-  .fine{ margin-top:10px; font-size:0.85rem; color:var(--ink-faint); }
+    /* SHELF */
+    .shelf-section { background: var(--card); }
+    .shelf-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .shelf-visual { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
+    .shelf-visual-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 16px; }
+    .shelf-tool { display: flex; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--border); }
+    .shelf-tool:last-child { border-bottom: none; }
+    .tool-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .tool-name { font-size: 15px; font-weight: 500; }
+    .tool-tag { margin-left: auto; font-size: 11px; font-weight: 500; color: var(--green-txt); background: var(--green-bg); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .shelf-copy .btn { margin-top: 32px; display: inline-flex; }
 
-  .suggest{ padding:18px 0 10px; }
-  .suggest h2{ font-size:clamp(1.4rem,3vw,1.7rem); margin-top:6px; }
-  .suggest p{ color:var(--ink-soft); margin-top:8px; max-width:480px; font-size:1.02rem; }
+    /* NEWSLETTER */
+    .newsletter-section { background: var(--accent); padding: var(--section-pad) 0; }
+    .newsletter-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .newsletter-section .label { color: rgba(255,255,255,0.65); }
+    .newsletter-section h2.section-title { color: #fff; }
+    .newsletter-section .section-sub { color: rgba(255,255,255,0.75); max-width: 100%; }
+    .newsletter-form { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+    .newsletter-form input { flex: 1; min-width: 200px; padding: 14px 20px; border-radius: var(--radius-btn); border: none; font-family: 'Inter', sans-serif; font-size: 15px; background: rgba(255,255,255,0.2); color: #fff; outline: none; }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.55); }
+    .newsletter-form input:focus { background: rgba(255,255,255,0.3); }
+    .newsletter-form .btn { background: #fff; color: var(--accent); flex-shrink: 0; }
+    .newsletter-note { margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.55); }
+    .newsletter-perks { list-style: none; }
+    .newsletter-perks li { display: flex; align-items: center; gap: 12px; padding: 12px 0; color: rgba(255,255,255,0.85); font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .newsletter-perks li:last-child { border-bottom: none; }
 
-  footer{
-    padding:18px 0 6px;
-    text-align:left;
-  }
-  footer p{
-    font-size:0.85rem;
-    color:var(--ink-faint);
-    margin:0;
-  }
+    /* FOOTER */
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
 
-  @media (max-width:600px){
-    .inner{ padding:24px 18px 24px 56px; }
-    .paper::before{ left:38px; }
-    .tool-item{ flex-wrap:wrap; }
-    .tool-item .go{ margin-left:32px; }
-    .pad-form{ flex-direction:column; align-items:stretch; }
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none !important;}
-  }
-</style>
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner,.shelf-inner,.newsletter-inner,.faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero h1 { font-size: 52px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .deliv-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
+      .faq-sticky { position: static; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      :root { --section-pad: 64px; }
+      h2.section-title { font-size: 34px; }
+      .hero h1 { font-size: 40px; }
+      .hero-grid { grid-template-rows: repeat(3,110px); }
+      .deliv-grid { grid-template-columns: 1fr; }
+      .nav-links li:not(:last-child) { display: none; }
+      .container { padding: 0 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="paper">
-  <div class="inner">
-
-    <nav class="nav">
-      <a class="logo" href="/"><span class="logo-mark"></span>Scrappy Stacks</a>
-      <div class="nav-links">
-        <a href="#categories">Tools</a>
-        <a href="/blog/">Blog</a>
-        <a href="#newsletter">Newsletter</a>
-        <a href="#suggest">Suggest</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
       </div>
-    </nav>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#shelf">The Shelf</a></li>
+      <li><a href="#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section class="hero">
-      <h1>You're starting your own thing.<br>
-      <span class="accent">Don't pay for it yet.</span></h1>
-      <p class="sub">A hand-picked shelf of free and nearly-free software — the stuff you actually need on day one, before there's any revenue to justify a subscription.</p>
-      <p class="hero-jot"><span class="check">✓</span> Wave &nbsp; <span class="check">✓</span> Canva &nbsp; <span class="check">✓</span> Cal.com &nbsp; <span class="check">✓</span> Zoho — and a few more below</p>
-      <div class="hero-ctas">
-        <a href="#categories" class="btn btn-primary">See the stack</a>
-        <a href="#suggest" class="btn btn-ghost">Suggest a tool</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <h1 class="display">Professional design.<br><em>Without the agency bill.</em></h1>
+        <p class="hero-sub">Flat-rate design subscriptions for small businesses — logos, social media, landing pages, print, and more. Subscribe, request, receive. No contracts, no calls, no waiting weeks.</p>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn btn-primary">See Pricing</a>
+          <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+        </div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Now accepting new clients — pause or cancel anytime
+        </div>
       </div>
-    </section>
-
-    <hr class="tear">
-
-    <section class="why" id="why">
-      <div class="why-row">
-        <span class="dash">—</span>
-        <div><h3>No vendor fees, no fluff</h3><p>Every tool here is picked because it's genuinely useful at $0 — not because someone's paying to be listed first.</p></div>
+      <div class="hero-grid">
+        <div class="work-card wc-1"><span class="wc-label">Logo & Brand</span></div>
+        <div class="work-card wc-2"><span class="wc-label">Social Media</span></div>
+        <div class="work-card wc-3"><span class="wc-label">Landing Page</span></div>
+        <div class="work-card wc-4"><span class="wc-label">Print & Flyers</span></div>
+        <div class="work-card wc-5"><span class="wc-label">Email Design</span></div>
+        <div class="work-card wc-6"><span class="wc-label">Ad Creative</span></div>
       </div>
-      <div class="why-row">
-        <span class="dash">—</span>
-        <div><h3>For starting, not stalling</h3><p>This isn't a "rebuild your life" directory. It's for people who already decided to bet on themselves — and need the right tools fast.</p></div>
-      </div>
-      <div class="why-row">
-        <span class="dash">—</span>
-        <div><h3>Kept current</h3><p>Free tiers change. We re-check every listing so you're not the one who finds out a "free plan" quietly disappeared.</p></div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <hr class="tear">
-
-    <section id="categories">
-      <div class="shelf-head">
-        <div class="label">The shelf</div>
-        <h2>Five categories. Zero guesswork.</h2>
-        <p>Everything a one-person business needs to get off the ground, organized the way you'd actually go looking for it.</p>
-      </div>
-
-      <div class="category">
-        <h3>Accounting &amp; invoicing</h3>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Wave</h4><span class="tier">free forever</span><p>Full invoicing and accounting with no monthly fee — you only pay if you use payment processing or payroll.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Zoho Invoice</h4><span class="tier">free tier</span><p>Clean, professional invoices with recurring billing — free up to a generous number of clients per month.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Bonsai</h4><span class="tier">free tier</span><p>Contracts, invoices, and proposals built for freelancers — free plan covers your first few clients.</p></div><a class="go" href="#">Visit →</a></div>
-      </div>
-
-      <hr class="tear">
-
-      <div class="category">
-        <h3>Design</h3>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Canva</h4><span class="tier">free tier</span><p>Social posts, flyers, logos, and slide decks with zero design background required.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Figma</h4><span class="tier">free tier</span><p>If you need an actual website or product mockup, this is the real professional tool — free for individual use.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Photopea</h4><span class="tier">free forever</span><p>A full Photoshop-style photo editor that runs in your browser — no install, no subscription, ever.</p></div><a class="go" href="#">Visit →</a></div>
-      </div>
-
-      <hr class="tear">
-
-      <div class="category">
-        <h3>Email &amp; outreach</h3>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Zoho Mail</h4><span class="tier">free tier</span><p>A real custom-domain inbox (you@yourbusiness.com) free for a small team, no credit card needed.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>MailerLite</h4><span class="tier">free tier</span><p>Newsletters and automated sequences free up to your first thousand subscribers.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>ConvertKit</h4><span class="tier">free tier</span><p>Built for creators selling something — landing pages and email in one place, free to start.</p></div><a class="go" href="#">Visit →</a></div>
-      </div>
-
-      <hr class="tear">
-
-      <div class="category">
-        <h3>Scheduling</h3>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Cal.com</h4><span class="tier">free tier</span><p>Open-source booking pages that sync to your calendar — self-host it free or use their free hosted plan.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Calendly</h4><span class="tier">free tier</span><p>The familiar one — one booking page, synced calendar, free for a single event type.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Acuity Scheduling</h4><span class="tier">free tier</span><p>More built-in client management if you take payments at the time of booking.</p></div><a class="go" href="#">Visit →</a></div>
-      </div>
-
-      <hr class="tear">
-
-      <div class="category">
-        <h3>AI &amp; automation</h3>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Zapier</h4><span class="tier">free tier</span><p>Connects the other tools on this shelf so they talk to each other automatically. Free for light use.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>Make</h4><span class="tier">free tier</span><p>Same idea as Zapier, more visual, more generous free tier for complex workflows.</p></div><a class="go" href="#">Visit →</a></div>
-        <div class="tool-item"><span class="check">✓</span><div class="tool-text"><h4>ChatGPT</h4><span class="tier">free tier</span><p>Drafting copy, answering customer questions, brainstorming — the free tier is plenty to start.</p></div><a class="go" href="#">Visit →</a></div>
-      </div>
-    </section>
-
-    <hr class="tear">
-
-    <section class="newsletter" id="newsletter">
-      <div class="label">One new tool a month, that's it</div>
-      <h2>Get the next free tool before you need it</h2>
-      <p>No daily emails, no sales pitches — once a month we send one tool worth knowing about, picked the same way everything on this shelf is.</p>
-      <form class="pad-form" action="https://formspree.io/f/mrewkjkb" method="POST">
-        <input type="hidden" name="_subject" value="New Scrappy Stacks newsletter signup">
-        <input type="email" name="email" placeholder="your email" required>
-        <button class="btn btn-primary" type="submit">Sign me up</button>
-      </form>
-      <p class="fine">One email a month. Unsubscribe whenever.</p>
-    </section>
-
-    <hr class="tear">
-
-    <section class="suggest" id="suggest">
-      <div class="label">Know one we're missing?</div>
-      <h2>Suggest a tool for the shelf</h2>
-      <p>If it's free or close to it, and it actually helped you get your business off the ground, we want to hear about it.</p>
-      <form class="pad-form" action="https://formspree.io/f/mrewkjkb" method="POST">
-        <input type="email" name="email" placeholder="your email" required>
-        <input type="text" name="tool" placeholder="tool name + link" required>
-        <button class="btn btn-primary" type="submit">Send it in</button>
-      </form>
-    </section>
-
-    <hr class="tear">
-
-    <footer>
-      <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
-    </footer>
-
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="container">
+    <blockquote>"Finally, design that doesn't require a meeting, a proposal, and three weeks of waiting." &nbsp;—&nbsp; <strong>Trusted by small businesses across the US</strong></blockquote>
   </div>
 </div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="how-header">
+      <p class="label">Simple as 1-2-3</p>
+      <h2 class="section-title">No learning curve.<br>Just great design, fast.</h2>
+      <p class="section-sub">No agencies, no back-and-forth, no surprises. A subscription that works the way you do.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon s1">
+          <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+        </div>
+        <p class="step-num">Step 01</p>
+        <h3>Subscribe</h3>
+        <p>Pick a plan and get instant access to your design board. Set up in minutes — no calls, no paperwork.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon s2">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+        </div>
+        <p class="step-num">Step 02</p>
+        <h3>Request</h3>
+        <p>Tell us what you need — a logo, a flyer, a social post, a landing page. Drop it in your board with any notes or references.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon s3">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+        </div>
+        <p class="step-num">Step 03</p>
+        <h3>Receive</h3>
+        <p>Your design lands within 24 hours. Request unlimited revisions until it's perfect, then queue up the next one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="container">
+    <div class="deliv-header">
+      <p class="label">Deliverables</p>
+      <h2 class="section-title">Everything your business<br>needs to look the part.</h2>
+    </div>
+    <div class="deliv-grid">
+      <div class="deliv-card"><div class="deliv-icon di-1"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><span>Logos & Brand Identity</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-2"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></div><span>Social Media Graphics</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-3"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg></div><span>Landing Pages</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-4"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><span>Flyers & Print</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-5"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg></div><span>Business Cards</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-6"><svg viewBox="0 0 24 24"><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm16 14H5V9h14v10zm0-12H5V5h14v2z"/></svg></div><span>Menus & Signage</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-7"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div><span>Ad Creative</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-8"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div><span>Presentations</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-9"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg></div><span>Brand Guidelines</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-10"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><span>Email Design</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-11"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"/></svg></div><span>Packaging Design</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-12"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span>And more — just ask</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-section">
+  <div class="container">
+    <div class="pricing-header">
+      <p class="label">Pricing</p>
+      <h2 class="section-title">One flat rate. No surprises.</h2>
+      <p class="section-sub">No proposals, no contracts, no invoices. Just great design delivered every month.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="price-desc">For businesses with a steady stream of design needs.</p>
+        <div class="price-amount">$995<sub>/mo</sub></div>
+        <p class="price-period">Pause or cancel anytime</p>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>One active request at a time</li>
+          <li>24-hour turnaround</li>
+          <li>Unlimited revisions</li>
+          <li>Logos, social, print, ads & landing pages</li>
+          <li>Dedicated Trello design board</li>
+          <li>Source files always included</li>
+          <li>Pause or cancel anytime</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Stack</h3>
+        <p class="price-desc">For businesses that need to move fast on multiple fronts.</p>
+        <div class="price-amount">$1,795<sub>/mo</sub></div>
+        <p class="price-period">Pause or cancel anytime</p>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>Two active requests at a time</li>
+          <li>24-hour turnaround</li>
+          <li>Unlimited revisions</li>
+          <li>Everything in Starter</li>
+          <li>Website design & Webflow builds</li>
+          <li>Full brand system development</li>
+          <li>Priority queue</li>
+          <li>Pause or cancel anytime</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+    <p class="pricing-reassurance">No contracts. No setup fees. Source files are yours to keep — always.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-sticky">
+        <p class="label">Questions</p>
+        <h2 class="section-title">Straight answers.<br>No fine print.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-question">
+            How fast do I actually get my design back?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Most requests are delivered within 24 hours. Bigger projects — like a full brand system or a multi-page website — get a clear timeline upfront so there are no surprises.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What if I don't like what I get back?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Revisions are unlimited. Leave feedback right on the board and we'll keep refining until it's right — no extra charge, no awkward conversations.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I really cancel anytime?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Yes. There are no contracts and no cancellation fees. Pause your subscription when things are slow and pick it back up whenever you need design work again.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What's the difference between Starter and Stack?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Starter gives you one active request at a time — great for steady, ongoing needs. Stack unlocks two requests in parallel plus website builds and full brand system development, ideal for businesses juggling multiple projects at once.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Do I own the source files?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Every file is yours to keep, even if you cancel. No lock-in, no re-purchasing your own logo down the line.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What kind of businesses use Scrappy Stacks?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Mostly small businesses and solo founders who need consistent, professional design but don't have the budget or patience for a traditional agency relationship.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHELF -->
+<section id="shelf" class="shelf-section">
+  <div class="container">
+    <div class="shelf-inner">
+      <div class="shelf-copy">
+        <p class="label">The Shelf</p>
+        <h2 class="section-title">The tools we actually<br>run this business on.</h2>
+        <p class="section-sub">No bloated tech stack — just a handful of tools that pull their weight. Here's what powers Scrappy Stacks behind the scenes.</p>
+        <a href="#pricing" class="btn btn-outline">See Pricing</a>
+      </div>
+      <div class="shelf-visual">
+        <p class="shelf-visual-title">Currently On The Shelf</p>
+        <div class="shelf-tool">
+          <span class="tool-dot"></span>
+          <span class="tool-name">Trello</span>
+          <span class="tool-tag">Design Board</span>
+        </div>
+        <div class="shelf-tool">
+          <span class="tool-dot"></span>
+          <span class="tool-name">Figma</span>
+          <span class="tool-tag">Design</span>
+        </div>
+        <div class="shelf-tool">
+          <span class="tool-dot"></span>
+          <span class="tool-name">Webflow</span>
+          <span class="tool-tag">Websites</span>
+        </div>
+        <div class="shelf-tool">
+          <span class="tool-dot"></span>
+          <span class="tool-name">Stripe</span>
+          <span class="tool-tag">Billing</span>
+        </div>
+        <div class="shelf-tool">
+          <span class="tool-dot"></span>
+          <span class="tool-name">Loom</span>
+          <span class="tool-tag">Feedback</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div>
+        <p class="label">Stay In The Loop</p>
+        <h2 class="section-title">Design tips, straight<br>to your inbox.</h2>
+        <p class="section-sub">One short email a month — no spam, no fluff. Just practical design and branding advice for small businesses.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="you@yourbusiness.com" required />
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <p class="newsletter-note">Unsubscribe anytime. We respect your inbox.</p>
+      </div>
+      <ul class="newsletter-perks">
+        <li>Monthly design & branding tips</li>
+        <li>Early access to new plan features</li>
+        <li>Occasional freebies and templates</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+        </div>
+        Scrappy Stacks
+      </div>
+      <ul class="footer-links">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#shelf">The Shelf</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="footer-right">
+        <p class="footer-email">hello@scrappystacks.com</p>
+        <p class="footer-legal">&copy; 2026 Scrappy Stacks. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
 
 </body>
 </html>
