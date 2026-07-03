@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G1Y193VRP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3G1Y193VRP');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Scrappy Stacks</title>
+  <meta name="description" content="Real talk about walking away from a career that used you up, and building a life where you're finally in charge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --max-w: 780px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+    .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; border: none; }
+    .btn-primary { background: var(--ink); color: #fff; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); }
+    .nav-links a.current, .nav-links a:hover { color: var(--ink); }
+
+    .page-head { padding: 64px 0 8px; }
+    .page-head h1 { font-size: clamp(32px,5vw,48px); margin-top: 12px; }
+    .page-head p { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+
+    .posts { padding: 40px 0 100px; display: flex; flex-direction: column; gap: 20px; }
+    .post-card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px; transition: box-shadow 0.2s, transform 0.2s; }
+    .post-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .post-card .tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+    .post-card h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; margin-top: 10px; line-height: 1.3; }
+    .post-card p { color: var(--muted); margin-top: 10px; font-size: 16px; line-height: 1.55; }
+    .post-card .meta { font-size: 13px; color: var(--muted); margin-top: 14px; display: block; }
+    .empty-note { color: var(--muted); font-size: 15px; text-align: center; padding: 20px 0; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--border); }
+    footer p { font-size: 13px; color: var(--muted); text-align: center; }
+
+    @media (max-width: 600px) {
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+      </div>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/blog/" class="current">Blog</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-head">
+    <p class="label">The Way Out</p>
+    <h1 class="display">Building a life that's<br>actually yours.</h1>
+    <p>No hustle-bro nonsense, no corporate jargon. Just real talk from someone who gave twenty years to a career and is building something of her own instead.</p>
+  </div>
+
+  <div class="posts">
+    <a class="post-card" href="/blog/twenty-years-nursing-never-working-for-someone-else-again.html">
+      <span class="tag">Independence</span>
+      <h2>What Twenty Years of Nursing Taught Me About Never Working For Someone Else Again</h2>
+      <p>Nobody warns you what giving your career to someone else actually costs. Here's what I wish I'd known before I gave twenty years — and what I'd tell anyone standing where I was standing.</p>
+      <span class="meta">6 min read</span>
+    </a>
+    <p class="empty-note">More posts coming soon.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>SCRAPPY STACKS · BUILT BY PEOPLE DONE ASKING PERMISSION TO MAKE A LIVING</p>
+  </div>
+</footer>
+
+</body>
+</html>
