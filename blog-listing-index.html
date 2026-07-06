@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Twenty Years of Nursing Taught Me About Never Working For Someone Else Again — Scrappy Stacks</title>
-  <meta name="description" content="Two decades in a nursing career left me with a bad back and not much else to show for it. Here's what finally pushed me to build something of my own." />
+  <title>The Way Out — Scrappy Stacks Blog</title>
+  <meta name="description" content="Real stories and practical steps from people who left a career that used them up to build something of their own." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -25,7 +25,8 @@
     :root {
       --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
       --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
-      --max-w: 1100px; --radius-btn: 999px; --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
     }
     .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
     .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
@@ -44,26 +45,32 @@
     .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
     .nav-links a:hover { color: var(--ink); }
 
-    /* ARTICLE */
-    .article-header { padding: 72px 0 40px; text-align: center; }
-    .article-header .label { display: block; margin-bottom: 16px; }
-    .article-header h1 { font-size: 46px; max-width: 760px; margin: 0 auto; }
-    .article-header .meta { color: var(--muted); font-size: 14px; margin-top: 22px; }
-    article { max-width: 680px; margin: 0 auto; padding-bottom: 90px; font-size: 18px; line-height: 1.8; color: #2A2A2A; }
-    article p { margin-bottom: 24px; }
-    article h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 28px; margin: 44px 0 20px; }
-    article .drop { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--ink); border-left: 3px solid var(--accent); padding-left: 20px; margin: 36px 0; }
+    /* HEADER */
+    .blog-header { padding: 80px 0 56px; text-align: center; }
+    .blog-header h1 { font-size: 56px; margin-top: 12px; }
+    .blog-header p { color: var(--muted); max-width: 520px; margin: 20px auto 0; font-size: 17px; }
 
-    /* CTA */
-    .article-cta { background: var(--accent); padding: 64px 0; text-align: center; }
-    .cta-inner { max-width: 560px; margin: 0 auto; }
-    .article-cta .label { color: rgba(255,255,255,0.65); }
-    .article-cta h2 { color: #fff; font-size: 34px; margin: 12px 0 16px; }
-    .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 26px; font-size: 16px; }
-    .newsletter-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .newsletter-form input { flex: 1; min-width: 220px; padding: 14px 20px; border-radius: 999px; border: none; font-family: 'Inter', sans-serif; font-size: 15px; background: rgba(255,255,255,0.2); color: #fff; outline: none; }
+    /* POSTS */
+    .posts-section { padding-bottom: 100px; }
+    .posts-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .post-card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 36px; box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s; }
+    .post-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.09); }
+    .post-card .tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); background: rgba(232,57,42,0.08); padding: 5px 12px; border-radius: 999px; margin-bottom: 14px; }
+    .post-card h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; line-height: 1.25; margin-bottom: 12px; }
+    .post-card .excerpt { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+    .post-card .meta { font-size: 13px; color: var(--muted); font-weight: 500; }
+    .empty-note { text-align: center; color: var(--muted); font-size: 15px; padding: 20px 0; }
+
+    /* NEWSLETTER CTA */
+    .blog-newsletter { background: var(--accent); padding: 72px 0; text-align: center; }
+    .blog-newsletter .label { color: rgba(255,255,255,0.65); }
+    .blog-newsletter h2 { font-family: 'Playfair Display', serif; font-weight: 700; color: #fff; font-size: 38px; margin-top: 12px; }
+    .blog-newsletter p { color: rgba(255,255,255,0.8); max-width: 480px; margin: 16px auto 28px; font-size: 16px; }
+    .newsletter-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 480px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; min-width: 220px; padding: 14px 20px; border-radius: var(--radius-btn); border: none; font-family: 'Inter', sans-serif; font-size: 15px; background: rgba(255,255,255,0.2); color: #fff; outline: none; }
     .newsletter-form input::placeholder { color: rgba(255,255,255,0.55); }
-    .newsletter-form .btn { background: #fff; color: var(--accent); }
+    .newsletter-form .btn { background: #fff; color: var(--accent); flex-shrink: 0; }
+    .newsletter-note { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
 
     /* FOOTER */
     footer { background: var(--dark); padding: 52px 0; }
@@ -83,8 +90,8 @@
       .footer-legal { text-align: center; max-width: 100%; }
     }
     @media (max-width: 600px) {
-      .article-header h1 { font-size: 32px; }
-      article { font-size: 17px; padding: 0 20px 70px; }
+      .blog-header h1 { font-size: 38px; }
+      .post-card { padding: 26px 22px; }
       .container { padding: 0 20px; }
       .nav-links li:not(:last-child) { display: none; }
     }
@@ -111,55 +118,44 @@
   </div>
 </nav>
 
-<!-- ARTICLE HEADER -->
-<div class="article-header">
+<!-- HEADER -->
+<section class="blog-header">
   <div class="container">
-    <span class="label">Independence</span>
-    <h1 class="display">What Twenty Years of Nursing Taught Me About Never Working For Someone Else Again</h1>
-    <p class="meta">By the founder of Scrappy Stacks &nbsp;·&nbsp; 6 min read</p>
-  </div>
-</div>
-
-<!-- ARTICLE BODY -->
-<article>
-  <p>I gave nursing twenty years. Twelve-hour shifts, holidays on call, a body that started giving out in my forties. I don't regret the people I helped. I regret how long it took me to realize that giving everything to a career doesn't mean the career gives anything back.</p>
-
-  <p>Nobody warns you what that trade actually costs. You tell yourself it's temporary — just get through this rotation, this contract, this manager — and then ten years pass, then twenty, and you look up and the thing you built isn't yours. It never was. It belonged to a hospital system, a schedule, a set of rules someone else wrote.</p>
-
-  <p class="drop">I didn't leave nursing because I stopped caring about people. I left because I finally started caring about myself, too.</p>
-
-  <h2>The back that finally said no</h2>
-
-  <p>It wasn't one dramatic moment. It was years of lifting, standing, running on too little sleep, until my back simply stopped cooperating. That's when the math got impossible to ignore: two decades of my life, and what did I actually have that was mine? Not equity. Not ownership. Not even control over my own schedule.</p>
-
-  <p>I'm not writing this to complain about nursing, or teaching, or the trades, or retail, or any of the careers that ask everything of the people in them. Those careers matter. The people in them matter. What I'm writing about is what happens after — when you're ready to stop renting out your time and start building something that's actually yours.</p>
-
-  <h2>Starting over without starting from zero</h2>
-
-  <p>Here's what surprised me: I didn't need to become someone else to do this. I didn't need an MBA, a co-founder, or a stack of savings most people don't have. I needed my business to look and run like a real one — something customers could trust from day one — without spending years learning things that had nothing to do with why I wanted out in the first place.</p>
-
-  <p>That's the whole reason Scrappy Stacks exists. Not because I think everyone needs a fancier version of what a big company has. Because I know what it feels like to be capable, experienced, and completely stuck — not for lack of skill, but for lack of the pieces that make a business look and function like a business. Once those pieces were handled, I could focus on the part that actually mattered: building something of my own.</p>
-
-  <h2>What I'd tell anyone standing where I was standing</h2>
-
-  <p>You don't have to have it all figured out. You don't need permission, and you don't need to wait until it feels safe — it never will. What you need is to start treating your time as something worth owning, one decision at a time.</p>
-
-  <p>Own your work. Own yourself. Own your life. Nobody hands that to you. You take it, on whatever schedule you've got left after the job that used you up — until one day, it's the only schedule you're answering to.</p>
-</article>
-
-<!-- CTA -->
-<section class="article-cta">
-  <div class="container cta-inner">
     <p class="label">The Way Out</p>
+    <h1 class="display">Real stories from people<br>building something of their own.</h1>
+    <p>Just plain talk from people who left a career that used them up to build a life that's theirs.</p>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="posts-section">
+  <div class="container">
+    <div class="posts-list">
+      <a class="post-card" href="/blog/twenty-years-nursing-never-working-for-someone-else-again.html">
+        <span class="tag">Independence</span>
+        <h2>What Twenty Years of Nursing Taught Me About Never Working For Someone Else Again</h2>
+        <p class="excerpt">Two decades in a nursing career left me with a bad back and not much else to show for it. Here's what finally pushed me to build something that was mine.</p>
+        <span class="meta">6 min read</span>
+      </a>
+      <p class="empty-note">More stories coming soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="blog-newsletter">
+  <div class="container">
+    <p class="label">Join The Way Out</p>
     <h2 class="display">Get the next story in your inbox.</h2>
     <p>One email a month. Real talk about walking away from a career that used you up, and practical steps for building something that's yours.</p>
-    <form action="https://formspree.io/f/xaqgpkpa" method="POST" class="newsletter-form">
+    <form class="newsletter-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
       <input type="hidden" name="_subject" value="New Scrappy Stacks newsletter signup" />
-      <input type="hidden" name="source" value="Blog post — Nursing" />
-      <input type="hidden" name="message" value="Newsletter signup from blog post" />
+      <input type="hidden" name="source" value="Blog listing page" />
+      <input type="hidden" name="message" value="Newsletter signup from blog listing" />
       <input type="email" name="email" placeholder="you@yourbusiness.com" required />
       <button type="submit" class="btn">Join Us</button>
     </form>
+    <p class="newsletter-note">Unsubscribe anytime. No spam, ever.</p>
   </div>
 </section>
 
