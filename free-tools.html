@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tools — Scrappy Stacks</title>
+<meta name="description" content="Free tools and guides for building a business of your own. No subscription, no email required for most of it — just what actually helps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#F5F2EE; --ink:#1A1A1A; --accent:#E8392A; --coral:#F4714A;
+    --dark:#1C1C1E; --card:#FFFFFF; --muted:#6B6B6B; --border:#E5E0D8;
+    --max-w:960px;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;line-height:1.15;letter-spacing:-0.02em;}
+  em{font-style:italic;color:var(--accent);}
+  .wrap{max-width:var(--max-w);margin:0 auto;padding:0 32px;}
+  section{padding:72px 0;}
+  .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;transition:opacity .2s,transform .15s;border:none;}
+  .btn:hover{opacity:.88;transform:translateY(-1px);}
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-outline{background:transparent;color:var(--ink);border:2px solid var(--ink);}
+
+  header{padding:24px 0;border-bottom:1px solid var(--border);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:20px;}
+  .logo-mark{width:30px;height:30px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;}
+  .logo-mark svg{width:16px;height:16px;fill:#fff;}
+  header nav a{font-size:14px;font-weight:500;color:var(--muted);}
+  header nav a:hover{color:var(--ink);}
+
+  .hero{text-align:center;padding:80px 0 56px;}
+  .hero h1{font-size:46px;max-width:720px;margin:0 auto 24px;}
+  .hero p{font-size:19px;color:var(--muted);max-width:560px;margin:0 auto;}
+
+  .section-title{text-align:center;margin-bottom:12px;font-size:32px;}
+  .section-sub{text-align:center;color:var(--muted);max-width:540px;margin:0 auto 8px;font-size:16px;}
+
+  .divider{border:none;border-top:1px solid var(--border);}
+
+  .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px;}
+  .tool-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;}
+  .tool-card h3{font-size:19px;margin-bottom:4px;}
+  .tool-card .use-for{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:10px;}
+  .tool-card p{font-size:15px;color:var(--muted);margin-bottom:14px;}
+  .tool-card a.visit{font-size:14px;font-weight:600;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:1px;}
+
+  .guides{background:var(--card);}
+  .guide-list{max-width:680px;margin:44px auto 0;}
+  .guide-item{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border-top:1px solid var(--border);}
+  .guide-item:first-child{border-top:none;}
+  .guide-item h3{font-size:18px;margin-bottom:4px;font-family:'Inter',sans-serif;font-weight:600;}
+  .guide-item p{font-size:14px;color:var(--muted);}
+  .guide-item .btn{flex-shrink:0;}
+
+  .final{background:var(--dark);color:#fff;text-align:center;}
+  .final h2{color:#fff;font-size:34px;margin-bottom:16px;}
+  .final p{color:rgba(255,255,255,.6);font-size:17px;max-width:500px;margin:0 auto 32px;}
+  .final .btn-primary{background:var(--accent);}
+
+  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:14px;background:var(--dark);}
+  footer a{color:rgba(255,255,255,.7);}
+  footer .flegal{color:rgba(255,255,255,.4);}
+
+  @media (max-width:720px){
+    .tool-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;}
+    header nav{display:none;}
+    .guide-item{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="/">
+      <div class="logo-mark"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg></div>
+      Scrappy Stacks
+    </a>
+    <nav><a href="/#pricing">Pricing</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="label">Free Tools</p>
+    <h1>Start using AI for your business<br><em>before you spend a dime.</em></h1>
+    <p>No subscription, no sales call. Just the free tools worth your time and a couple of our own guides — so the same five things stop eating your week.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="tools">
+  <div class="wrap">
+    <p class="label" style="text-align:center;display:block;">Free Tools</p>
+    <h2 class="section-title">Tools you can start using today</h2>
+    <p class="section-sub">Free tiers, no card required. Pick the one or two that fix what's actually slowing you down.</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h3>ChatGPT (free plan)</h3>
+        <p class="use-for">Use it for: replies, posts, first drafts</p>
+        <p>Paste in a rough email or a messy set of notes and ask it to clean things up in your voice. Good for the blank-page problem — bad at knowing your business unless you tell it.</p>
+        <a class="visit" href="https://chatgpt.com" target="_blank" rel="noopener">Visit chatgpt.com →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Google Business Profile</h3>
+        <p class="use-for">Use it for: getting found, reviews</p>
+        <p>Free, and often the first thing a customer sees before your website. Keep your hours and photos current — it does more for local search than most paid tools.</p>
+        <a class="visit" href="https://business.google.com" target="_blank" rel="noopener">Visit business.google.com →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Calendly (free plan)</h3>
+        <p class="use-for">Use it for: ending the scheduling back-and-forth</p>
+        <p>Send one link instead of five texts about whether Tuesday works. The free plan covers one calendar, which is plenty for most solo businesses.</p>
+        <a class="visit" href="https://calendly.com" target="_blank" rel="noopener">Visit calendly.com →</a>
+      </div>
+      <div class="tool-card">
+        <h3>Canva (free plan)</h3>
+        <p class="use-for">Use it for: quick social posts, flyers</p>
+        <p>Good for one-off graphics between the pieces we build you. Not a replacement for a real brand system, but fine for a quick announcement post.</p>
+        <a class="visit" href="https://canva.com" target="_blank" rel="noopener">Visit canva.com →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="guides">
+  <div class="wrap">
+    <p class="label" style="text-align:center;display:block;">Our Guides</p>
+    <h2 class="section-title">Free guides from us</h2>
+    <p class="section-sub">Plain-language walkthroughs, no strings attached.</p>
+    <div class="guide-list">
+      <div class="guide-item">
+        <div><h3>Guide title goes here</h3><p>One-line description of what it covers.</p></div>
+        <a href="#" class="btn btn-outline" style="border-color:var(--ink);">Download</a>
+      </div>
+      <div class="guide-item">
+        <div><h3>Guide title goes here</h3><p>One-line description of what it covers.</p></div>
+        <a href="#" class="btn btn-outline" style="border-color:var(--ink);">Download</a>
+      </div>
+      <div class="guide-item">
+        <div><h3>Guide title goes here</h3><p>One-line description of what it covers.</p></div>
+        <a href="#" class="btn btn-outline" style="border-color:var(--ink);">Download</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <div class="wrap">
+    <h2>Ready for more than free?</h2>
+    <p>When the free tools stop being enough, Starter and Premium plans handle the rest — done for you.</p>
+    <a class="btn btn-primary" href="/#pricing">See Starter & Premium</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Scrappy Stacks — <a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
+    <p class="flegal">&copy; 2026 Scrappy Stacks. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
