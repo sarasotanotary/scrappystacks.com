@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Way Out? — Scrappy Stacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+    --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+    --radius-card: 14px; --radius-btn: 999px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink);
+    font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--accent); text-align: center; margin: 0 0 10px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.1; font-size: 40px; text-align: center; margin: 0 0 14px;
+  }
+  .sub {
+    color: var(--muted); text-align: center; max-width: 460px; margin: 0 auto 44px; font-size: 16px;
+  }
+
+  .progress { display: flex; gap: 6px; justify-content: center; margin-bottom: 36px; }
+  .dot { width: 26px; height: 4px; border-radius: 2px; background: var(--border); transition: background 0.2s; }
+  .dot.active { background: var(--accent); }
+  .dot.done { background: var(--coral); }
+
+  .panel { display: none; }
+  .panel.show { display: block; }
+
+  .q-label {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); text-align: center; margin-bottom: 6px;
+  }
+  .q-title {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; text-align: center;
+    margin: 0 0 28px; letter-spacing: -0.01em;
+  }
+  .options { display: grid; gap: 12px; }
+  .opt-btn {
+    display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+    background: var(--card); border: 2px solid var(--border); border-radius: var(--radius-card);
+    padding: 16px 18px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+    color: var(--ink); cursor: pointer; transition: border-color 0.15s, transform 0.1s;
+  }
+  .opt-btn:hover { border-color: var(--coral); transform: translateY(-1px); }
+  .opt-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .opt-icon { font-size: 22px; flex-shrink: 0; width: 26px; text-align: center; }
+
+  .nav-row { display: flex; justify-content: center; margin-top: 24px; }
+  .back-link {
+    background: none; border: none; color: var(--muted); font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: underline;
+  }
+
+  .ticket {
+    background: var(--dark); color: #fff; border-radius: var(--radius-card);
+    position: relative; overflow: hidden; padding: 28px 26px 26px;
+  }
+  .ticket::before, .ticket::after {
+    content: ""; position: absolute; width: 24px; height: 24px; background: var(--bg);
+    border-radius: 50%; top: 50%; transform: translateY(-50%);
+  }
+  .ticket::before { left: -12px; }
+  .ticket::after { right: -12px; }
+  .ticket-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
+  .ticket-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--coral); }
+  .ticket-tag { font-size: 11px; color: rgba(255,255,255,0.5); text-align: right; }
+  .ticket-dest {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 30px; line-height: 1.15;
+    letter-spacing: -0.01em; margin: 0 0 6px;
+  }
+  .ticket-pitch { color: rgba(255,255,255,0.75); font-size: 15px; margin: 0 0 22px; }
+  .ticket-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+  .meta-item { }
+  .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); margin-bottom: 3px; }
+  .meta-val { font-size: 13px; font-weight: 600; color: #fff; }
+  .perf {
+    border-top: 2px dashed rgba(255,255,255,0.2); margin: 0 0 20px; padding-top: 20px;
+  }
+  .steps-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--coral); margin-bottom: 10px; }
+  .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .steps li { display: flex; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.85); }
+  .step-num {
+    flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
+    color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .pace-note {
+    background: rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 14px; font-size: 13px;
+    color: rgba(255,255,255,0.75); margin-top: 20px;
+  }
+
+  .result-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: var(--radius-btn);
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s; border: none; flex: 1; justify-content: center; text-decoration: none;
+  }
+  .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+
+  .slogan { text-align: center; color: var(--muted); font-size: 13px; margin-top: 28px; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 30px; }
+    .ticket-meta { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="/" id="home-link" style="display:block;text-align:center;font-size:13px;color:var(--muted);text-decoration:underline;margin-bottom:24px;">&larr; Back to Scrappy Stacks</a>
+  <p class="eyebrow">Scrappy Stacks</p>
+  <h1>What's your way out?</h1>
+  <p class="sub">Four quick questions. One business idea that actually fits you — not a generic list you've seen a hundred times.</p>
+
+  <div class="progress" id="progress">
+    <div class="dot" data-step="0"></div>
+    <div class="dot" data-step="1"></div>
+    <div class="dot" data-step="2"></div>
+    <div class="dot" data-step="3"></div>
+  </div>
+
+  <div class="panel show" data-panel="0">
+    <p class="q-label">Question 1 of 4</p>
+    <h2 class="q-title">What do people already come to you for help with?</h2>
+    <div class="options">
+      <button class="opt-btn" data-cat="fix"><span class="opt-icon">🔧</span> Fixing and building things</button>
+      <button class="opt-btn" data-cat="cars"><span class="opt-icon">🚗</span> Cars, engines and machines</button>
+      <button class="opt-btn" data-cat="beauty"><span class="opt-icon">💇</span> Hair, beauty and style</button>
+      <button class="opt-btn" data-cat="food"><span class="opt-icon">🍳</span> Cooking and baking</button>
+      <button class="opt-btn" data-cat="clean"><span class="opt-icon">🧹</span> Cleaning and caretaking</button>
+      <button class="opt-btn" data-cat="admin"><span class="opt-icon">📋</span> Keeping things organized</button>
+      <button class="opt-btn" data-cat="teach"><span class="opt-icon">📚</span> Teaching or coaching</button>
+      <button class="opt-btn" data-cat="events"><span class="opt-icon">🎉</span> Events and handmade things</button>
+    </div>
+  </div>
+
+  <div class="panel" data-panel="1">
+    <p class="q-label">Question 2 of 4</p>
+    <h2 class="q-title">How do you want your days to look?</h2>
+    <div class="options">
+      <button class="opt-btn" data-mod="out"><span class="opt-icon">🚚</span> Out and about, at people's homes or places</button>
+      <button class="opt-btn" data-mod="home"><span class="opt-icon">🏠</span> In one spot, my own setup</button>
+      <button class="opt-btn" data-mod="remote"><span class="opt-icon">💻</span> From home, mostly phone or laptop</button>
+    </div>
+    <div class="nav-row"><button class="back-link" data-back="0">Back</button></div>
+  </div>
+
+  <div class="panel" data-panel="2">
+    <p class="q-label">Question 3 of 4</p>
+    <h2 class="q-title">How much time can you give this right now?</h2>
+    <div class="options">
+      <button class="opt-btn" data-time="side"><span class="opt-icon">⏱️</span> A few hours on the side</button>
+      <button class="opt-btn" data-time="weekends"><span class="opt-icon">🌇</span> Evenings and weekends</button>
+      <button class="opt-btn" data-time="allin"><span class="opt-icon">🚀</span> I'm ready to go all in</button>
+    </div>
+    <div class="nav-row"><button class="back-link" data-back="1">Back</button></div>
+  </div>
+
+  <div class="panel" data-panel="3">
+    <p class="q-label">Question 4 of 4</p>
+    <h2 class="q-title">What do you have to start with?</h2>
+    <div class="options">
+      <button class="opt-btn" data-budget="low"><span class="opt-icon">🪙</span> Next to nothing</button>
+      <button class="opt-btn" data-budget="med"><span class="opt-icon">💵</span> A few hundred bucks</button>
+      <button class="opt-btn" data-budget="high"><span class="opt-icon">💰</span> A few thousand bucks</button>
+    </div>
+    <div class="nav-row"><button class="back-link" data-back="2">Back</button></div>
+  </div>
+
+  <div class="panel" data-panel="result">
+    <div id="ticket-mount"></div>
+    <p class="slogan">Own your work. Own your life.</p>
+  </div>
+
+</div>
+
+<script>
+  const IDEAS = {
+    fix: [
+      { title: "Handyman for hire", pitch: "Fix the stuff that's been sitting on everyone's to-do list — the leaky faucet, the wobbly cabinet, the honey-do list that never ends.", modality: ["out"], budget: "low",
+        steps: ["Pick 5 jobs you're confident doing today and price them", "Tell your neighbors, church, or old coworkers you're open for business", "Take before/after photos of your first 3 jobs to show the next customer"] },
+      { title: "Appliance and furniture repair", pitch: "People throw out perfectly good stuff because they don't know who to call. Be the person they call.", modality: ["home","out"], budget: "med",
+        steps: ["Start with one thing you already fix well — a washer, a dresser, a chair", "Set up a simple pickup/drop-off system, even if it's just your truck", "Post a few before/after fixes online so people can see the work"] },
+      { title: "Custom carpentry and built-ins", pitch: "Shelves, cabinets, farmhouse tables — the stuff people can't get at a big box store, made by hand.", modality: ["home"], budget: "high",
+        steps: ["Build one signature piece you're proud to show off", "Photograph it well and share it where local buyers actually look", "Quote your first 3 jobs slightly low to build a portfolio fast"] }
+    ],
+    cars: [
+      { title: "Mobile car detailing", pitch: "You bring the shine to them — driveway, office parking lot, wherever the car already is.", modality: ["out"], budget: "low",
+        steps: ["Get a basic kit together — vacuum, soap, microfiber towels", "Offer 3 packages: quick clean, full detail, and add-ons", "Detail your own car and 2 friends' cars first for photos and practice"] },
+      { title: "Mobile mechanic", pitch: "Oil changes, brakes, batteries — done in someone's driveway instead of a waiting room.", modality: ["out"], budget: "med",
+        steps: ["List the 5 jobs you can do reliably without a lift", "Get basic liability coverage sorted before your first paid job", "Start with people who already trust you — coworkers, family, your gym"] },
+      { title: "Small engine repair", pitch: "Mowers, boats, generators, four-wheelers — the machines everyone owns and nobody wants to fix themselves.", modality: ["home"], budget: "med",
+        steps: ["Clear space in the garage or shed for a proper workbench", "Fix a few neighbors' mowers for free or cheap to build word of mouth", "Set flat rates for the most common repairs so quoting is fast"] }
+    ],
+    beauty: [
+      { title: "Mobile hair and makeup", pitch: "Weddings, photoshoots, prom — you show up ready, so nobody has to leave home to look their best.", modality: ["out"], budget: "low",
+        steps: ["Put together a portable kit that travels well", "Book 2-3 friends' events at a discount to build your portfolio", "Set a simple travel fee so pricing stays clear from the start"] },
+      { title: "Home-based hair studio", pitch: "A private room, your own chair, your own hours — no salon owner taking a cut of every cut.", modality: ["home"], budget: "med",
+        steps: ["Set up one dedicated room with a chair, mirror and good lighting", "Move your current clients over first — they already trust you", "Set your hours so they actually fit the life you want"] },
+      { title: "Mobile spray tan", pitch: "A fast, simple service people book again and again — no shop required.", modality: ["out"], budget: "low",
+        steps: ["Get a portable tent and sprayer set up in your car", "Offer a launch discount to your first 10 clients for reviews", "Build a simple booking link so people can grab a slot themselves"] }
+    ],
+    food: [
+      { title: "Meal prep delivery", pitch: "Busy families and gym-goers who'd rather pay you than cook every night.", modality: ["home"], budget: "low",
+        steps: ["Pick 4 meals you can cook well and cheap in bulk", "Find 5 households in your area to be your first regulars", "Set a weekly order deadline so your shopping stays predictable"] },
+      { title: "Personal chef for dinners", pitch: "You cook in someone's kitchen for a dinner party or date night — restaurant food, no reservation.", modality: ["out"], budget: "med",
+        steps: ["Design 2-3 set menus so quoting is quick", "Offer your first dinner at cost to a friend for photos and a review", "Bring your own basic knife roll and tools so any kitchen works"] },
+      { title: "Custom cakes and baking", pitch: "Birthdays, showers, weddings — the cake everyone remembers and asks who made it.", modality: ["home"], budget: "low",
+        steps: ["Pick 3 signature flavors and one showstopper design", "Post real photos of real orders, not just practice bakes", "Set a minimum order size so small jobs don't eat your whole day"] }
+    ],
+    clean: [
+      { title: "House cleaning route", pitch: "The same handful of houses, cleaned on the same schedule — steady work, steady pay.", modality: ["out"], budget: "low",
+        steps: ["Pick a small area you're willing to drive and stick to it", "Offer your first 3 homes a discounted first clean", "Set a recurring schedule so income becomes predictable fast"] },
+      { title: "Pet sitting and dog walking", pitch: "People love their pets more than almost anything — be the person they trust with them.", modality: ["out"], budget: "low",
+        steps: ["Start with neighbors and coworkers who already know you", "Offer a free meet-and-greet before the first paid visit", "Set clear rates for walks, drop-ins, and overnight stays"] },
+      { title: "Move-out deep cleaning", pitch: "Landlords and renters both want that deposit back — you're the reason it happens.", modality: ["out"], budget: "low",
+        steps: ["Make a simple checklist so every job hits the same standard", "Reach out to a few local property managers directly", "Price by square footage so quotes are fast and consistent"] }
+    ],
+    admin: [
+      { title: "Bookkeeping for small business", pitch: "Every small business owner hates their books — you can be the one thing they stop worrying about.", modality: ["remote"], budget: "low",
+        steps: ["Pick one bookkeeping tool and get comfortable with it", "Offer your first client a flat monthly rate instead of hourly", "Ask your first client for two names of other business owners like them"] },
+      { title: "Virtual assistant", pitch: "Inboxes, scheduling, follow-ups — the small stuff that eats a business owner's whole week.", modality: ["remote"], budget: "low",
+        steps: ["List the 5 tasks you're fastest and most reliable at", "Find one overwhelmed small business owner to start with", "Set a weekly check-in so the work stays organized from day one"] },
+      { title: "Mobile notary and signing agent", pitch: "You go to them for closings, contracts, and paperwork that has to be signed just right.", modality: ["out"], budget: "med",
+        steps: ["Get certified and bonded in your state before taking jobs", "Connect with local real estate and title offices directly", "Keep a simple log of every signing for your own records"] }
+    ],
+    teach: [
+      { title: "Tutoring in your strongest subject", pitch: "Parents will pay well for someone who can explain the thing school didn't explain right.", modality: ["home","remote"], budget: "low",
+        steps: ["Pick the one subject or skill you're strongest at teaching", "Offer a free first session so families see the value right away", "Set a simple weekly schedule so it doesn't take over your life"] },
+      { title: "Fitness or nutrition coaching", pitch: "Not a big gym contract — just you, a plan, and people who actually follow through with your help.", modality: ["out","remote"], budget: "low",
+        steps: ["Build one simple starter program you can repeat with new clients", "Offer a free consult to your first 5 potential clients", "Set clear check-in days so accountability becomes part of the service"] },
+      { title: "Music or art lessons from home", pitch: "A skill you already have, taught one student at a time, in a room you already own.", modality: ["home"], budget: "low",
+        steps: ["Set up one dedicated teaching space at home", "Offer a discounted trial lesson to your first few students", "Set a consistent weekly slot per student so scheduling stays simple"] }
+    ],
+    events: [
+      { title: "Event photography", pitch: "Weddings, quinceañeras, graduations — the pictures people keep forever.", modality: ["out"], budget: "med",
+        steps: ["Shoot 2-3 events for close friends or family to build a portfolio", "Put together a simple package menu with clear pricing", "Ask every happy client for a review and a referral"] },
+      { title: "Floral arrangements for events", pitch: "Weddings and parties need someone who can make flowers feel like magic, without the big-studio markup.", modality: ["home","out"], budget: "med",
+        steps: ["Design 3 signature arrangements you can recreate reliably", "Partner with a local venue or planner for referrals", "Take clean, well-lit photos of every arrangement you make"] },
+      { title: "Handmade goods business", pitch: "Candles, decor, custom pieces — things people buy because they can tell a person actually made them.", modality: ["home"], budget: "low",
+        steps: ["Pick one product line and make 10 solid units to start", "Sell your first batch at a local market or to people you know", "Use that first sell-through to figure out your real pricing"] }
+    ]
+  };
+
+  const TIME_NOTES = {
+    side: "Since you've only got a few hours right now — start with just one of these steps this week. That's enough to get moving.",
+    weekends: "Evenings and weekends is plenty to get this off the ground. Give yourself 3-4 weekends to work through the steps below.",
+    allin: "You're ready to go all in — you could realistically knock out all three steps below within the next two weeks."
+  };
+
+  const state = { cat: null, mod: null, time: null, budget: null, lastIdea: null };
+  let currentPanel = 0;
+
+  function showPanel(n) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('show'));
+    document.querySelector('[data-panel="' + n + '"]').classList.add('show');
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.remove('active', 'done');
+      if (typeof n === 'number') {
+        if (i < n) d.classList.add('done');
+        if (i === n) d.classList.add('active');
+      } else {
+        d.classList.add('done');
+      }
+    });
+    currentPanel = n;
+  }
+
+  document.querySelectorAll('[data-back]').forEach(b => {
+    b.addEventListener('click', () => showPanel(parseInt(b.dataset.back)));
+  });
+
+  document.querySelectorAll('[data-cat]').forEach(b => {
+    b.addEventListener('click', () => { state.cat = b.dataset.cat; showPanel(1); });
+  });
+  document.querySelectorAll('[data-mod]').forEach(b => {
+    b.addEventListener('click', () => { state.mod = b.dataset.mod; showPanel(2); });
+  });
+  document.querySelectorAll('[data-time]').forEach(b => {
+    b.addEventListener('click', () => { state.time = b.dataset.time; showPanel(3); });
+  });
+  document.querySelectorAll('[data-budget]').forEach(b => {
+    b.addEventListener('click', () => { state.budget = b.dataset.budget; generateResult(); });
+  });
+
+  const BUDGET_ORDER = { low: 0, med: 1, high: 2 };
+
+  function pickIdea(excludeTitle) {
+    const pool = IDEAS[state.cat].filter(i => BUDGET_ORDER[i.budget] <= BUDGET_ORDER[state.budget]);
+    const candidates = pool.length ? pool : IDEAS[state.cat];
+    let scored = candidates.map(i => {
+      let score = 0;
+      if (i.modality.includes(state.mod)) score += 2;
+      if (i.title === excludeTitle) score -= 100;
+      return { idea: i, score };
+    });
+    const maxScore = Math.max(...scored.map(s => s.score));
+    const top = scored.filter(s => s.score === maxScore);
+    return top[Math.floor(Math.random() * top.length)].idea;
+  }
+
+  const MOD_LABEL = { out: "On the road", home: "Your own setup", remote: "From home" };
+  const TIME_LABEL = { side: "A few hours", weekends: "Evenings & weekends", budget: "" };
+  const BUDGET_LABEL = { low: "Next to nothing", med: "A few hundred", high: "A few thousand" };
+
+  function renderTicket(idea) {
+    state.lastIdea = idea.title;
+    const mount = document.getElementById('ticket-mount');
+    mount.innerHTML = `
+      <div class="ticket">
+        <div class="ticket-top">
+          <span class="ticket-eyebrow">Your way out</span>
+          <span class="ticket-tag">One-way &mdash; no return to the 9-to-5</span>
+        </div>
+        <p class="ticket-dest">${idea.title}</p>
+        <p class="ticket-pitch">${idea.pitch}</p>
+        <div class="ticket-meta">
+          <div class="meta-item"><div class="meta-label">Setup</div><div class="meta-val">${MOD_LABEL[state.mod]}</div></div>
+          <div class="meta-item"><div class="meta-label">Time</div><div class="meta-val">${state.time === 'allin' ? 'All in' : (state.time === 'weekends' ? 'Weekends' : 'A few hours')}</div></div>
+          <div class="meta-item"><div class="meta-label">To start</div><div class="meta-val">${BUDGET_LABEL[state.budget]}</div></div>
+        </div>
+        <div class="perf">
+          <div class="steps-label">First stops</div>
+          <ul class="steps">
+            ${idea.steps.map((s, i) => `<li><span class="step-num">${i+1}</span><span>${s}</span></li>`).join('')}
+          </ul>
+          <div class="pace-note">${TIME_NOTES[state.time]}</div>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button class="btn btn-outline" id="again-btn">Pull another idea</button>
+        <a class="btn btn-primary" href="/#pricing">See how to get started</a>
+      </div>
+      <div class="nav-row" style="margin-top:16px;">
+        <button class="back-link" id="restart-btn">Start over completely</button>
+      </div>
+    `;
+    document.getElementById('again-btn').addEventListener('click', () => {
+      renderTicket(pickIdea(state.lastIdea));
+    });
+    document.getElementById('restart-btn').addEventListener('click', () => {
+      state.cat = state.mod = state.time = state.budget = state.lastIdea = null;
+      showPanel(0);
+    });
+  }
+
+  function generateResult() {
+    showPanel('result');
+    renderTicket(pickIdea());
+  }
+
+  const isEmbedded = window.self !== window.top;
+  if (isEmbedded) {
+    document.getElementById('home-link').style.display = 'none';
+    document.body.style.background = 'transparent';
+    document.querySelector('.wrap').style.padding = '8px 4px 24px';
+  }
+  function reportHeight() {
+    if (!isEmbedded) return;
+    window.parent.postMessage({ type: 'ss-idea-gen-resize', height: document.body.scrollHeight }, '*');
+  }
+  if (isEmbedded && 'ResizeObserver' in window) {
+    new ResizeObserver(reportHeight).observe(document.body);
+  }
+  window.addEventListener('load', reportHeight);
+</script>
+</body>
+</html>
