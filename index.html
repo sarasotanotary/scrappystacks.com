@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scrappy Stacks — Build a Business That's Yours</title>
-  <meta name="description" content="Everything you need to grow a business of your own — brand, website, marketing, and more, delivered flat-rate every month. 24-hour turnaround. No contracts." />
+  <meta name="description" content="Everything you need to grow a business of your own — register your business, offline and online marketing, and ad management, delivered flat-rate every month. 24-hour turnaround. No contracts." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -72,6 +72,17 @@
     .idea-gen-header .section-sub { max-width: 460px; margin: 16px auto 0; }
     .idea-gen-frame-wrap { background: var(--card); border: 2px solid var(--border); border-radius: 18px; padding: 8px 8px 4px; max-width: 640px; margin: 0 auto; }
     .idea-gen-frame-wrap iframe { width: 100%; border: none; display: block; }
+    .filing-teaser-section { padding: 8px 0 64px; }
+    .filing-teaser-card {
+      max-width: 800px; margin: 0 auto; background: var(--dark); border-radius: 18px;
+      padding: 36px 40px; display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .filing-teaser-card .label { color: var(--coral); }
+    .filing-teaser-card .section-title { color: #fff; font-size: 28px; margin: 8px 0 0; }
+    .filing-teaser-card .section-sub { color: rgba(255,255,255,0.6); }
+    .filing-teaser-card .btn { flex-shrink: 0; }
+    @media (max-width: 640px) { .filing-teaser-card { flex-direction: column; text-align: center; padding: 32px 24px; } }
 
     /* HOW IT WORKS */
     .how-header { text-align: center; margin-bottom: 64px; }
@@ -232,7 +243,7 @@
     <ul class="nav-links">
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="/free-tools.html">Free Tools</a></li>
-      <li><a href="/idea-generator.html">Idea Generator</a></li>
+      <li><a href="/idea-generator.html">Business Idea Generator</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
@@ -246,7 +257,7 @@
     <div class="hero-inner">
       <div>
         <h1 class="display">Own your work.<br><em>Own your life.</em></h1>
-        <p class="hero-sub">Everything you need to grow a business of your own — brand, website, marketing, and more — for one flat rate. So you can stop trading your time for someone else's paycheck.</p>
+        <p class="hero-sub">Everything you need to grow a business of your own — register your business, offline and online marketing, and ad management — for one flat rate. So you can stop trading your time for someone else's paycheck.</p>
         <div class="hero-btns">
           <a href="#pricing" class="btn btn-primary">See Pricing</a>
           <a href="/free-tools.html" class="btn btn-outline">Free Tools</a>
@@ -257,12 +268,12 @@
         </div>
       </div>
       <div class="hero-grid">
-        <div class="work-card wc-1"><span class="wc-label">Brand & Identity</span></div>
-        <div class="work-card wc-2"><span class="wc-label">Social Media</span></div>
-        <div class="work-card wc-3"><span class="wc-label">Website</span></div>
-        <div class="work-card wc-4"><span class="wc-label">Print & Flyers</span></div>
-        <div class="work-card wc-5"><span class="wc-label">Email Marketing</span></div>
-        <div class="work-card wc-6"><span class="wc-label">Ad Creative</span></div>
+        <div class="work-card wc-1"><span class="wc-label">Officially Yours, Day One</span></div>
+        <div class="work-card wc-2"><span class="wc-label">A Feed That Works For You</span></div>
+        <div class="work-card wc-3"><span class="wc-label">Your Home Online, Not Rented</span></div>
+        <div class="work-card wc-4"><span class="wc-label">Print That Looks Legit</span></div>
+        <div class="work-card wc-5"><span class="wc-label">Customers Who Come Back</span></div>
+        <div class="work-card wc-6"><span class="wc-label">Ads While You Live Your Life</span></div>
       </div>
     </div>
   </div>
@@ -284,7 +295,21 @@
       <p class="section-sub">Four quick questions. One business idea that actually fits your skills, your time, and your budget — not a list you've seen a hundred times.</p>
     </div>
     <div class="idea-gen-frame-wrap">
-      <iframe id="idea-gen-frame" src="/idea-generator.html" height="700" title="Business idea generator"></iframe>
+      <iframe id="idea-gen-frame" src="/idea-generator.html" height="700" title="Business Idea Generator"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FICTITIOUS NAME FILING TEASER -->
+<section class="filing-teaser-section">
+  <div class="container">
+    <div class="filing-teaser-card">
+      <div class="filing-teaser-text">
+        <p class="label">Already know what to call it?</p>
+        <h2 class="section-title">File your fictitious name.</h2>
+        <p class="section-sub" style="margin:16px 0 0;max-width:520px;">Get it legally registered — done for you, one flat fee, no subscription required.</p>
+      </div>
+      <a href="/fictitious-name-filing.html" class="btn btn-primary">File My Name — $97 + State Fees</a>
     </div>
   </div>
 </section>
@@ -297,20 +322,17 @@
       <h2 class="section-title">Everything your business<br>needs to grow.</h2>
     </div>
     <div class="deliv-grid">
-      <div class="deliv-card"><div class="deliv-icon di-14"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><span>Business Setup — File Fictitious Name & Contracts</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-13"><svg viewBox="0 0 24 24"><path d="M12 2l1.8 5.6L19 9l-5.2 1.4L12 16l-1.8-5.6L5 9l5.2-1.4L12 2z"/></svg></div><span>AI Handling Your Busywork</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-3"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg></div><span>Websites & Landing Pages</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-10"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><span>Email Marketing</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-7"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div><span>Ad Creative</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-8"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div><span>Presentations</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-1"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><span>Brand & Identity</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-2"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></div><span>Social Media Graphics</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-9"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg></div><span>Brand Guidelines</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-4"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><span>Flyers & Print</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-5"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/></svg></div><span>Business Cards</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-6"><svg viewBox="0 0 24 24"><path d="M3 5v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2zm16 14H5V9h14v10zm0-12H5V5h14v2z"/></svg></div><span>Menus & Signage</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-11"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"/></svg></div><span>Packaging & Labels</span></div>
-      <div class="deliv-card"><div class="deliv-icon di-12"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span>And more — just ask</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-14"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><span>A website that keeps running without you punching a clock to check on it</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-13"><svg viewBox="0 0 24 24"><path d="M12 2l1.8 5.6L19 9l-5.2 1.4L12 16l-1.8-5.6L5 9l5.2-1.4L12 2z"/></svg></div><span>More nights with your family instead of answering the same messages after dinner</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-3"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg></div><span>A business that's actually yours — proof you really did fire your boss</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-10"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><span>Steady repeat customers, so you're not working Christmas Day just to make rent</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-7"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div><span>New customers finding you while you're home with your own kids, not paying a babysitter to go earn a living</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-1"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><span>Look like the owner you are now, not the employee you used to be</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-2"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg></div><span>A feed that runs itself, so your evenings go back to being yours</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-9"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg></div><span>The business still looks right on the days you take off for what matters</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-4"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><span>Something real to hand someone — proof this isn't a side hustle anymore</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-5"><svg viewBox="0 0 24 24"><path d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg></div><span>New customers landing in mailboxes, not from Saturdays spent chasing leads</span></div>
+      <div class="deliv-card"><div class="deliv-icon di-12"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span>Whatever it takes to get your life back — just ask</span></div>
     </div>
   </div>
 </section>
@@ -338,43 +360,42 @@
         <a href="/free-tools.html" class="btn btn-primary">See Free Tools</a>
       </div>
       <div class="price-card">
-        <h3>Starter</h3>
-        <p class="price-desc">Done for you — the business set up and moving.</p>
-        <div class="price-amount">$697<sub>/mo</sub></div>
-        <p class="price-period">Pause or cancel anytime</p>
-        <p style="color:var(--coral);font-weight:600;font-size:14px;margin-top:16px;">Includes the paperwork most people put off — filing your fictitious name, bank account & contracts — plus a real website, set up and launched for you.</p>
+        <h3>Self Starter Pack</h3>
+        <p class="price-desc">Build it yourself. We hand you everything you need.</p>
+        <div class="price-amount">$197</div>
+        <p class="price-period">One-time — yours to keep</p>
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li>Filing your fictitious name, bank account & contracts, done for you</li>
-          <li>A real website, built and launched</li>
-          <li>Brand, social, print & ad work — one thing at a time</li>
-          <li>Back in your hands within 24 hours</li>
-          <li>Change it as many times as you need</li>
-          <li>Every file is yours, always</li>
-          <li>Pause or cancel whenever</li>
+          <li>Branding & website copy</li>
+          <li>Step-by-step website walkthrough (GitHub Pages)</li>
+          <li>Claude setup walkthrough for running your own AI tools</li>
+          <li>Payment setup walkthrough (Wave / Stripe)</li>
+          <li>Guides & tools, yours to keep — no subscription</li>
         </ul>
-        <p class="legal-note">We're not a law firm or an accounting firm — this is paperwork and filing help, not legal or tax advice. For advice specific to your situation, talk to a licensed attorney or accountant.</p>
-        <a href="#get-started" class="btn btn-primary" onclick="document.getElementById('plan-select').value='Starter';">Get Started</a>
+        <a href="#get-started" class="btn btn-primary" onclick="document.getElementById('plan-select').value='Self Starter';">Get Started</a>
       </div>
       <div class="price-card featured">
         <div class="popular-badge">Most Popular</div>
-        <h3>Premium</h3>
-        <p class="price-desc">Everything in Starter, plus AI running your busywork.</p>
-        <div class="price-amount">$997<sub>/mo</sub></div>
-        <p class="price-period">Pause or cancel anytime</p>
-        <p style="color:var(--coral);font-weight:600;font-size:14px;margin-top:16px;">Includes AI set up to handle booking, follow-ups & replies — done for you, not something you have to figure out yourself.</p>
+        <h3>DFY Premium</h3>
+        <p class="price-desc">Done for you — website, brand, and AI, built and kept running.</p>
+        <div class="price-amount">$997<span style="font-size:16px;font-weight:600;"> setup</span></div>
+        <p class="price-period">+ $197/mo — pause or cancel anytime</p>
+        <p style="color:var(--coral);font-weight:600;font-size:14px;margin-top:16px;">Filing your fictitious name, done for you — plus a real website, hosted and maintained, with AI handling your busywork.</p>
         <div class="price-divider"></div>
         <ul class="price-features">
-          <li>Everything in Starter</li>
+          <li>Filing your fictitious name, done for you</li>
+          <li>A real website, built, hosted & maintained for you</li>
+          <li>Brand, social, print & ad work — one thing at a time</li>
           <li>AI handling booking, follow-ups & replies</li>
-          <li>Two things moving at once</li>
-          <li>Jump the line — you go first</li>
-          <li>Pause or cancel whenever</li>
+          <li>Change it as many times as you need</li>
+          <li>Every file is yours, always</li>
+          <li>Pause or cancel the monthly whenever</li>
         </ul>
+        <p class="legal-note">We're not a law firm or an accounting firm — this is paperwork and filing help, not legal or tax advice. For advice specific to your situation, talk to a licensed attorney or accountant.</p>
         <a href="#get-started" class="btn btn-primary" onclick="document.getElementById('plan-select').value='Premium';">Get Started</a>
       </div>
     </div>
-    <p class="pricing-reassurance">No contracts. No setup fees. Source files are yours to keep — always.</p>
+    <p class="pricing-reassurance">No contracts on the monthly. Source files are yours to keep — always.</p>
   </div>
 </section>
 
@@ -410,8 +431,8 @@
           <label for="plan-select">Which plan?</label>
           <select id="plan-select" name="plan" required>
             <option value="" disabled selected>Select a plan</option>
-            <option value="Starter">Starter — $697/mo</option>
-            <option value="Premium">Premium — $997/mo</option>
+            <option value="Self Starter">Self Starter Pack — $197 one-time</option>
+            <option value="Premium">DFY Premium — $997 setup + $197/mo</option>
           </select>
         </div>
         <div class="gs-field gs-full">
@@ -459,10 +480,10 @@
         </div>
         <div class="faq-item">
           <button class="faq-question">
-            What's the difference between Starter and Premium?
+            What's the difference between Self Starter Pack and DFY Premium?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">Starter gets your business built and running — legal setup, a real website, brand and marketing work, one thing at a time, for $697/mo. Premium adds AI set up to handle your busywork, plus two things moving at once, for $997/mo. Not ready to spend anything yet? Free Tools has options that cost nothing.</div>
+          <div class="faq-answer">Self Starter Pack is a one-time $197 purchase — prompts, walkthroughs, and guides to build your own website and set up your own AI tools, yours to keep, no subscription. DFY Premium is done for you: your fictitious name filed, a real website built, hosted and maintained, brand and marketing work, and AI handling your busywork — a $997 one-time setup, then $197/mo, pause or cancel anytime. Not ready to spend anything yet? Free Tools has options that cost nothing.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
@@ -476,7 +497,7 @@
             Do you help with AI tools too?
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">Yes — it's built into the Premium plan. We look at what's eating your week — answering the same questions, chasing invoices, writing the same replies — and set up AI to handle it for you, in plain language, no tech skills needed on your end. Not ready for a plan? Our Free Tools page has options you can start using today at no cost.</div>
+          <div class="faq-answer">Yes — it's built into DFY Premium. We look at what's eating your week — answering the same questions, chasing invoices, writing the same replies — and set up AI to handle it for you, in plain language, no tech skills needed on your end. Not ready for a plan? Our Free Tools page has options you can start using today at no cost.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
@@ -529,7 +550,7 @@
       </div>
       <ul class="footer-links">
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="/idea-generator.html">Idea Generator</a></li>
+        <li><a href="/idea-generator.html">Business Idea Generator</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#get-started">Get Started</a></li>
       </ul>
