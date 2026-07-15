@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Your Fictitious Name — Scrappy Stacks</title>
+  <meta name="description" content="Get your fictitious name (DBA) filed for you — one flat fee, no subscription required. Done for you by Scrappy Stacks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07); --section-pad: 100px;
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .display em { font-style: italic; }
+    .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    h2.section-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 40px; line-height: 1.15; letter-spacing: -0.02em; margin-top: 12px; }
+    p.section-sub { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: var(--section-pad) 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+
+    /* FILING HERO */
+    .filing-hero { padding: 72px 0 20px; }
+    .filing-hero-inner { max-width: 640px; }
+    .price-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: var(--shadow); margin-top: 20px; }
+    .price-tag span { color: var(--accent); }
+
+    /* INCLUDED LIST */
+    .included-section { padding: 20px 0 40px; }
+    .included-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
+    .included-item { display: flex; align-items: flex-start; gap: 12px; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 20px; font-size: 15px; }
+    .included-item svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 640px) { .included-list { grid-template-columns: 1fr; } }
+
+    /* FORM */
+    .filing-form-section { background: var(--card); }
+    .filing-form-inner { max-width: 640px; margin: 0 auto; }
+    .filing-form-header { text-align: center; margin-bottom: 40px; }
+    .filing-form-header .section-sub { margin: 16px auto 0; }
+    .gs-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .gs-form .gs-full { grid-column: 1 / -1; }
+    .gs-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+    .gs-field .gs-optional { font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+    .gs-field input, .gs-field select, .gs-field textarea {
+      width: 100%; padding: 13px 16px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--bg); font-family: 'Inter', sans-serif; font-size: 15px; color: var(--ink); outline: none;
+    }
+    .gs-field input:focus, .gs-field select:focus, .gs-field textarea:focus { border-color: var(--accent); }
+    .gs-field textarea { resize: vertical; min-height: 100px; }
+    .gs-submit { grid-column: 1 / -1; margin-top: 8px; }
+    .gs-submit .btn { width: 100%; justify-content: center; }
+    .gs-note { grid-column: 1 / -1; text-align: center; font-size: 13px; color: var(--muted); margin-top: -4px; }
+    .legal-note { grid-column: 1 / -1; font-size: 13px; color: var(--muted); background: var(--bg); border-radius: 10px; padding: 14px 16px; margin-top: 4px; }
+    @media (max-width: 600px) { .gs-form { grid-template-columns: 1fr; } }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+      </div>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/free-tools.html">Free Tools</a></li>
+      <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- FILING HERO -->
+<section class="filing-hero">
+  <div class="container">
+    <div class="filing-hero-inner">
+      <p class="label">Already know what to call it?</p>
+      <h1 class="display" style="font-size:52px;margin-top:10px;">File your fictitious name.</h1>
+      <p class="section-sub" style="max-width:520px;">Get it legally registered — done for you, one flat fee, no subscription required. Tell us your name and details below and we'll take it from there.</p>
+      <div class="price-tag">Flat fee: <span>$97 + state fees</span></div>
+      <p style="font-size:14px;color:var(--muted);margin-top:14px;">Not sure what to call it yet? <a href="/idea-generator.html" style="color:var(--accent);font-weight:600;">Try the Business Idea Generator</a> first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="container">
+    <div class="included-list">
+      <div class="included-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>We check that your name is available to register in your state</span>
+      </div>
+      <div class="included-item">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+        <span>We prepare and file the paperwork with the state on your behalf</span>
+      </div>
+      <div class="included-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+        <span>You get a copy of your confirmed registration once it's filed</span>
+      </div>
+      <div class="included-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
+        <span>Usually filed within a few business days of receiving your details</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="filing-form-section">
+  <div class="container">
+    <div class="filing-form-inner">
+      <div class="filing-form-header">
+        <p class="label">Get Started</p>
+        <h2 class="section-title">Let's get it filed.</h2>
+        <p class="section-sub">Fill this out and we'll follow up within one business day to confirm details and get your name filed.</p>
+      </div>
+      <form class="gs-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
+        <input type="hidden" name="_subject" value="New Fictitious Name Filing request" />
+        <input type="hidden" name="source" value="Fictitious Name Filing Page" />
+        <div class="gs-field">
+          <label for="fnf-name">Your name</label>
+          <input type="text" id="fnf-name" name="name" required />
+        </div>
+        <div class="gs-field">
+          <label for="fnf-business">Fictitious name to file</label>
+          <input type="text" id="fnf-business" name="business_name" required />
+        </div>
+        <div class="gs-field">
+          <label for="fnf-email">Email</label>
+          <input type="email" id="fnf-email" name="email" required />
+        </div>
+        <div class="gs-field">
+          <label for="fnf-phone">Phone <span class="gs-optional">(optional)</span></label>
+          <input type="tel" id="fnf-phone" name="phone" />
+        </div>
+        <div class="gs-field">
+          <label for="fnf-state">State of business</label>
+          <input type="text" id="fnf-state" name="state" placeholder="e.g. Florida" required />
+        </div>
+        <div class="gs-field">
+          <label for="fnf-entity">Owner type</label>
+          <select id="fnf-entity" name="entity_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="Individual">Just me (individual)</option>
+            <option value="Partnership">Me and a partner</option>
+            <option value="Existing entity">Already have an LLC or corporation</option>
+            <option value="Not sure">Not sure yet</option>
+          </select>
+        </div>
+        <div class="gs-field gs-full">
+          <label for="fnf-notes">Anything else we should know? <span class="gs-optional">(optional)</span></label>
+          <textarea id="fnf-notes" name="notes" placeholder="e.g. I already have a second name I'm considering too"></textarea>
+        </div>
+        <p class="legal-note">We're not a law firm or an accounting firm — this is paperwork and filing help, not legal or tax advice. For advice specific to your situation, talk to a licensed attorney or accountant.</p>
+        <div class="gs-submit">
+          <button type="submit" class="btn btn-primary">Send It — $97 + State Fees</button>
+        </div>
+        <p class="gs-note">We'll reply within one business day to confirm details and get your name filed.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+        </div>
+        Scrappy Stacks
+      </div>
+      <ul class="footer-links">
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+        <li><a href="/terms.html">Terms and Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="footer-right">
+        <p class="footer-email"><a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
+        <p class="footer-legal">&copy; 2026 Scrappy Stacks. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
