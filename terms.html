@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions — Scrappy Stacks</title>
+  <meta name="description" content="Terms and Conditions for Scrappy Stacks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+
+    /* LEGAL CONTENT */
+    .legal-hero { padding: 64px 0 12px; }
+    .legal-hero .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    .legal-hero h1 { font-size: 44px; margin-top: 12px; }
+    .legal-hero .updated { color: var(--muted); font-size: 14px; margin-top: 14px; }
+    .legal-body { padding: 24px 0 100px; max-width: 760px; }
+    .legal-body h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24px; margin: 44px 0 14px; }
+    .legal-body h2:first-child { margin-top: 0; }
+    .legal-body p { color: #333; margin-bottom: 14px; }
+    .legal-body ul { color: #333; margin: 0 0 14px 22px; }
+    .legal-body li { margin-bottom: 8px; }
+    .legal-body strong { color: var(--ink); }
+    .legal-body a.inline-link { color: var(--accent); font-weight: 600; }
+    .placeholder { background: #FFF3CD; border: 1px solid #F0D98C; border-radius: 6px; padding: 2px 6px; font-size: 15px; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+      </div>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/free-tools.html">Free Tools</a></li>
+      <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- LEGAL HERO -->
+<section class="legal-hero">
+  <div class="container">
+    <p class="label">Legal</p>
+    <h1 class="display">Terms and Conditions</h1>
+    <p class="updated">Last updated: <span class="placeholder">[Month Day, Year]</span></p>
+  </div>
+</section>
+
+<!-- LEGAL BODY -->
+<section>
+  <div class="container">
+    <div class="legal-body">
+
+      <h2>1. Who We Are</h2>
+      <p>Scrappy Stacks ("Scrappy Stacks," "we," "us," or "our") provides done-for-you digital growth services for small business owners, including business setup support, website design and hosting, digital marketing, ad management, and related digital products. These Terms and Conditions ("Terms") govern your use of scrappystacks.com (the "Site") and any services, plans, tools, or downloads we provide (collectively, the "Services").</p>
+      <p>By using the Site or purchasing a plan, you agree to these Terms. If you don't agree, please don't use the Services.</p>
+
+      <h2>2. Who Can Use the Services</h2>
+      <p>You must be at least 18 years old and able to enter into a binding contract to use the Services. If you're using the Services on behalf of a business, you're confirming you have the authority to bind that business to these Terms.</p>
+
+      <h2>3. Our Plans and Services</h2>
+      <p>We offer monthly service plans (currently Starter and Premium) that include business setup support, website work, and ongoing digital marketing services, along with free tools and downloadable guides available to anyone visiting the Site. Specific deliverables, timelines, and what's included in each plan are described on the Site and may be updated from time to time.</p>
+      <p>Plans are billed monthly and there are no long-term contracts. You may cancel at any time; cancellation stops future billing but doesn't entitle you to a refund for the current billing period unless we say otherwise in writing.</p>
+      <p>We aim for fast turnaround on deliverables, but timelines are estimates, not guarantees, and can be affected by how quickly you provide the information, access, or approvals we need from you.</p>
+
+      <h2>4. Business Filings Are Not Legal Advice</h2>
+      <p>As part of certain plans, we help clients prepare and file paperwork such as a fictitious name (DBA) registration. This is administrative and clerical support, not legal, tax, or financial advice. We are not a law firm, and using our Services does not create an attorney-client relationship. If you need legal advice about business structure, liability, taxes, or contracts, please consult a licensed attorney or accountant in your state.</p>
+
+      <h2>5. Free Tools and Digital Downloads</h2>
+      <p>Free tools, calculators, and downloadable guides (including the Business Idea Generator and any PDF guides) are provided for general informational and educational purposes. Output from these tools — including business name or idea suggestions — is generated automatically and is not a guarantee of success, uniqueness, or legal availability of any name or idea. You're responsible for checking that any business name or idea you choose to pursue is legally available for use in your state.</p>
+
+      <h2>6. Payment</h2>
+      <p>Fees for paid plans are billed in advance on a recurring monthly basis through our payment processor. You authorize us to charge your payment method each billing cycle until you cancel. You're responsible for keeping your payment information current. Prices are subject to change with reasonable notice.</p>
+
+      <h2>7. Third-Party Tools and Services</h2>
+      <p>Our Services may reference, link to, or integrate with third-party tools (for example, Google Business Profile, Calendly, Canva, ChatGPT, or similar platforms). We don't control these third parties and aren't responsible for their availability, accuracy, pricing, or terms. Your use of any third-party tool is governed by that provider's own terms and privacy policy.</p>
+
+      <h2>8. Ownership of Deliverables</h2>
+      <p>Once you've paid in full for a deliverable (such as a website, ad creative, or filed document), you own that specific deliverable and may use it for your business. We retain ownership of our own internal tools, templates, processes, and know-how used to create deliverables, and nothing in these Terms transfers ownership of our underlying methods, software, or brand assets to you.</p>
+
+      <h2>9. Acceptable Use</h2>
+      <p>You agree not to use the Services to: violate any law; infringe someone else's rights; upload harmful code; misrepresent your identity or business; or interfere with the operation of the Site. We may suspend or terminate access for violations of this section.</p>
+
+      <h2>10. Disclaimers</h2>
+      <p>The Services are provided "as is" and "as available." We don't guarantee specific business results, revenue, rankings, traffic, or outcomes from any website, ad campaign, filing, or tool we provide. Your results depend on many factors outside our control, including your market, effort, and industry conditions.</p>
+
+      <h2>11. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, Scrappy Stacks and its owners, contractors, and affiliates won't be liable for any indirect, incidental, special, or consequential damages, or any loss of profits or revenue, arising from your use of the Services. Our total liability for any claim relating to the Services is limited to the amount you paid us in the three (3) months before the claim arose.</p>
+
+      <h2>12. Termination</h2>
+      <p>You may cancel your plan at any time by contacting us. We may suspend or terminate your access to the Services if you violate these Terms, don't pay applicable fees, or if we discontinue a Service, with notice where reasonably possible.</p>
+
+      <h2>13. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. If we make material changes, we'll update the "Last updated" date above. Continuing to use the Services after changes take effect means you accept the updated Terms.</p>
+
+      <h2>14. Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Florida, without regard to its conflict-of-law principles, and any disputes will be handled in the state or federal courts located in Florida.</p>
+
+      <h2>15. Contact Us</h2>
+      <p>Questions about these Terms? Reach us at <a class="inline-link" href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a>.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+        </div>
+        Scrappy Stacks
+      </div>
+      <ul class="footer-links">
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+        <li><a href="/terms.html">Terms and Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="footer-right">
+        <p class="footer-email"><a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
+        <p class="footer-legal">&copy; 2026 Scrappy Stacks. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

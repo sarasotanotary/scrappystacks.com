@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Scrappy Stacks</title>
+  <meta name="description" content="Privacy Policy for Scrappy Stacks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+
+    /* LEGAL CONTENT */
+    .legal-hero { padding: 64px 0 12px; }
+    .legal-hero .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    .legal-hero h1 { font-size: 44px; margin-top: 12px; }
+    .legal-hero .updated { color: var(--muted); font-size: 14px; margin-top: 14px; }
+    .legal-body { padding: 24px 0 100px; max-width: 760px; }
+    .legal-body h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 24px; margin: 44px 0 14px; }
+    .legal-body h2:first-child { margin-top: 0; }
+    .legal-body p { color: #333; margin-bottom: 14px; }
+    .legal-body ul { color: #333; margin: 0 0 14px 22px; }
+    .legal-body li { margin-bottom: 8px; }
+    .legal-body strong { color: var(--ink); }
+    .legal-body a.inline-link { color: var(--accent); font-weight: 600; }
+    .placeholder { background: #FFF3CD; border: 1px solid #F0D98C; border-radius: 6px; padding: 2px 6px; font-size: 15px; }
+    table.dp-table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 15px; }
+    table.dp-table th, table.dp-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.dp-table th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+      </div>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/free-tools.html">Free Tools</a></li>
+      <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- LEGAL HERO -->
+<section class="legal-hero">
+  <div class="container">
+    <p class="label">Legal</p>
+    <h1 class="display">Privacy Policy</h1>
+    <p class="updated">Last updated: <span class="placeholder">[Month Day, Year]</span></p>
+  </div>
+</section>
+
+<!-- LEGAL BODY -->
+<section>
+  <div class="container">
+    <div class="legal-body">
+
+      <h2>1. Overview</h2>
+      <p>This Privacy Policy explains what information Scrappy Stacks ("we," "us," or "our") collects when you visit scrappystacks.com (the "Site") or use our Services, how we use it, and the choices you have. By using the Site, you agree to the practices described here.</p>
+
+      <h2>2. Information We Collect</h2>
+      <table class="dp-table">
+        <tr><th>What</th><th>When</th><th>Why</th></tr>
+        <tr><td>Name, email, and any message details</td><td>You submit a contact or "Get Started" form</td><td>To respond to your inquiry and follow up about our Services</td></tr>
+        <tr><td>Business details you share with us</td><td>You sign up for a plan or provide onboarding info</td><td>To deliver your website, filings, marketing, and other paid deliverables</td></tr>
+        <tr><td>Payment information</td><td>You purchase a plan</td><td>Handled directly by our payment processor — we don't store full card numbers on our own servers</td></tr>
+        <tr><td>Usage data (pages viewed, device/browser type, general location, referral source)</td><td>You browse the Site</td><td>To understand how the Site is used and improve it</td></tr>
+        <tr><td>Email correspondence</td><td>You email us</td><td>To communicate with you and keep a record of the conversation</td></tr>
+      </table>
+
+      <h2>3. How We Collect It</h2>
+      <ul>
+        <li><strong>Contact and intake forms</strong> on the Site are processed through Formspree, a third-party form service, which sends submissions to our inbox.</li>
+        <li><strong>Website analytics</strong> are collected through Google Analytics (GA4), which uses cookies and similar technologies to understand traffic and usage patterns.</li>
+        <li><strong>Email</strong> sent to hello@scrappystacks.com is managed through Zoho Mail.</li>
+      </ul>
+      <p>Some free tools on the Site — like the Business Idea Generator — run in your browser and don't require you to submit personal information to use them.</p>
+
+      <h2>4. Cookies</h2>
+      <p>The Site uses cookies primarily through Google Analytics to understand how visitors use the Site (for example, which pages are viewed and how visitors arrived). You can disable cookies through your browser settings; doing so may not affect your ability to use the Site, but it will limit the analytics data we receive.</p>
+
+      <h2>5. How We Use Your Information</h2>
+      <ul>
+        <li>To respond to inquiries and provide customer support</li>
+        <li>To deliver and manage the Services you've purchased</li>
+        <li>To send service-related communications (billing, onboarding, updates about your account)</li>
+        <li>To improve the Site and our Services based on how they're used</li>
+        <li>To comply with legal obligations</li>
+      </ul>
+      <p>We don't send marketing emails unless you've asked to receive them, and we don't sell your personal information.</p>
+
+      <h2>6. Who We Share Information With</h2>
+      <p>We share information only with the service providers that help us run the business, including Formspree (form submissions), Google Analytics (site analytics), Zoho Mail (email), and our payment processor (billing). These providers only receive what they need to perform their function and have their own privacy policies governing how they handle data. We don't sell or rent your personal information to third parties for their own marketing purposes.</p>
+      <p>We may also disclose information if required by law, to protect our rights, or in connection with a business transfer (such as a merger or sale of assets).</p>
+
+      <h2>7. Data Retention</h2>
+      <p>We keep contact form submissions, email correspondence, and client account information for as long as reasonably necessary to provide the Services, maintain business records, and meet legal or tax obligations. You can ask us to delete your information at any time; see Section 9.</p>
+
+      <h2>8. Security</h2>
+      <p>We use reasonable administrative and technical safeguards to protect the information we collect. No method of transmission or storage is completely secure, so we can't guarantee absolute security.</p>
+
+      <h2>9. Your Choices and Rights</h2>
+      <p>You can ask us to:</p>
+      <ul>
+        <li>Access the personal information we hold about you</li>
+        <li>Correct inaccurate information</li>
+        <li>Delete your information, where we're not required to keep it for legal or business reasons</li>
+        <li>Opt out of any non-essential communications</li>
+      </ul>
+      <p>To make a request, email us at <a class="inline-link" href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a>. If you're located in the EU, UK, California, or another jurisdiction with specific privacy laws, you may have additional rights under those laws, and we'll honor applicable requests consistent with them.</p>
+
+      <h2>10. Children's Privacy</h2>
+      <p>The Site and Services are intended for business owners and adults. We don't knowingly collect personal information from anyone under 18.</p>
+
+      <h2>11. Third-Party Links and Tools</h2>
+      <p>The Site may reference or link to third-party tools (like Google Business Profile, Calendly, or Canva). This Privacy Policy doesn't cover those third parties — please review their own privacy policies before using them.</p>
+
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. If we make material changes, we'll update the "Last updated" date above. Continuing to use the Site after changes take effect means you accept the updated policy.</p>
+
+      <h2>13. Contact Us</h2>
+      <p>Questions about this Privacy Policy or your data? Reach us at <a class="inline-link" href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a>.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+        </div>
+        Scrappy Stacks
+      </div>
+      <ul class="footer-links">
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+        <li><a href="/terms.html">Terms and Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="footer-right">
+        <p class="footer-email"><a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
+        <p class="footer-legal">&copy; 2026 Scrappy Stacks. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
