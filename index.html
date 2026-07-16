@@ -62,6 +62,22 @@
     .wc-5{background:linear-gradient(135deg,#10B981,#6EE7B7);}
     .wc-6{background:linear-gradient(135deg,#EC4899,#F9A8D4);}
 
+    .stage-track-section { padding: 56px 0 8px; text-align: center; }
+    .stage-track { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
+    .stage-pill {
+      display: flex; align-items: center; gap: 10px; background: var(--card); border: 2px solid var(--border);
+      border-radius: 999px; padding: 10px 18px 10px 10px; text-decoration: none; color: var(--ink);
+      transition: border-color 0.15s, transform 0.1s;
+    }
+    .stage-pill:hover { border-color: var(--coral); transform: translateY(-1px); }
+    .stage-num {
+      width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff;
+      font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .stage-pill span.stage-text { font-size: 14px; font-weight: 600; }
+    .stage-arrow { color: var(--border); align-self: center; font-size: 18px; }
+    @media (max-width: 720px) { .stage-arrow { display: none; } }
+
     /* PROOF */
     .proof-strip { padding: 26px 0; background: #EDE9E3; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .proof-strip .container { display: flex; align-items: center; justify-content: center; }
@@ -286,11 +302,28 @@
   </div>
 </div>
 
+<!-- STAGE TRACKER -->
+<section class="stage-track-section">
+  <div class="container">
+    <p class="label">Wherever you're starting</p>
+    <h2 class="section-title" style="font-size:32px;">Find your next step.</h2>
+    <div class="stage-track">
+      <a href="#stage-idea" class="stage-pill"><span class="stage-num">1</span><span class="stage-text">No idea yet</span></a>
+      <span class="stage-arrow">&rarr;</span>
+      <a href="#stage-name" class="stage-pill"><span class="stage-num">2</span><span class="stage-text">Have an idea</span></a>
+      <span class="stage-arrow">&rarr;</span>
+      <a href="#stage-file" class="stage-pill"><span class="stage-num">3</span><span class="stage-text">Have a name</span></a>
+      <span class="stage-arrow">&rarr;</span>
+      <a href="#pricing" class="stage-pill"><span class="stage-num">4</span><span class="stage-text">Ready to build</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- IDEA GENERATOR -->
-<section class="idea-gen-section">
+<section class="idea-gen-section" id="stage-idea">
   <div class="container">
     <div class="idea-gen-header">
-      <p class="label">Not sure where to start?</p>
+      <p class="label">Step 1 &mdash; No idea yet?</p>
       <h2 class="section-title">Find your way out.</h2>
       <p class="section-sub">Four quick questions. One business idea that actually fits your skills, your time, and your budget — not a list you've seen a hundred times.</p>
     </div>
@@ -300,12 +333,26 @@
   </div>
 </section>
 
-<!-- FICTITIOUS NAME FILING TEASER -->
-<section class="filing-teaser-section">
+<!-- BUSINESS NAME GENERATOR TEASER -->
+<section class="filing-teaser-section" id="stage-name">
   <div class="container">
     <div class="filing-teaser-card">
       <div class="filing-teaser-text">
-        <p class="label">Already know what to call it?</p>
+        <p class="label">Step 2 &mdash; Have the idea, not the name?</p>
+        <h2 class="section-title">Get your business name.</h2>
+        <p class="section-sub" style="margin:16px 0 0;max-width:520px;">Two quick questions and we'll hand you 6 real name options — free.</p>
+      </div>
+      <a href="/business-name-generator.html" class="btn btn-outline">Get My Business Name</a>
+    </div>
+  </div>
+</section>
+
+<!-- FICTITIOUS NAME FILING TEASER -->
+<section class="filing-teaser-section" id="stage-file">
+  <div class="container">
+    <div class="filing-teaser-card">
+      <div class="filing-teaser-text">
+        <p class="label">Step 3 &mdash; Have a name picked out?</p>
         <h2 class="section-title">File your fictitious name.</h2>
         <p class="section-sub" style="margin:16px 0 0;max-width:520px;">Get it legally registered — done for you, one flat fee, no subscription required.</p>
       </div>
@@ -341,7 +388,7 @@
 <section id="pricing" class="pricing-section">
   <div class="container">
     <div class="pricing-header">
-      <p class="label">Pricing</p>
+      <p class="label">Step 4 &mdash; Ready to build?</p>
       <h2 class="section-title">Three ways in. No surprises.</h2>
       <p class="section-sub">Start free. Upgrade when you're ready. Cancel whenever — there's no contract to break.</p>
     </div>
@@ -551,6 +598,7 @@
       <ul class="footer-links">
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+        <li><a href="/business-name-generator.html">Business Name Generator</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#get-started">Get Started</a></li>
         <li><a href="/terms.html">Terms</a></li>
