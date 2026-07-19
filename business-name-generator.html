@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Name Generator — Scrappy Stacks</title>
+<meta name="description" content="Two quick questions. Six real business name ideas you can actually use — free, no signup required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+--dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+--radius-card: 14px; --radius-btn: 999px;
+}
+* { box-sizing: border-box; }
+body {
+margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink);
+font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+.eyebrow {
+font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+color: var(--accent); text-align: center; margin: 0 0 10px;
+}
+h1 {
+font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em;
+line-height: 1.1; font-size: 40px; text-align: center; margin: 0 0 14px;
+}
+.sub {
+color: var(--muted); text-align: center; max-width: 460px; margin: 0 auto 44px; font-size: 16px;
+}
+.progress { display: flex; gap: 6px; justify-content: center; margin-bottom: 36px; }
+.dot { width: 26px; height: 4px; border-radius: 2px; background: var(--border); transition: background 0.2s; }
+.dot.active { background: var(--accent); }
+.dot.done { background: var(--coral); }
+.panel { display: none; }
+.panel.show { display: block; }
+.q-label {
+font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+color: var(--muted); text-align: center; margin-bottom: 6px;
+}
+.q-title {
+font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; text-align: center;
+margin: 0 0 28px; letter-spacing: -0.01em;
+}
+.options { display: grid; gap: 12px; }
+.opt-btn {
+display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+background: var(--card); border: 2px solid var(--border); border-radius: var(--radius-card);
+padding: 16px 18px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+color: var(--ink); cursor: pointer; transition: border-color 0.15s, transform 0.1s;
+}
+.opt-btn:hover { border-color: var(--coral); transform: translateY(-1px); }
+.opt-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.opt-icon { font-size: 22px; flex-shrink: 0; width: 26px; text-align: center; }
+.nav-row { display: flex; justify-content: center; margin-top: 24px; }
+.back-link {
+background: none; border: none; color: var(--muted); font-family: 'Inter', sans-serif;
+font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: underline;
+}
+.names-grid { display: grid; gap: 12px; margin-bottom: 24px; }
+.name-card {
+background: var(--card); border: 2px solid var(--border); border-radius: var(--radius-card);
+padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.name-text {
+font-family: 'Playfair Display', serif; font-weight: 700; font-size: 19px; letter-spacing: -0.01em;
+}
+.copy-btn {
+flex-shrink: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+padding: 8px 14px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+color: var(--ink); cursor: pointer; transition: background 0.15s;
+}
+.copy-btn:hover { background: var(--border); }
+.copy-btn.copied { background: var(--accent); color: #fff; border-color: var(--accent); }
+.result-header { text-align: center; margin-bottom: 24px; }
+.result-header p.eyebrow2 {
+font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+color: var(--accent); margin: 0 0 8px;
+}
+.result-header h2 {
+font-family: 'Playfair Display', serif; font-weight: 700; font-size: 28px; margin: 0;
+}
+.result-actions { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.btn {
+display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: var(--radius-btn);
+font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer;
+transition: opacity 0.2s, transform 0.15s; border: none; flex: 1; justify-content: center; text-decoration: none;
+}
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+.slogan { text-align: center; color: var(--muted); font-size: 13px; margin-top: 28px; }
+@media (max-width: 480px) {
+h1 { font-size: 30px; }
+.name-card { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a href="/" id="home-link" style="display:block;text-align:center;font-size:13px;color:var(--muted);text-decoration:underline;margin-bottom:24px;">&larr; Back to Scrappy Stacks</a>
+<p class="eyebrow">Scrappy Stacks</p>
+<h1>Find your business name</h1>
+<p class="sub">Two quick questions. Six real name ideas you can actually use — free, no signup.</p>
+
+<div class="progress" id="progress">
+<div class="dot" data-step="0"></div>
+<div class="dot" data-step="1"></div>
+</div>
+
+<div class="panel show" data-panel="0">
+<p class="q-label">Question 1 of 2</p>
+<h2 class="q-title">What's your business about?</h2>
+<div class="options">
+<button class="opt-btn" data-cat="fix"><span class="opt-icon">🔧</span> Fixing, building or repairing things</button>
+<button class="opt-btn" data-cat="cars"><span class="opt-icon">🚗</span> Cars, engines or machines</button>
+<button class="opt-btn" data-cat="beauty"><span class="opt-icon">💇</span> Hair, beauty or style</button>
+<button class="opt-btn" data-cat="food"><span class="opt-icon">🍳</span> Food, cooking or baking</button>
+<button class="opt-btn" data-cat="clean"><span class="opt-icon">🧹</span> Cleaning or caretaking</button>
+<button class="opt-btn" data-cat="admin"><span class="opt-icon">📋</span> Admin, bookkeeping or professional services</button>
+<button class="opt-btn" data-cat="teach"><span class="opt-icon">📚</span> Teaching, coaching or tutoring</button>
+<button class="opt-btn" data-cat="events"><span class="opt-icon">🎉</span> Events, photos or handmade goods</button>
+</div>
+</div>
+
+<div class="panel" data-panel="1">
+<p class="q-label">Question 2 of 2</p>
+<h2 class="q-title">What vibe fits you best?</h2>
+<div class="options">
+<button class="opt-btn" data-style="classic"><span class="opt-icon">🏛️</span> Classic and trustworthy</button>
+<button class="opt-btn" data-style="modern"><span class="opt-icon">⚡</span> Modern and bold</button>
+<button class="opt-btn" data-style="friendly"><span class="opt-icon">😊</span> Playful and friendly</button>
+<button class="opt-btn" data-style="simple"><span class="opt-icon">🎯</span> Simple and straight to the point</button>
+</div>
+<div class="nav-row"><button class="back-link" data-back="0">Back</button></div>
+</div>
+
+<div class="panel" data-panel="result">
+<div class="result-header">
+<p class="eyebrow2">Your name ideas</p>
+<h2>Six to start with</h2>
+</div>
+<div class="names-grid" id="names-mount"></div>
+<div class="result-actions">
+<button class="btn btn-outline" id="again-btn">Get 6 more</button>
+<a class="btn btn-primary" href="/fictitious-name-filing.html">File this name &rarr;</a>
+</div>
+<div class="nav-row" style="margin-top:16px;">
+<button class="back-link" id="restart-btn">Start over completely</button>
+</div>
+</div>
+
+<p class="slogan">Own your work. Own your life.</p>
+</div>
+
+<script>
+const KEYWORDS = {
+fix: ["Fix", "Build", "Craft", "Forge", "Handy", "Restore"],
+cars: ["Drive", "Motor", "Gear", "Auto", "Shift", "Torque"],
+beauty: ["Glow", "Shine", "Bloom", "Style", "Polish", "Radiant"],
+food: ["Whisk", "Batch", "Table", "Harvest", "Kettle", "Crumb"],
+clean: ["Fresh", "Tidy", "Bright", "Spotless", "Pure", "Clear"],
+admin: ["Ledger", "Anchor", "Steady", "Keystone", "Compass", "Precise"],
+teach: ["Bright", "Grow", "Guide", "Spark", "Method", "Progress"],
+events: ["Bloom", "Frame", "Made", "Gather", "Craft", "Moment"]
+};
+
+const NOUNS = {
+classic: ["& Co.", "Company", "Studio", "House", "Works", "Partners"],
+modern: ["Labs", "Collective", "Co.", "Group", "Studio", "Works"],
+friendly: ["Crew", "Squad", "Buddies", "Folks", "Friends", "Team"],
+simple: ["Services", "Solutions", "Pros", "Direct", "Now", "Local"]
+};
+
+const PREFIXES = {
+classic: ["The", "Heritage", "Foundry", "Golden", "Trusted", "Signature"],
+modern: ["Nova", "Bright", "Peak", "Edge", "Vital", "Prime"],
+friendly: ["Happy", "Sunny", "Neighborly", "Cheerful", "Homegrown", "Friendly"],
+simple: ["Simple", "Direct", "Clear", "Straight", "Plain", "Honest"]
+};
+
+function pick(arr, n, exclude) {
+const pool = arr.filter(x => !exclude.includes(x));
+const shuffled = [...pool].sort(() => Math.random() - 0.5);
+return shuffled.slice(0, n);
+}
+
+function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+const state = { cat: null, style: null, usedNames: [] };
+let currentPanel = 0;
+
+function showPanel(n) {
+document.querySelectorAll('.panel').forEach(p => p.classList.remove('show'));
+document.querySelector('[data-panel="' + n + '"]').classList.add('show');
+document.querySelectorAll('.dot').forEach((d, i) => {
+d.classList.remove('active', 'done');
+if (typeof n === 'number') {
+if (i < n) d.classList.add('done');
+if (i === n) d.classList.add('active');
+} else {
+d.classList.add('done');
+}
+});
+currentPanel = n;
+}
+
+document.querySelectorAll('[data-back]').forEach(b => {
+b.addEventListener('click', () => showPanel(parseInt(b.dataset.back)));
+});
+document.querySelectorAll('[data-cat]').forEach(b => {
+b.addEventListener('click', () => { state.cat = b.dataset.cat; showPanel(1); });
+});
+document.querySelectorAll('[data-style]').forEach(b => {
+b.addEventListener('click', () => { state.style = b.dataset.style; generateResult(); });
+});
+
+function generateNames() {
+const keywords = pick(KEYWORDS[state.cat], 6, []);
+const nouns = NOUNS[state.style];
+const prefixes = PREFIXES[state.style];
+const names = [];
+const patterns = [
+() => `${keywords[0]} ${nouns[0]}`,
+() => `${prefixes[0]} ${keywords[1]}`,
+() => `${keywords[2]} ${nouns[1]}`,
+() => `${prefixes[1]} ${keywords[3]} ${nouns[2]}`,
+() => `${keywords[4]}${keywords[5]} ${nouns[3]}`,
+() => `${prefixes[2]} ${keywords[0]} ${nouns[4]}`
+];
+patterns.forEach(fn => {
+let candidate = fn();
+let tries = 0;
+while (state.usedNames.includes(candidate) && tries < 5) {
+candidate = fn();
+tries++;
+}
+names.push(candidate);
+state.usedNames.push(candidate);
+});
+return names;
+}
+
+function renderNames() {
+const names = generateNames();
+const mount = document.getElementById('names-mount');
+mount.innerHTML = names.map((name, i) => `
+<div class="name-card">
+<span class="name-text">${name}</span>
+<button class="copy-btn" data-name="${name.replace(/"/g, '&quot;')}">Copy</button>
+</div>
+`).join('');
+mount.querySelectorAll('.copy-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+navigator.clipboard.writeText(btn.dataset.name).then(() => {
+btn.textContent = 'Copied!';
+btn.classList.add('copied');
+setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+});
+});
+});
+}
+
+function generateResult() {
+showPanel('result');
+renderNames();
+}
+
+document.getElementById('again-btn').addEventListener('click', renderNames);
+document.getElementById('restart-btn').addEventListener('click', () => {
+state.cat = state.style = null;
+state.usedNames = [];
+showPanel(0);
+});
+
+const isEmbedded = window.self !== window.top;
+if (isEmbedded) {
+document.getElementById('home-link').style.display = 'none';
+document.body.style.background = 'transparent';
+document.querySelector('.wrap').style.padding = '8px 4px 24px';
+}
+function reportHeight() {
+if (!isEmbedded) return;
+window.parent.postMessage({ type: 'ss-name-gen-resize', height: document.body.scrollHeight }, '*');
+}
+if (isEmbedded && 'ResizeObserver' in window) {
+new ResizeObserver(reportHeight).observe(document.body);
+}
+window.addEventListener('load', reportHeight);
+</script>
+</body>
+</html>
