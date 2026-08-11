@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Setup — Scrappy Stacks</title>
+  <meta name="description" content="Set up your Google Business Profile, social presence, and search visibility yourself, step by step." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, ::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07); --section-pad: 100px;
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    h2.section-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; margin-top: 12px; }
+    p.section-sub { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: var(--section-pad) 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+    .hero { padding: 72px 0 20px; }
+    .hero-inner { max-width: 640px; }
+    .price-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: var(--shadow); margin-top: 20px; }
+    .price-tag span { color: var(--accent); }
+    .hero-cta { margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .hero-note { font-size: 13px; color: var(--muted); }
+    .included-section { padding: 20px 0 40px; }
+    .included-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
+    .included-item { display: flex; align-items: flex-start; gap: 12px; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 20px; font-size: 15px; }
+    .included-item svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 640px) { .included-list { grid-template-columns: 1fr; } }
+    .chapters-section { background: var(--card); }
+    .chapters-inner { max-width: 640px; margin: 0 auto; }
+    .chapters-header { text-align: center; margin-bottom: 40px; }
+    .chapters-header .section-sub { margin: 16px auto 0; }
+    .chapter-list { list-style: none; counter-reset: chapter; }
+    .chapter-list li { counter-increment: chapter; display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .chapter-list li:last-child { border-bottom: none; }
+    .chapter-list li::before { content: counter(chapter); font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent); font-size: 18px; min-width: 24px; }
+    .upsell-section { text-align: center; }
+    .upsell-card { max-width: 620px; margin: 0 auto; background: linear-gradient(160deg, var(--accent), var(--coral)); color: #fff; border-radius: var(--radius-card); padding: 40px; }
+    .upsell-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; }
+    .upsell-card p { opacity: 0.92; margin-bottom: 22px; }
+    .upsell-card .btn-outline { border-color: #fff; color: #fff; }
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+      </div>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/free-tools.html">Free Tools</a></li>
+      <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#pricing" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <p class="label">Scrappy's E Books — Book #8</p>
+      <h1 class="display" style="font-size:48px;margin-top:10px;">Marketing Setup</h1>
+      <p class="section-sub" style="max-width:520px;">Google Business Profile, social media, and getting found — without hiring an agency.</p>
+      <div class="price-tag">One-time: <span>$27</span></div>
+      <div class="hero-cta">
+        <a href="https://buy.stripe.com/6oUeVdg625KP840cGa0co09" class="btn btn-primary">Get the Book — $27</a>
+      </div>
+      <p class="hero-note">Instant download after checkout. No subscription, no account required.</p>
+    </div>
+  </div>
+</section>
+<section class="included-section">
+  <div class="container">
+    <div class="included-list">
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Setting up a Google Business Profile that actually gets found</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Which social platforms are worth your time, and which aren't</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>The basics of showing up in local search results</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>A simple, repeatable posting routine that doesn't eat your week</span></div>
+    </div>
+  </div>
+</section>
+<section class="chapters-section">
+  <div class="container">
+    <div class="chapters-inner">
+      <div class="chapters-header">
+        <p class="label">What's Inside</p>
+        <h2 class="section-title">Marketing that fits in an afternoon, not a semester.</h2>
+        <p class="section-sub">No agency, no ad budget required to get started.</p>
+      </div>
+      <ul class="chapter-list">
+        <li>Setting Up Google Business Profile</li>
+        <li>Choosing Where to Show Up</li>
+        <li>Local Search Basics</li>
+        <li>A Simple Posting Routine</li>
+        <li>Keeping It Consistent</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="upsell-section">
+  <div class="container">
+    <div class="upsell-card">
+      <h3>Part of the Self Starter Pack</h3>
+      <p>This book is also one of 5 guides in the Self Starter Pack — naming, CRM, website setup, getting paid, and marketing — for $197 total.</p>
+      <a href="/#pricing" class="btn btn-outline">See the Full Pack</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+        </div>
+        Scrappy Stacks
+      </div>
+      <ul class="footer-links">
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+        <li><a href="/terms.html">Terms and Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="footer-right">
+        <p class="footer-email"><a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
+        <p class="footer-legal">© 2026 Scrappy Stacks. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
