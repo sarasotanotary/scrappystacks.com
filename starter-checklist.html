@@ -123,11 +123,9 @@ Your Checklist Includes:
 Get Your Free Checklist
 </h2>
 
-<form action="https://formspree.io/f/xaqgpkpa" method="POST">
+<form id="ss-gate-form">
 
-<input type="hidden" name="_subject" value="New Scrappy Stacks Checklist Signup">
-
-<input type="email" name="email" placeholder="Your email address" required>
+<input type="email" id="ss-gate-email" name="email" placeholder="Your email address" required>
 
 <button type="submit">
 Send Me The Checklist
@@ -135,9 +133,43 @@ Send Me The Checklist
 
 </form>
 
-<p class="note">
+<div id="ss-unlocked" style="display:none;">
+<a href="/starter-checklist-guide.pdf" style="display:block;box-sizing:border-box;width:100%;margin-top:15px;padding:16px;background:#1A1A1A;color:white;border:none;border-radius:999px;font-weight:600;text-align:center;text-decoration:none;">Download the Checklist</a>
+</div>
+
+<p class="note" id="ss-hero-note">
 No spam. Just practical tools for building your business.
 </p>
+
+<script>
+(function(){
+  var KEY = 'ssUnlocked';
+  var form = document.getElementById('ss-gate-form');
+  var unlocked = document.getElementById('ss-unlocked');
+  var note = document.getElementById('ss-hero-note');
+  function reveal(fresh){
+    form.style.display = 'none';
+    unlocked.style.display = 'block';
+    note.textContent = fresh
+      ? "You're unlocked — every guide on the site is now available in this browser, no more email needed."
+      : "Unlocked in this browser — download away.";
+  }
+  try { if (localStorage.getItem(KEY)) reveal(false); } catch(e) {}
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('ss-gate-email').value;
+    try { localStorage.setItem(KEY, email); } catch(e) {}
+    var fd = new FormData();
+    fd.append('email', email);
+    fd.append('_subject', 'Guide unlocked: Business Starter Checklist');
+    fd.append('guide', 'Business Starter Checklist');
+    fd.append('source', 'starter-checklist.html');
+    fetch('https://formspree.io/f/xaqgpkpa', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function(){});
+    fetch('https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec', { method: 'POST', mode: 'no-cors', body: fd }).catch(function(){});
+    reveal(true);
+  });
+})();
+</script>
 
 </div>
 
