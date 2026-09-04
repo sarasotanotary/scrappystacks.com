@@ -161,6 +161,7 @@
     (function(){
       var form = document.getElementById('ss-newsletter-form');
       var note = form.parentElement.querySelector('.newsletter-note');
+      if (!note) { note = document.createElement('p'); note.className = 'newsletter-note'; form.parentElement.appendChild(note); }
       form.addEventListener('submit', function(e){
         e.preventDefault();
         var email = document.getElementById('ss-newsletter-email').value;
