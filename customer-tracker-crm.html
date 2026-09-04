@@ -138,7 +138,10 @@
           var fd = new FormData();
           fd.append('email', email);
           fd.append('_subject', 'Guide unlocked: Customer Tracker CRM');
+          fd.append('guide', 'Customer Tracker CRM');
+          fd.append('source', 'customer-tracker-crm.html');
           fetch('https://formspree.io/f/xaqgpkpa', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function(){});
+          fetch('https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec', { method: 'POST', mode: 'no-cors', body: fd }).catch(function(){});
           reveal(true);
         });
       })();
