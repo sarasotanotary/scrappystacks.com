@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build It For Me — Scrappy Stacks</title>
+  <meta name="description" content="A real website, built and launched for you, with free hosting and ongoing maintenance handled — $497 to build, $97/mo after. No contracts, cancel anytime." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, ::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F2EE; color: #1A1A1A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #F5F2EE; --ink: #1A1A1A; --accent: #E8392A; --coral: #F4714A;
+      --dark: #1C1C1E; --card: #FFFFFF; --muted: #6B6B6B; --border: #E5E0D8;
+      --max-w: 1100px; --radius-card: 14px; --radius-btn: 999px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07); --section-pad: 100px;
+    }
+    .display { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    h2.section-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; margin-top: 12px; }
+    p.section-sub { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: var(--section-pad) 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: var(--radius-btn); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.btn-primary { color: #fff; }
+    .nav-links a.btn-primary:hover { color: #fff; }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+    .hero { padding: 72px 0 20px; }
+    .hero-inner { max-width: 640px; }
+    .price-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: var(--shadow); margin-top: 20px; }
+    .price-tag span { color: var(--accent); }
+    .hero-cta { margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .hero-note { font-size: 13px; color: var(--muted); }
+    .included-section { padding: 20px 0 40px; }
+    .included-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
+    .included-item { display: flex; align-items: flex-start; gap: 12px; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 20px; font-size: 15px; }
+    .included-item svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 640px) { .included-list { grid-template-columns: 1fr; } }
+    .chapters-section { background: var(--card); }
+    .chapters-inner { max-width: 640px; margin: 0 auto; }
+    .chapters-header { text-align: center; margin-bottom: 40px; }
+    .chapters-header .section-sub { margin: 16px auto 0; }
+    .chapter-list { list-style: none; counter-reset: chapter; }
+    .chapter-list li { counter-increment: chapter; display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .chapter-list li:last-child { border-bottom: none; }
+    .chapter-list li::before { content: counter(chapter); font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent); font-size: 18px; min-width: 24px; }
+    .chapter-list li .step-title { font-weight: 600; }
+    .chapter-list li .step-detail { display: block; color: var(--muted); font-size: 15px; margin-top: 2px; }
+    .faq-section { max-width: 720px; margin: 0 auto; }
+    .faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { color: var(--muted); font-size: 15px; }
+    .upsell-section { text-align: center; }
+    .upsell-card { max-width: 620px; margin: 0 auto; background: linear-gradient(160deg, var(--accent), var(--coral)); color: #fff; border-radius: var(--radius-card); padding: 40px; }
+    .upsell-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12px; }
+    .upsell-card p { opacity: 0.92; margin-bottom: 22px; }
+    .upsell-card .btn-outline { border-color: #fff; color: #fff; }
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+      </div>
+      Scrappy Stacks
+    </a>
+    <ul class="nav-links">
+      <li><a href="/build-it-for-me.html">Build It For Me</a></li>
+      <li><a href="/free-tools.html">Free Tools</a></li>
+      <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#get-started" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Start Today</a></li>
+    </ul>
+  </div>
+</nav>
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <p class="label">Done For You</p>
+      <h1 class="display" style="font-size:48px;margin-top:10px;">Build It For Me</h1>
+      <p class="section-sub" style="max-width:520px;">Skip the DIY entirely. I build your website, get it live, and keep it running — hosting and maintenance included.</p>
+      <div class="price-tag">$497 to build <span>+ $97/mo hosting &amp; maintenance</span></div>
+      <div class="hero-cta">
+        <a href="/#get-started" class="btn btn-primary">Get Started</a>
+      </div>
+      <p class="hero-note">45 seconds to submit. I reply within one business day. No contracts — cancel the monthly plan anytime.</p>
+    </div>
+  </div>
+</section>
+<section class="included-section">
+  <div class="container">
+    <div class="included-list">
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>A real website, designed and built for your business — not a template you have to wrestle with</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Free, permanent hosting via GitHub Pages — no separate hosting bill, ever</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Ongoing maintenance — updates, fixes, and changes as your business grows</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Every file is yours, always — no lock-in if you ever want to move on</span></div>
+    </div>
+  </div>
+</section>
+<section class="chapters-section">
+  <div class="container">
+    <div class="chapters-inner">
+      <div class="chapters-header">
+        <p class="label">How It Works</p>
+        <h2 class="section-title">Four steps, no meetings.</h2>
+        <p class="section-sub">You focus on the business. I handle the build.</p>
+      </div>
+      <ul class="chapter-list">
+        <li><span><span class="step-title">Tell me about your business</span><span class="step-detail">A 45-second form — name, business, and what you need.</span></span></li>
+        <li><span><span class="step-title">I build your site</span><span class="step-detail">Usually within a few days. I reach out if I have questions.</span></span></li>
+        <li><span><span class="step-title">It goes live</span><span class="step-detail">Hosted free, forever, on your own domain.</span></span></li>
+        <li><span><span class="step-title">I keep it running</span><span class="step-detail">Updates and fixes are covered by the $97/mo — cancel anytime.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="faq-section">
+      <div class="chapters-header" style="margin-bottom:32px;">
+        <p class="label">Questions</p>
+        <h2 class="section-title">No fine print.</h2>
+      </div>
+      <div class="faq-item">
+        <h3>What if I already started with the free guides?</h3>
+        <p>No problem — anything you've already set up (a domain, a name filing) carries straight over. I pick up from wherever you are.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I cancel the $97/mo?</h3>
+        <p>Yes, anytime, no contracts and no cancellation fees. The site stays yours either way.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I own the site?</h3>
+        <p>Yes, always — every file is yours, even if you cancel. No lock-in, no re-buying your own brand later.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How fast do you respond after I sign up?</h3>
+        <p>Within 24 hours — you'll hear from me fast, and the build kicks off just as quick.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="upsell-section">
+  <div class="container">
+    <div class="upsell-card">
+      <h3 class="display">Ready to hand it off?</h3>
+      <p>45 seconds to get started. I'll take it from there.</p>
+      <a href="/#get-started" class="btn btn-outline">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="4" rx="1.5"/><rect x="2" y="9" width="8" height="4" rx="1.5"/></svg>
+        </div>
+        Scrappy Stacks
+      </div>
+      <ul class="footer-links">
+        <li><a href="/build-it-for-me.html">Build It For Me</a></li>
+        <li><a href="/idea-generator.html">Business Idea Generator</a></li>
+        <li><a href="/terms.html">Terms and Conditions</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="footer-right">
+        <p class="footer-email"><a href="mailto:hello@scrappystacks.com">hello@scrappystacks.com</a></p>
+        <p class="footer-legal">© 2026 Scrappy Stacks. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
