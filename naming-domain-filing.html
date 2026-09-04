@@ -107,9 +107,44 @@
       <p class="section-sub" style="max-width:520px;">Everything you need to pick a name, check it's actually available, and make it official — without a lawyer or a headache.</p>
       <div class="price-tag">Free</div>
       <div class="hero-cta">
-        <form action="https://formspree.io/f/xaqgpkpa" method="POST" style="display:flex;flex-direction:column;gap:12px;max-width:320px;"><input type="hidden" name="_subject" value="Free Guide Request: Naming, Domain & Filing"><input type="email" name="email" placeholder="Your email address" required style="padding:16px 24px;border-radius:999px;border:2px solid var(--border);font-family:'Inter',sans-serif;font-size:16px;"><button type="submit" class="btn btn-primary">Send Me The Guide</button></form>
+        <form id="ss-gate-form" style="display:flex;flex-direction:column;gap:12px;max-width:320px;">
+          <input type="email" name="email" id="ss-gate-email" placeholder="Your email address" required style="padding:16px 24px;border-radius:999px;border:2px solid var(--border);font-family:'Inter',sans-serif;font-size:16px;">
+          <button type="submit" class="btn btn-primary">Unlock the Guide</button>
+        </form>
+        <div id="ss-unlocked" style="display:none;align-items:center;gap:18px;flex-wrap:wrap;">
+          <a href="/naming-domain-filing-guide.pdf" class="btn btn-primary">Download the Guide</a>
+        </div>
       </div>
-      <p class="hero-note">Sent straight to your inbox. No card, no signup trap.</p>
+      <p class="hero-note" id="ss-hero-note">One email unlocks every guide on the site — asked once, remembered after that.</p>
+      <script>
+      (function(){
+        var KEY = 'ssUnlocked';
+        var form = document.getElementById('ss-gate-form');
+        var unlocked = document.getElementById('ss-unlocked');
+        var note = document.getElementById('ss-hero-note');
+        function reveal(fresh){
+          form.style.display = 'none';
+          unlocked.style.display = 'flex';
+          note.textContent = fresh
+            ? "You're unlocked — every guide on the site is now available in this browser, no more email needed."
+            : "Unlocked in this browser — download away.";
+        }
+        try { if (localStorage.getItem(KEY)) reveal(false); } catch(e) {}
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var email = document.getElementById('ss-gate-email').value;
+          try { localStorage.setItem(KEY, email); } catch(e) {}
+          var fd = new FormData();
+          fd.append('email', email);
+          fd.append('_subject', 'Guide unlocked: Naming, Domain & Filing');
+          fd.append('guide', 'Naming, Domain & Filing');
+          fd.append('source', 'naming-domain-filing.html');
+          fetch('https://formspree.io/f/xaqgpkpa', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function(){});
+          fetch('https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec', { method: 'POST', mode: 'no-cors', body: fd }).catch(function(){});
+          reveal(true);
+        });
+      })();
+      </script>
     </div>
   </div>
 </section>
