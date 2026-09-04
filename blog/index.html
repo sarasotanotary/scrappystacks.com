@@ -215,6 +215,12 @@ Scrappy Stacks
 <p class="excerpt">An honest comparison covering real pricing and when each makes sense.</p>
 <span class="meta">5 min read</span>
 </a>
+<a class="post-card" href="/blog/wave-invoicing-first-client.html">
+<span class="tag">Free Tools</span>
+<h2>How to Send Your First Invoice Without Overthinking It</h2>
+<p class="excerpt">A plain walk-through of sending your first invoice with Wave, free invoicing software, no accounting background required.</p>
+<span class="meta">3 min read</span>
+</a>
 </div>
 </div>
 </section>
@@ -225,13 +231,30 @@ Scrappy Stacks
 <p class="label">Join The Way Out</p>
 <h2 class="display">Get the next story in your inbox.</h2>
 <p>One email a month. Real talk about walking away from a career that used you up, and practical steps for building something that's yours.</p>
-<form class="newsletter-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
-<input type="hidden" name="_subject" value="New Scrappy Stacks newsletter signup" />
-<input type="hidden" name="source" value="Blog listing page" />
-<input type="hidden" name="message" value="Newsletter signup from blog listing" />
-<input type="email" name="email" placeholder="you@yourbusiness.com" required />
+<form class="newsletter-form" id="ss-newsletter-form">
+<input type="email" name="email" id="ss-newsletter-email" placeholder="you@yourbusiness.com" required />
 <button type="submit" class="btn">Join Us</button>
 </form>
+<script>
+(function(){
+  var form = document.getElementById('ss-newsletter-form');
+  var note = form.parentElement.querySelector('.newsletter-note');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('ss-newsletter-email').value;
+    var fd = new FormData();
+    fd.append('email', email);
+    fd.append('_subject', 'New Scrappy Stacks newsletter signup');
+    fd.append('source', 'Blog listing page');
+    fd.append('message', 'Newsletter signup from blog listing');
+    fd.append('guide', 'Newsletter');
+    fetch('https://formspree.io/f/xaqgpkpa', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function(){});
+    fetch('https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec', { method: 'POST', mode: 'no-cors', body: fd }).catch(function(){});
+    form.style.display = 'none';
+    if (note) note.textContent = "You're in — check your inbox soon.";
+  });
+})();
+</script>
 <p class="newsletter-note">Unsubscribe anytime. No spam, ever.</p>
 </div>
 </section>
