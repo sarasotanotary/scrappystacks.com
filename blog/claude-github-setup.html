@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Domain, Your Assistant & Your Free Website — Scrappy Stacks</title>
+  <meta name="description" content="Build and host a real business website for free, forever, using Claude and GitHub Pages — no monthly hosting bill." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+  <style>
+    *, ::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Instrument Sans', system-ui, sans-serif; background-color: #FFFFFF; color: #1B2A4A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #FFFFFF; --ink: #1B2A4A; --accent: #2563EB; --coral: #1D4ED8;
+      --dark: #1B2A4A; --card: #FFFFFF; --muted: #64748B; --border: #DDE4EE;
+      --max-w: 1100px; --radius-card: 12px; --radius-btn: 8px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07); --section-pad: 100px;
+    }
+    .display { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.035em; }
+    .label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+    h2.section-title { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.035em; margin-top: 12px; }
+    p.section-sub { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: var(--section-pad) 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: var(--radius-btn); font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+    .hero { padding: 72px 0 20px; }
+    .hero-inner { max-width: 640px; }
+    .price-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: var(--shadow); margin-top: 20px; }
+    .price-tag span { color: var(--accent); }
+    .hero-cta { margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .hero-note { font-size: 13px; color: var(--muted); }
+    .included-section { padding: 20px 0 40px; }
+    .included-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
+    .included-item { display: flex; align-items: flex-start; gap: 12px; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 20px; font-size: 15px; }
+    .included-item svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 640px) { .included-list { grid-template-columns: 1fr; } }
+    .chapters-section { background: var(--card); }
+    .chapters-inner { max-width: 640px; margin: 0 auto; }
+    .chapters-header { text-align: center; margin-bottom: 40px; }
+    .chapters-header .section-sub { margin: 16px auto 0; }
+    .chapter-list { list-style: none; counter-reset: chapter; }
+    .chapter-list li { counter-increment: chapter; display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .chapter-list li:last-child { border-bottom: none; }
+    .chapter-list li::before { content: counter(chapter); font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; color: var(--accent); font-size: 18px; min-width: 24px; }
+    .upsell-section { text-align: center; }
+    .upsell-card { max-width: 620px; margin: 0 auto; background: var(--accent); color: #fff; border-radius: var(--radius-card); padding: 40px; }
+    .upsell-card h3 { font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 26px; margin-bottom: 12px; }
+    .upsell-card p { opacity: 0.92; margin-bottom: 22px; }
+    .upsell-card .btn-outline { border-color: #fff; color: #fff; }
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #EEF2F6;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;gap:20px;flex-wrap:wrap;">
+  <a href="/" style="display:flex;align-items:center;"><span style="width:28px;height:28px;background:#2563EB;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 16 16" width="16" height="16" fill="#fff" aria-label="Scrappy Stacks logo"><rect x="2" y="2" width="12" height="4" rx="1.5"></rect><rect x="2" y="9" width="8" height="4" rx="1.5"></rect></svg></span></a>
+  <a href="/" style="font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;">Scrappy Stacks</a>
+  <div style="display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:nowrap;flex-shrink:0;">
+    <a href="/build-it-for-me.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Build It For Me</a>
+    <a href="/free-tools.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Free Tools</a>
+    <a href="/blog/" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Blog</a>
+    <a href="/#faq" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">FAQ</a>
+    <a href="/#get-started" style="background:#2563EB;color:#fff;padding:11px 20px;border-radius:7px;font-size:15px;font-weight:600;white-space:nowrap;">Start Today</a>
+  </div>
+</nav>
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <p class="label">Scrappy's E Books — Book #6</p>
+      <h1 class="display" style="font-size:48px;margin-top:10px;">Your Domain, Your Assistant & Your Free Website</h1>
+      <p class="section-sub" style="max-width:520px;">Connect your Cloudflare domain to a real website, built with Claude and hosted free on GitHub Pages — forever.</p>
+            <div class="price-tag">Free</div>
+      <div class="hero-cta">
+        <form id="ss-gate-form" style="display:flex;flex-direction:column;gap:12px;max-width:320px;">
+          <input type="email" name="email" id="ss-gate-email" placeholder="Your email address" required style="padding:14px 18px;border-radius:7px;border:2px solid var(--border);font-family:'Instrument Sans', system-ui, sans-serif;font-size:16px;">
+          <button type="submit" class="btn btn-primary">Unlock the Guide</button>
+        </form>
+        <div id="ss-unlocked" style="display:none;align-items:center;gap:18px;flex-wrap:wrap;">
+          <a href="/claude-github-setup-guide.pdf" class="btn btn-primary">Download the Guide</a>
+        </div>
+      </div>
+      <p class="hero-note" id="ss-hero-note">One email unlocks every guide on the site — asked once, remembered after that.</p>
+      <script>
+      (function(){
+        var KEY = 'ssUnlocked';
+        var form = document.getElementById('ss-gate-form');
+        var unlocked = document.getElementById('ss-unlocked');
+        var note = document.getElementById('ss-hero-note');
+        function reveal(fresh){
+          form.style.display = 'none';
+          unlocked.style.display = 'flex';
+          note.textContent = fresh
+            ? "You're unlocked — every guide on the site is now available in this browser, no more email needed."
+            : "Unlocked in this browser — download away.";
+        }
+        try { if (localStorage.getItem(KEY)) reveal(false); } catch(e) {}
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var email = document.getElementById('ss-gate-email').value;
+          try { localStorage.setItem(KEY, email); } catch(e) {}
+          var fd = new FormData();
+          fd.append('email', email);
+          fd.append('_subject', 'Guide unlocked: Your Domain, Your Assistant & Your Free Website');
+          fd.append('guide', 'Your Domain, Your Assistant & Your Free Website');
+          fd.append('source', 'claude-github-setup.html');
+          fetch('https://formspree.io/f/xaqgpkpa', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function(){});
+          fetch('https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec', { method: 'POST', mode: 'no-cors', body: fd }).catch(function(){});
+          reveal(true);
+        });
+      })();
+      </script>
+    </div>
+  </div>
+</section>
+<section class="included-section">
+  <div class="container">
+    <div class="included-list">
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>How to get Claude building your site for you, step by step</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Free, permanent hosting on GitHub Pages — no monthly bill, ever</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>Connecting your existing Cloudflare domain to your new site</span></div>
+      <div class="included-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span>What to do if you haven't registered a domain yet</span></div>
+    </div>
+  </div>
+</section>
+<section class="chapters-section">
+  <div class="container">
+    <div class="chapters-inner">
+      <div class="chapters-header">
+        <p class="label">What's Inside</p>
+        <h2 class="section-title">From nothing to a live website.</h2>
+        <p class="section-sub">No coding background required — Claude does the building.</p>
+      </div>
+      <ul class="chapter-list">
+        <li>What You're Building</li>
+        <li>Setting Up Your Free Assistant</li>
+        <li>Building Your Site</li>
+        <li>Free Hosting on GitHub Pages</li>
+        <li>Connecting Your Domain</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#1B2A4A;padding:52px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.025em;color:#FFFFFF;">
+      <span style="width:26px;height:26px;background:#2563EB;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 16 16" width="15" height="15" fill="#fff" aria-label="Scrappy Stacks logo"><rect x="2" y="2" width="12" height="4" rx="1.5"></rect><rect x="2" y="9" width="8" height="4" rx="1.5"></rect></svg></span>
+      Scrappy Stacks
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:26px;">
+      <a href="/free-tools.html" style="font-size:14px;color:#A6B7CF;">Free Tools</a>
+      <a href="/build-it-for-me.html" style="font-size:14px;color:#A6B7CF;">Build It For Me</a>
+      <a href="/idea-generator.html" style="font-size:14px;color:#A6B7CF;">Business Idea Generator</a>
+      <a href="/blog/" style="font-size:14px;color:#A6B7CF;">Blog</a>
+      <a href="/terms.html" style="font-size:14px;color:#A6B7CF;">Terms and Conditions</a>
+      <a href="/privacy.html" style="font-size:14px;color:#A6B7CF;">Privacy Policy</a>
+    </div>
+    <div style="margin-left:auto;text-align:right;min-width:240px;">
+      <p style="font-size:14px;margin-bottom:8px;"><a href="mailto:hello@scrappystacks.com" style="color:#DDE4EE;">hello@scrappystacks.com</a></p>
+      <p style="font-size:12px;color:#8FA3C4;">© 2026 Scrappy Stacks. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

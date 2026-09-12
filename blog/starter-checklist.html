@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Business Starter Checklist | Scrappy Stacks</title>
+
+<meta name="description" content="Download the free Scrappy Stacks Business Starter Checklist and take the first steps toward building your own business.">
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+body {
+    margin:0;
+    background:#FFFFFF;
+    color:#1B2A4A;
+    font-family:'Instrument Sans', system-ui, sans-serif;
+}
+
+.container {
+    max-width:700px;
+    margin:auto;
+    padding:60px 25px;
+}
+
+.logo {
+    font-family:'Instrument Sans', system-ui, sans-serif;
+    letter-spacing:-0.035em;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:40px;
+}
+
+h1,h2 {
+    font-family:'Instrument Sans', system-ui, sans-serif;
+    letter-spacing:-0.035em;
+}
+
+h1 {
+    font-size:52px;
+    line-height:1.1;
+}
+
+.subtitle {
+    font-size:20px;
+    color:#64748B;
+    line-height:1.6;
+}
+
+.card {
+    background:white;
+    padding:35px;
+    border-radius:16px;
+    margin-top:35px;
+    border:1px solid #DDE4EE;
+}
+
+li {
+    margin:12px 0;
+}
+
+input {
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:1px solid #DDE4EE;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button {
+    width:100%;
+    margin-top:15px;
+    padding:16px;
+    background:#1B2A4A;
+    color:white;
+    border:none;
+    border-radius:999px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.note {
+    font-size:13px;
+    color:#64748B;
+    text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+Scrappy Stacks
+</div>
+
+<h1>
+Build Something That's Yours
+</h1>
+
+<p class="subtitle">
+Get the free Business Starter Checklist and follow the simple path from idea to first steps.
+</p>
+
+<div class="card">
+
+<h2>
+Your Checklist Includes:
+</h2>
+
+<ul>
+<li>✓ Choosing a business idea that fits your skills</li>
+<li>✓ Picking a business name</li>
+<li>✓ Basic setup steps</li>
+<li>✓ Creating your first online presence</li>
+<li>✓ Finding your first customers</li>
+<li>✓ Simple tools to save time</li>
+</ul>
+
+<h2>
+Get Your Free Checklist
+</h2>
+
+<form id="ss-gate-form">
+
+<input type="email" id="ss-gate-email" name="email" placeholder="Your email address" required>
+
+<button type="submit">
+Send Me The Checklist
+</button>
+
+</form>
+
+<div id="ss-unlocked" style="display:none;">
+<a href="/starter-checklist-guide.pdf" style="display:block;box-sizing:border-box;width:100%;margin-top:15px;padding:16px;background:#2563EB;color:white;border:none;border-radius:7px;font-weight:600;text-align:center;text-decoration:none;">Download the Checklist</a>
+</div>
+
+<p class="note" id="ss-hero-note">
+No spam. Just practical tools for building your business.
+</p>
+
+<script>
+(function(){
+  var KEY = 'ssUnlocked';
+  var form = document.getElementById('ss-gate-form');
+  var unlocked = document.getElementById('ss-unlocked');
+  var note = document.getElementById('ss-hero-note');
+  function reveal(fresh){
+    form.style.display = 'none';
+    unlocked.style.display = 'block';
+    note.textContent = fresh
+      ? "You're unlocked — every guide on the site is now available in this browser, no more email needed."
+      : "Unlocked in this browser — download away.";
+  }
+  try { if (localStorage.getItem(KEY)) reveal(false); } catch(e) {}
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('ss-gate-email').value;
+    try { localStorage.setItem(KEY, email); } catch(e) {}
+    var fd = new FormData();
+    fd.append('email', email);
+    fd.append('_subject', 'Guide unlocked: Business Starter Checklist');
+    fd.append('guide', 'Business Starter Checklist');
+    fd.append('source', 'starter-checklist.html');
+    fetch('https://formspree.io/f/xaqgpkpa', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function(){});
+    fetch('https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec', { method: 'POST', mode: 'no-cors', body: fd }).catch(function(){});
+    reveal(true);
+  });
+})();
+</script>
+
+</div>
+
+</div>
+
+</body>
+</html>
