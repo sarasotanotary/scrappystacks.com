@@ -12,21 +12,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How to send your first invoice without overthinking it — Scrappy Stacks</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="description" content="A plain walk-through of sending your first invoice with Wave, free invoicing software, no accounting background required.">
 <style>
   :root{
     --white:#FFFFFF;
-    --cloud:#F4F6FB;
-    --cloud-line:#E4E7EF;
-    --ink:#1A1F36;
-    --ink-soft:#5A6072;
-    --ink-faint:#9A9FAE;
-    --indigo:#4F5BFF;
-    --indigo-dark:#3A44CC;
-    --indigo-bg:#EDEEFF;
-    --mint:#1FC8A0;
-    --mint-dark:#0E8064;
-    --mint-bg:#E6FAF3;
+    --cloud:#F7F9FC;
+    --cloud-line:#DDE4EE;
+    --ink:#1B2A4A;
+    --ink-soft:#475569;
+    --ink-faint:#94A3B8;
+    --indigo:#2563EB;
+    --indigo-dark:#1D4ED8;
+    --indigo-bg:#EFF5FF;
+    --mint:#2563EB;
+    --mint-dark:#1D4ED8;
+    --mint-bg:#EFF5FF;
     --card:#FFFFFF;
   }
   *{box-sizing:border-box;}
@@ -34,17 +37,17 @@
     margin:0;
     background:var(--white);
     color:var(--ink);
-    font-family:'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family:'Instrument Sans', system-ui, sans-serif;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
-    font-family:'Archivo Black','Arial Black',sans-serif;
+    font-family:'Instrument Sans', system-ui, sans-serif; font-weight:700; letter-spacing:-0.03em;
     margin:0;
     letter-spacing:-0.01em;
     color:var(--ink);
   }
   .label{
-    font-family:'JetBrains Mono','Courier New',monospace;
+    font-family:'IBM Plex Mono',monospace;
     text-transform:uppercase;
     letter-spacing:0.12em;
     font-size:0.72rem;
@@ -52,6 +55,7 @@
     color:var(--ink-faint);
   }
   a{color:var(--indigo-dark);}
+  nav a, footer a{text-decoration:none;}
   img{max-width:100%;display:block;}
 
   .nav{
@@ -109,7 +113,7 @@
     margin-top:12px;
   }
   .byline{
-    font-family:'JetBrains Mono',monospace;
+    font-family:'IBM Plex Mono',monospace;
     font-size:0.78rem;
     color:var(--ink-faint);
     margin-top:16px;
@@ -171,13 +175,13 @@
     text-decoration:none;
   }
 
-  footer{
+  .old-footer{
     border-top:1px solid var(--cloud-line);
     padding:32px 24px;
     text-align:center;
   }
-  footer p{
-    font-family:'JetBrains Mono',monospace;
+  .old-footer p{
+    font-family:'IBM Plex Mono',monospace;
     font-size:0.72rem;
     letter-spacing:0.08em;
     color:var(--ink-faint);
@@ -187,12 +191,14 @@
 </head>
 <body>
 
-<nav class="nav">
-  <a class="logo" href="/"><div class="logo-mark"></div>Scrappy Stacks</a>
-  <div class="nav-links">
-    <a href="/#categories">Tools</a>
-    <a href="/blog/">Blog</a>
-    <a href="/#newsletter">Newsletter</a>
+<nav style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #EEF2F6;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;gap:20px;flex-wrap:wrap;">
+  <a href="/" style="display:flex;align-items:center;font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;"><img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="28" height="28" style="border-radius:6px;margin-right:8px;">Scrappy Stacks</a>
+  <div style="display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap;row-gap:10px;">
+    <a href="/build-it-for-me.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Build It For Me</a>
+    <a href="/free-tools.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Free Tools</a>
+    <a href="/blog/" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Blog</a>
+    <a href="/#faq" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">FAQ</a>
+    <a href="/#get-started" style="background:#2563EB;color:#fff;padding:11px 20px;border-radius:7px;font-size:15px;font-weight:600;white-space:nowrap;">Start Today</a>
   </div>
 </nav>
 
@@ -238,8 +244,25 @@
   <a class="back-link" href="/blog/">← Back to all posts</a>
 </div>
 
-<footer>
-  <p>SCRAPPY STACKS · A FREE TOOL SHELF FOR FIRST-TIME FOUNDERS · SOME LINKS ABOVE ARE AFFILIATE LINKS</p>
+<footer style="background:#1B2A4A;padding:52px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.025em;color:#FFFFFF;">
+      <img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="26" height="26" style="border-radius:6px;">
+      Scrappy Stacks
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:26px;">
+      <a href="/free-tools.html" style="font-size:14px;color:#A6B7CF;">Free Tools</a>
+      <a href="/build-it-for-me.html" style="font-size:14px;color:#A6B7CF;">Build It For Me</a>
+      <a href="/idea-generator.html" style="font-size:14px;color:#A6B7CF;">Business Idea Generator</a>
+      <a href="/blog/" style="font-size:14px;color:#A6B7CF;">Blog</a>
+      <a href="/terms.html" style="font-size:14px;color:#A6B7CF;">Terms and Conditions</a>
+      <a href="/privacy.html" style="font-size:14px;color:#A6B7CF;">Privacy Policy</a>
+    </div>
+    <div style="margin-left:auto;text-align:right;min-width:240px;">
+      <p style="font-size:14px;margin-bottom:8px;"><a href="mailto:hello@scrappystacks.com" style="color:#DDE4EE;">hello@scrappystacks.com</a></p>
+      <p style="font-size:12px;color:#8FA3C4;">© 2026 Scrappy Stacks. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
 
 </body>
