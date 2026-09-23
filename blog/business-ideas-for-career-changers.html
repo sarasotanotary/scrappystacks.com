@@ -62,6 +62,15 @@ article a { color: var(--accent); text-decoration: underline; text-underline-off
 article { font-size: 17px; padding: 0 20px 70px; }
 .container { padding: 0 20px; }
 }
+
+/* SCRAPPY */
+.sc-hips { float: right; height: 250px; width: auto; margin: 6px 0 16px 28px; shape-outside: margin-box; }
+@media (max-width: 600px) { .sc-hips { height: 160px; margin-left: 16px; } }
+.article-header .container { position: relative; }
+.sc-wave { position: absolute; right: 40px; top: -30px; height: 300px; width: auto; pointer-events: none; }
+.article-cta { position: relative; }
+.sc-point { position: absolute; right: calc(50% - 480px); bottom: 0; height: 280px; width: auto; pointer-events: none; }
+@media (max-width: 1060px) { .sc-wave, .sc-point { position: static; display: block; margin: 0 auto 16px; height: 160px; } }
 </style>
 </head>
 <body>
@@ -81,6 +90,7 @@ article { font-size: 17px; padding: 0 20px 70px; }
 <!-- ARTICLE HEADER -->
 <div class="article-header">
 <div class="container">
+<img class="sc-wave" src="/images/scrappy-waving.png" alt="Scrappy, the Scrappy Stacks mascot, waving">
 <span class="label">Independence</span>
 <h1 class="display">Best Business Ideas for Career Changers With No Experience</h1>
 <p class="meta">By the founder of Scrappy Stacks &nbsp;&middot;&nbsp; 6 min read</p>
@@ -100,6 +110,7 @@ article { font-size: 17px; padding: 0 20px 70px; }
 <li><strong>Handyman services</strong> — fixing the stuff that's been sitting on everyone's to-do list. You don't need a contractor's license for basic repairs in most states, though it's worth checking your local rules.</li>
 </ul>
 
+<img class="sc-hips" src="/images/scrappy-hands-on-hips.png" alt="Scrappy, the Scrappy Stacks mascot, hands on hips">
 <h2>Businesses that trade time for flexibility</h2>
 <ul>
 <li><strong>Virtual assistant work</strong> — inboxes, scheduling, and the small stuff that eats a business owner's week, done remotely on your own hours.</li>
@@ -118,6 +129,7 @@ article { font-size: 17px; padding: 0 20px 70px; }
 <!-- CTA -->
 <section class="article-cta">
 <div class="container cta-inner">
+<img class="sc-point" src="/images/scrappy-pointing.png" alt="Scrappy, the Scrappy Stacks mascot, pointing">
 <p class="label">Step 1</p>
 <h2 class="display">Find your way out.</h2>
 <p>Four quick questions. One business idea that actually fits your skills, your time, and your budget — not a generic list.</p>

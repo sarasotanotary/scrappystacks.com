@@ -187,6 +187,14 @@
     color:var(--ink-faint);
     margin:0;
   }
+/* SCRAPPY */
+.sc-hips { float: right; height: 250px; width: auto; margin: 6px 0 16px 28px; shape-outside: margin-box; }
+@media (max-width: 600px) { .sc-hips { height: 160px; margin-left: 16px; } }
+  .post-meta { position: relative; }
+  .sc-wave { position: absolute; right: -210px; top: -10px; height: 280px; width: auto; pointer-events: none; }
+  .post-cta { position: relative; }
+  .sc-point { position: absolute; right: -170px; bottom: -20px; height: 240px; width: auto; pointer-events: none; }
+  @media (max-width: 1160px) { .sc-wave, .sc-point { position: static; display: block; margin: 0 auto 16px; height: 150px; } }
 </style>
 </head>
 <body>
@@ -204,6 +212,7 @@
 
 <article>
   <div class="post-meta">
+    <img class="sc-wave" src="/images/scrappy-waving.png" alt="Scrappy, the Scrappy Stacks mascot, waving">
     <span class="label">Accounting &amp; invoicing</span>
     <h1>How to send your first invoice without overthinking it</h1>
     <div class="byline">SCRAPPY STACKS · 5 MIN READ</div>
@@ -221,6 +230,7 @@
   <h2>2. Add your client</h2>
   <p>Just a name and an email is enough to start. You can add more later if you end up working with them again.</p>
 
+  <img class="sc-hips" src="/images/scrappy-hands-on-hips.png" alt="Scrappy, the Scrappy Stacks mascot, hands on hips">
   <h2>3. List what you did, not what you are</h2>
   <p>Skip the job title. Write the actual work: "Deep clean, 3-bedroom house" or "Logo design, 2 revisions" tells the client exactly what they're paying for and cuts down on back-and-forth questions.</p>
 
@@ -237,6 +247,7 @@
   <p>That's it. Hit send. The first one is the only one that feels like a big decision — after that it's just part of how the work gets done.</p>
 
   <div class="post-cta">
+    <img class="sc-point" src="/images/scrappy-pointing.png" alt="Scrappy, the Scrappy Stacks mascot, pointing">
     <p>Wave is free forever for invoicing — no subscription, no trial that runs out.</p>
     <a class="btn" href="/free-tools.html">See it on the shelf →</a>
   </div>
