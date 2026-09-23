@@ -8,14 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%23E8392A'/%3E%3Crect x='2' y='2' width='12' height='4' rx='1.5' fill='%23fff'/%3E%3Crect x='2' y='9' width='8' height='4' rx='1.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Instrument Sans', system-ui, sans-serif; background-color: #FFFFFF; color: #1B2A4A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { text-decoration: none; color: inherit; }
 :root {
-  --bg: #FFFFFF; --ink: #1B2A4A; --accent: #2563EB; --coral: #1D4ED8;
+  --bg: #FFFFFF; --ink: #1B2A4A; --accent: #2563EB; --accent-dark: #1D4ED8;
   --dark: #1B2A4A; --card: #FFFFFF; --muted: #64748B; --border: #DDE4EE;
   --green: #22C55E; --green-bg: #DCFCE7; --green-txt: #15803D;
   --max-w: 1100px; --radius-card: 12px; --radius-btn: 8px;
@@ -131,14 +132,30 @@ footer { background: var(--dark); padding: 52px 0; }
   .container { padding: 0 20px; }
   .compare-row { grid-template-columns: 1fr; }
 }
+
+    /* SCRAPPY */
+    .has-scrappy { position: relative; overflow: hidden; }
+    .side-scrappy { position: absolute; top: 50%; transform: translateY(-50%); height: 330px; width: auto; pointer-events: none; }
+    .side-left { left: calc(50% - 540px); }
+    .side-right { right: calc(50% - 540px); }
+    @media (max-width: 1100px) { .side-scrappy { display: none; } }
+    .hero-side { position: absolute; right: calc(50% - 540px); top: 50%; transform: translateY(-50%); height: 360px; width: auto; pointer-events: none; }
+    @media (max-width: 1100px) { .hero-side { position: static; transform: none; display: block; height: 160px; margin: 0 auto 16px; } }
+    .top-scrappy { display: block; height: 150px; width: auto; margin: 0 auto 14px; }
+    .corner-scrappy { position: fixed; bottom: 0; height: 260px; width: auto; pointer-events: none; z-index: 1; }
+    .corner-left { left: 24px; } .corner-right { right: 24px; }
+    @media (max-width: 1100px) { .corner-scrappy { display: none; } }
+    .float-scrappy { float: right; height: 190px !important; width: auto !important; max-width: none !important; margin: -10px 0 10px 24px; }
+    .clear-scrappy { clear: both; }
+    .block-scrappy { display: block; height: 230px; width: auto; margin-top: 24px; }
+    @media (max-width: 700px) { .float-scrappy { height: 130px !important; } .block-scrappy { height: 150px; } }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #EEF2F6;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;gap:20px;flex-wrap:wrap;">
-  <a href="/" style="display:flex;align-items:center;"><span style="width:28px;height:28px;background:#2563EB;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 16 16" width="16" height="16" fill="#fff" aria-label="Scrappy Stacks logo"><rect x="2" y="2" width="12" height="4" rx="1.5"></rect><rect x="2" y="9" width="8" height="4" rx="1.5"></rect></svg></span></a>
-  <a href="/" style="font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;">Scrappy Stacks</a>
+  <a href="/" style="display:flex;align-items:center;font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;"><img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="28" height="28" style="border-radius:6px;margin-right:8px;">Scrappy Stacks</a>
   <div style="display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap;row-gap:10px;">
     <a href="/build-it-for-me.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Build It For Me</a>
     <a href="/free-tools.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Free Tools</a>
@@ -149,7 +166,8 @@ footer { background: var(--dark); padding: 52px 0; }
 </nav>
 
 <!-- HERO -->
-<section class="tf-hero">
+<section class="tf-hero has-scrappy">
+  <img class="hero-side" src="/images/scrappy-pointing.png" alt="Scrappy, the Scrappy Stacks mascot, pointing">
   <div class="container">
     <div class="tf-hero-inner">
       <p class="label">Already have customers?</p>
@@ -232,6 +250,7 @@ footer { background: var(--dark); padding: 52px 0; }
 <section id="how-it-works">
   <div class="container">
     <div class="how-header">
+      <img class="top-scrappy" src="/images/scrappy-waving.png" alt="Scrappy, the Scrappy Stacks mascot, waving">
       <p class="label">How It Works</p>
       <h2 class="section-title">Three steps. Then it runs itself.</h2>
     </div>
@@ -290,6 +309,7 @@ footer { background: var(--dark); padding: 52px 0; }
       <div class="faq-sticky">
         <p class="label">Questions</p>
         <h2 class="section-title">Straight answers.<br>No fine print.</h2>
+        <img class="block-scrappy" src="/images/scrappy-hands-on-hips.png" alt="Scrappy, the Scrappy Stacks mascot, hands on hips">
       </div>
       <div class="faq-list">
         <div class="faq-item open">
@@ -343,7 +363,7 @@ footer { background: var(--dark); padding: 52px 0; }
 <footer style="background:#1B2A4A;padding:52px 0;">
   <div style="max-width:1100px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;">
     <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.025em;color:#FFFFFF;">
-      <span style="width:26px;height:26px;background:#2563EB;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 16 16" width="15" height="15" fill="#fff" aria-label="Scrappy Stacks logo"><rect x="2" y="2" width="12" height="4" rx="1.5"></rect><rect x="2" y="9" width="8" height="4" rx="1.5"></rect></svg></span>
+      <img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="26" height="26" style="border-radius:6px;">
       Scrappy Stacks
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:26px;">

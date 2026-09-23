@@ -51,12 +51,31 @@
   .closer h2 { font-size: 33px; font-weight: 700; letter-spacing: -0.03em; text-wrap: pretty; }
   .closer p { color: #475569; max-width: 520px; }
   @media (max-width: 640px) { .container { padding: 0 20px; } .closer { padding: 38px 26px; } }
+
+    /* SCRAPPY */
+    .has-scrappy { position: relative; overflow: hidden; }
+    .side-scrappy { position: absolute; top: 50%; transform: translateY(-50%); height: 330px; width: auto; pointer-events: none; }
+    .side-left { left: calc(50% - 540px); }
+    .side-right { right: calc(50% - 540px); }
+    @media (max-width: 1100px) { .side-scrappy { display: none; } }
+    .hero-side { position: absolute; right: calc(50% - 540px); top: 50%; transform: translateY(-50%); height: 360px; width: auto; pointer-events: none; }
+    @media (max-width: 1100px) { .hero-side { position: static; transform: none; display: block; height: 160px; margin: 0 auto 16px; } }
+    .top-scrappy { display: block; height: 150px; width: auto; margin: 0 auto 14px; }
+    .corner-scrappy { position: fixed; bottom: 0; height: 260px; width: auto; pointer-events: none; z-index: 1; }
+    .corner-left { left: 24px; } .corner-right { right: 24px; }
+    @media (max-width: 1100px) { .corner-scrappy { display: none; } }
+    .float-scrappy { float: right; height: 190px !important; width: auto !important; max-width: none !important; margin: -10px 0 10px 24px; }
+    .clear-scrappy { clear: both; }
+    .sec-head:has(.sechead-scrappy) { position: relative; min-height: 190px; padding-right: 190px; justify-content: flex-end; }
+    .sechead-scrappy { position: absolute; right: 0; bottom: 0; height: 190px; width: auto; }
+    @media (max-width: 700px) { .sec-head:has(.sechead-scrappy) { padding-right: 0; min-height: 0; } .sechead-scrappy { position: static; align-self: flex-start; height: 130px; order: -1; } }
+    .block-scrappy { display: block; height: 230px; width: auto; margin-top: 24px; }
+    @media (max-width: 700px) { .float-scrappy { height: 130px !important; } .block-scrappy { height: 150px; } }
 </style>
 </head>
 <body>
 <nav style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #EEF2F6;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;gap:20px;flex-wrap:wrap;">
-  <a href="/" style="display:flex;align-items:center;"><span style="width:28px;height:28px;background:#2563EB;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 16 16" width="16" height="16" fill="#fff" aria-label="Scrappy Stacks logo"><rect x="2" y="2" width="12" height="4" rx="1.5"></rect><rect x="2" y="9" width="8" height="4" rx="1.5"></rect></svg></span></a>
-  <a href="/" style="font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;">Scrappy Stacks</a>
+  <a href="/" style="display:flex;align-items:center;font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;"><img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="28" height="28" style="border-radius:6px;margin-right:8px;">Scrappy Stacks</a>
   <div style="display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap;row-gap:10px;">
     <a href="/build-it-for-me.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Build It For Me</a>
     <a href="/free-tools.html" style="font-size:15px;font-weight:500;color:#1B2A4A;white-space:nowrap;">Free Tools</a>
@@ -65,7 +84,8 @@
     <a href="/#get-started" style="background:#2563EB;color:#fff;padding:11px 20px;border-radius:7px;font-size:15px;font-weight:600;white-space:nowrap;">Start Today</a>
   </div>
 </nav>
-<section class="hero">
+<section class="hero has-scrappy">
+  <img class="hero-side" src="/images/scrappy-waving.png" alt="Scrappy, the Scrappy Stacks mascot, waving">
   <div class="container">
     <div class="hero-inner">
       <p class="eyebrow">Everything free&nbsp; /&nbsp; No signup traps&nbsp; /&nbsp; Use what you need</p>
@@ -111,6 +131,7 @@
   <section class="sec" id="guides">
   <div class="container">
     <div class="sec-head">
+      <img class="sechead-scrappy" src="/images/scrappy-pointing.png" alt="Scrappy, the Scrappy Stacks mascot, pointing">
       <p class="eyebrow accent">Scrappy's e books</p>
       <h2>The guides, start to finish.</h2>
       <p>Plain language, real costs, no filler. One email unlocks all of them.</p>
@@ -159,6 +180,7 @@
 <section class="sec">
   <div class="container">
     <div class="sec-head">
+      <img class="sechead-scrappy" src="/images/scrappy-hands-on-hips.png" alt="Scrappy, the Scrappy Stacks mascot, hands on hips">
       <p class="eyebrow accent">Prefer we handle it?</p>
       <h2>Skip the DIY entirely.</h2>
       <p>The free tools stay free. These are for when you'd rather hand it off.</p>
@@ -196,7 +218,7 @@
 <footer style="background:#1B2A4A;padding:52px 0;">
   <div class="container" style="display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;">
     <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.025em;color:#FFFFFF;">
-      <span style="width:26px;height:26px;background:#2563EB;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 16 16" width="15" height="15" fill="#fff" aria-label="Scrappy Stacks logo"><rect x="2" y="2" width="12" height="4" rx="1.5"></rect><rect x="2" y="9" width="8" height="4" rx="1.5"></rect></svg></span>
+      <img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="26" height="26" style="border-radius:6px;">
       Scrappy Stacks
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:26px;">

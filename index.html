@@ -22,6 +22,23 @@
   .btn-secondary:hover { background:#F1F5F9 !important; }
   .stage-card:hover { border-color:#2563EB !important; box-shadow:0 8px 20px -12px rgba(27,42,74,0.25); }
   .faq-row { cursor:pointer; }
+
+    /* SCRAPPY */
+    .has-scrappy { position: relative; overflow: hidden; }
+    .side-scrappy { position: absolute; top: 50%; transform: translateY(-50%); height: 330px; width: auto; pointer-events: none; }
+    .side-left { left: calc(50% - 540px); }
+    .side-right { right: calc(50% - 540px); }
+    @media (max-width: 1100px) { .side-scrappy { display: none; } }
+    .hero-side { position: absolute; right: calc(50% - 540px); top: 50%; transform: translateY(-50%); height: 360px; width: auto; pointer-events: none; }
+    @media (max-width: 1100px) { .hero-side { position: static; transform: none; display: block; height: 160px; margin: 0 auto 16px; } }
+    .top-scrappy { display: block; height: 150px; width: auto; margin: 0 auto 14px; }
+    .corner-scrappy { position: fixed; bottom: 0; height: 260px; width: auto; pointer-events: none; z-index: 1; }
+    .corner-left { left: 24px; } .corner-right { right: 24px; }
+    @media (max-width: 1100px) { .corner-scrappy { display: none; } }
+    .float-scrappy { float: right; height: 190px !important; width: auto !important; max-width: none !important; margin: -10px 0 10px 24px; }
+    .clear-scrappy { clear: both; }
+    .block-scrappy { display: block; height: 230px; width: auto; margin-top: 24px; }
+    @media (max-width: 700px) { .float-scrappy { height: 130px !important; } .block-scrappy { height: 150px; } }
 </style>
 </head>
 <body>
@@ -116,8 +133,10 @@
   </div>
 
   <div style="max-width:1180px; margin:0 auto; padding:80px 32px;">
+        <img class="float-scrappy" src="/images/scrappy-hands-on-hips.png" alt="Scrappy, the Scrappy Stacks mascot, hands on hips">
     <h2 style="margin:0 0 10px; font-size:34px; font-weight:700; letter-spacing:-0.035em; max-width:22ch;">Everything you need to grow your business.</h2>
     <p style="margin:0 0 44px; font-size:18px; color:#64748B;">No meetings. No proposals. No three-week wait.</p>
+    <div class="clear-scrappy"></div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:32px 40px;">
       <div style="display:flex; flex-direction:column; gap:7px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#2563EB;">01</div>

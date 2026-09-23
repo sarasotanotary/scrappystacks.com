@@ -116,13 +116,31 @@
     h1 { font-size: 30px; }
     .ticket-meta { grid-template-columns: 1fr 1fr; }
   }
+
+    /* SCRAPPY */
+    .has-scrappy { position: relative; overflow: hidden; }
+    .side-scrappy { position: absolute; top: 50%; transform: translateY(-50%); height: 330px; width: auto; pointer-events: none; }
+    .side-left { left: calc(50% - 540px); }
+    .side-right { right: calc(50% - 540px); }
+    @media (max-width: 1100px) { .side-scrappy { display: none; } }
+    .hero-side { position: absolute; right: calc(50% - 540px); top: 50%; transform: translateY(-50%); height: 360px; width: auto; pointer-events: none; }
+    @media (max-width: 1100px) { .hero-side { position: static; transform: none; display: block; height: 160px; margin: 0 auto 16px; } }
+    .top-scrappy { display: block; height: 150px; width: auto; margin: 0 auto 14px; }
+    .corner-scrappy { position: fixed; bottom: 0; height: 260px; width: auto; pointer-events: none; z-index: 1; }
+    .corner-left { left: 24px; } .corner-right { right: 24px; }
+    @media (max-width: 1100px) { .corner-scrappy { display: none; } }
+    .float-scrappy { float: right; height: 190px !important; width: auto !important; max-width: none !important; margin: -10px 0 10px 24px; }
+    .clear-scrappy { clear: both; }
+    .block-scrappy { display: block; height: 230px; width: auto; margin-top: 24px; }
+    @media (max-width: 700px) { .float-scrappy { height: 130px !important; } .block-scrappy { height: 150px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <a href="/" id="home-link" style="display:block;text-align:center;font-size:13px;color:var(--muted);text-decoration:underline;margin-bottom:24px;">&larr; Back to Scrappy Stacks</a>
-  <p class="eyebrow">Scrappy Stacks</p>
+  <img class="top-scrappy" src="/images/scrappy-waving.png" alt="Scrappy, the Scrappy Stacks mascot, waving">
+<p class="eyebrow">Scrappy Stacks</p>
   <h1>What's your way out?</h1>
   <p class="sub">Four quick questions. One business idea that actually fits you — not a generic list you've seen a hundred times.</p>
 
@@ -378,5 +396,7 @@
   }
   window.addEventListener('load', reportHeight);
 </script>
+<img class="corner-scrappy corner-left" src="/images/scrappy-hands-on-hips.png" alt="Scrappy, the Scrappy Stacks mascot, hands on hips">
+<img class="corner-scrappy corner-right" src="/images/scrappy-pointing.png" alt="Scrappy, the Scrappy Stacks mascot, pointing">
 </body>
 </html>
