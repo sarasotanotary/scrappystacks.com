@@ -13,6 +13,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Way Out — Scrappy Stacks Blog</title>
   <meta name="description" content="Real stories and step-by-step guides for anyone ready to create their own independence, starting with a business that's yours." />
+<link rel="canonical" href="https://scrappystacks.com/blog/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Scrappy Stacks" />
+<meta property="og:title" content="The Way Out — Scrappy Stacks Blog" />
+<meta property="og:description" content="Real stories and step-by-step guides for anyone ready to create their own independence, starting with a business that&#x27;s yours." />
+<meta property="og:url" content="https://scrappystacks.com/blog/" />
+<meta property="og:image" content="https://scrappystacks.com/images/share-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -267,7 +277,7 @@
     <p class="label">Join The Way Out</p>
     <h2 class="display">Get the next story in your inbox.</h2>
     <p>One email a month. Real talk about going out on your own, and practical steps for building something that's yours.</p>
-    <form class="newsletter-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
+    <form class="newsletter-form" action="https://formspree.io/f/xaqgpkpa" method="POST" data-ajax data-sheet data-thanks="<div style='font-weight:700;font-size:20px;color:#fff;margin-bottom:6px;'>You're in.</div><div style='color:rgba(255,255,255,0.85);font-size:15px;'>Watch your inbox for the next story.</div>">
       <input type="hidden" name="_subject" value="New Scrappy Stacks newsletter signup" />
       <input type="hidden" name="source" value="Blog listing page" />
       <input type="hidden" name="message" value="Newsletter signup from blog listing" />
@@ -300,6 +310,22 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var SHEET='https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec';
+  document.querySelectorAll('form[data-ajax]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn=form.querySelector('[type=submit]'); if(btn){btn.disabled=true;}
+      var fd=new FormData(form);
+      if(form.hasAttribute('data-sheet')){ fetch(SHEET,{method:'POST',mode:'no-cors',body:fd}).catch(function(){}); }
+      fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+        .then(function(r){ if(!r.ok) throw new Error('bad'); var t=document.createElement('div'); t.className='ajax-thanks'; t.setAttribute('role','status'); t.innerHTML=form.getAttribute('data-thanks'); form.parentNode.replaceChild(t,form); })
+        .catch(function(){ if(btn){btn.disabled=false;} form.removeAttribute('data-ajax'); form.submit(); });
+    });
+  });
+})();
+</script>
 </body>
 </html>
 
