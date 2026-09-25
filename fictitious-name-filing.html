@@ -13,6 +13,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File Your Fictitious Name — Scrappy Stacks</title>
   <meta name="description" content="Get your fictitious name (DBA) filed for you — one flat fee, no subscription required. Done for you by Scrappy Stacks." />
+<link rel="canonical" href="https://scrappystacks.com/fictitious-name-filing.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Scrappy Stacks" />
+<meta property="og:title" content="File Your Fictitious Name — Scrappy Stacks" />
+<meta property="og:description" content="Get your fictitious name (DBA) filed for you — one flat fee, no subscription required. Done for you by Scrappy Stacks." />
+<meta property="og:url" content="https://scrappystacks.com/fictitious-name-filing.html" />
+<meta property="og:image" content="https://scrappystacks.com/images/share-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -185,7 +195,7 @@
         <h2 class="section-title">Let's get it filed.</h2>
         <p class="section-sub">Fill this out and we'll follow up within one business day to confirm details and get your name filed.</p>
       </div>
-      <form class="gs-form" action="https://formspree.io/f/xaqgpkpa" method="POST">
+      <form class="gs-form" action="https://formspree.io/f/xaqgpkpa" method="POST" data-ajax data-thanks="<div style='background:#EFF5FF;border:1px solid #DDE4EE;border-radius:12px;padding:28px;text-align:center;'><div style='font-weight:700;font-size:20px;margin-bottom:6px;color:#1B2A4A;'>Got it — your request is in.</div><div style='color:#475569;font-size:15px;'>We'll reply within one business day to confirm details and get your name filed.</div></div>">
         <input type="hidden" name="_subject" value="New Fictitious Name Filing request" />
         <input type="hidden" name="source" value="Fictitious Name Filing Page" />
         <div class="gs-field">
@@ -254,5 +264,21 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var SHEET='https://script.google.com/macros/s/AKfycbzCVKz1B9b2mLl7UiJCYjHcS4YSo2HRsXrsR82W3PcrPR6g0Vgj8gTVC6UMXU3MWoxJ/exec';
+  document.querySelectorAll('form[data-ajax]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn=form.querySelector('[type=submit]'); if(btn){btn.disabled=true;}
+      var fd=new FormData(form);
+      if(form.hasAttribute('data-sheet')){ fetch(SHEET,{method:'POST',mode:'no-cors',body:fd}).catch(function(){}); }
+      fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
+        .then(function(r){ if(!r.ok) throw new Error('bad'); var t=document.createElement('div'); t.className='ajax-thanks'; t.setAttribute('role','status'); t.innerHTML=form.getAttribute('data-thanks'); form.parentNode.replaceChild(t,form); })
+        .catch(function(){ if(btn){btn.disabled=false;} form.removeAttribute('data-ajax'); form.submit(); });
+    });
+  });
+})();
+</script>
 </body>
 </html>
