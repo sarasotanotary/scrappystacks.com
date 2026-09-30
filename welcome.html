@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G1Y193VRP"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3G1Y193VRP');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome — Build It For Me intake — Scrappy Stacks</title>
+  <meta name="description" content="Welcome to Build It For Me. Tell me about your business so I can start your website." />
+<meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    *, ::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Instrument Sans', system-ui, sans-serif; background-color: #FFFFFF; color: #1B2A4A; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    :root {
+      --bg: #FFFFFF; --ink: #1B2A4A; --accent: #2563EB; --accent-dark: #1D4ED8;
+      --dark: #1B2A4A; --card: #FFFFFF; --muted: #64748B; --border: #DDE4EE;
+      --max-w: 1100px; --radius-card: 12px; --radius-btn: 8px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07); --section-pad: 100px;
+    }
+    .display { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.035em; }
+    .label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+    h2.section-title { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.035em; margin-top: 12px; }
+    p.section-sub { color: var(--muted); max-width: 540px; margin-top: 16px; font-size: 17px; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    section { padding: var(--section-pad) 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: var(--radius-btn); font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 600; font-size: 16px; cursor: pointer; transition: opacity 0.2s, transform 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(245,242,238,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .logo-mark { width: 30px; height: 30px; background: var(--accent); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.btn-primary { color: #fff; }
+    .nav-links a.btn-primary:hover { color: #fff; }
+    @media (max-width: 780px) { .nav-links li:not(:last-child) { display: none; } }
+    .hero { padding: 72px 0 20px; }
+    .hero-inner { max-width: 640px; }
+    .price-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: var(--shadow); margin-top: 20px; }
+    .price-tag span { color: var(--accent); }
+    .hero-cta { margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .hero-note { font-size: 13px; color: var(--muted); }
+    .included-section { padding: 20px 0 40px; }
+    .included-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
+    .included-item { display: flex; align-items: flex-start; gap: 12px; background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 20px; font-size: 15px; }
+    .included-item svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 640px) { .included-list { grid-template-columns: 1fr; } }
+    .chapters-section { background: var(--card); }
+    .chapters-inner { max-width: 640px; margin: 0 auto; }
+    .chapters-header { text-align: center; margin-bottom: 40px; }
+    .chapters-header .section-sub { margin: 16px auto 0; }
+    .chapter-list { list-style: none; counter-reset: chapter; }
+    .chapter-list li { counter-increment: chapter; display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .chapter-list li:last-child { border-bottom: none; }
+    .chapter-list li::before { content: counter(chapter); font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; color: var(--accent); font-size: 18px; min-width: 24px; }
+    .chapter-list li .step-title { font-weight: 600; }
+    .chapter-list li .step-detail { display: block; color: var(--muted); font-size: 15px; margin-top: 2px; }
+    .faq-section { max-width: 720px; margin: 0 auto; }
+    .faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { color: var(--muted); font-size: 15px; }
+    .upsell-section { text-align: center; }
+    .upsell-card { max-width: 620px; margin: 0 auto; background: var(--accent); color: #fff; border-radius: var(--radius-card); padding: 40px; }
+    .upsell-card h3 { font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 26px; margin-bottom: 12px; }
+    .upsell-card p { opacity: 0.92; margin-bottom: 22px; }
+    .upsell-card .btn-outline { border-color: #fff; color: #fff; }
+    footer { background: var(--dark); padding: 52px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+    .footer-logo { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 700; font-size: 18px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .footer-logo .logo-mark { width: 26px; height: 26px; border-radius: 6px; }
+    .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-right { text-align: right; }
+    .footer-email { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); max-width: 340px; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+      .footer-legal { text-align: center; max-width: 100%; }
+      .container { padding: 0 20px; }
+    }
+    .hero .container { position: relative; }
+    .hero-scrappy { position: absolute; right: 56px; top: -24px; height: 440px; width: auto; pointer-events: none; }
+    @media (max-width: 960px) { .hero-scrappy { position: static; display: block; height: 200px; margin: 0 0 12px; } }
+    .has-scrappy { position: relative; overflow: hidden; }
+    .side-scrappy { position: absolute; top: 50%; transform: translateY(-50%); height: 330px; width: auto; pointer-events: none; }
+    .side-left { left: calc(50% - 520px); }
+    .side-right { right: calc(50% - 520px); }
+    @media (max-width: 1100px) { .side-scrappy { display: none; } }
+    .checkout-section { background: #F5F8FD; }
+    .checkout-card { max-width: 560px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow); padding: 40px; text-align: center; position: relative; z-index: 1; }
+    .checkout-card .label { display: block; }
+    .checkout-card h2.section-title { font-size: 30px; }
+    .checkout-rows { margin: 28px 0 8px; text-align: left; }
+    .checkout-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 16px; }
+    .checkout-row small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .checkout-row strong { font-weight: 700; white-space: nowrap; }
+    .checkout-row.total { border-bottom: none; font-size: 18px; padding-top: 18px; }
+    .checkout-row.total strong { color: var(--accent); font-size: 24px; }
+    .checkout-btn { width: 100%; justify-content: center; margin-top: 18px; font-size: 17px; }
+    .checkout-fine { font-size: 13px; color: var(--muted); margin-top: 14px; }
+    .intake-wrap { max-width: 720px; margin: 0 auto; padding: 56px 0 100px; }
+    .intake-wrap h1 { font-size: 40px; margin-top: 10px; }
+    .intake-wrap .lead { color: var(--muted); margin-top: 14px; font-size: 18px; }
+    .expect { margin: 32px 0 8px; background: #F5F8FD; border: 1px solid var(--border); border-radius: var(--radius-card); padding: 24px 28px; }
+    .expect h2 { font-size: 18px; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .expect ol { padding-left: 22px; color: var(--ink); font-size: 15px; }
+    .expect li { margin: 6px 0; }
+    form.intake { margin-top: 36px; }
+    .fs { border: 0; margin: 0 0 34px; padding: 0; }
+    .fs legend { font-weight: 700; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 14px; padding: 0; }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+    .field .hint { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .field input, .field textarea, .field select { width: 100%; font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-btn); background: #fff; color: var(--ink); }
+    .field textarea { min-height: 96px; resize: vertical; }
+    .field input:focus, .field textarea:focus, .field select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .row2 { grid-template-columns: 1fr; } .intake-wrap h1 { font-size: 32px; } }
+    .submit-btn { width: 100%; justify-content: center; font-size: 17px; }
+    .form-msg { margin-top: 16px; font-size: 15px; }
+    .form-msg.ok { color: #15803D; font-weight: 600; }
+    .form-msg.err { color: #B91C1C; }
+    .hp { position: absolute; left: -9999px; }
+    .done { display: none; text-align: center; padding: 40px 20px; }
+    .done h2 { font-size: 30px; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .done p { color: var(--muted); }
+  </style>
+</head>
+<body>
+<nav style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #EEF2F6;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;gap:20px;flex-wrap:wrap;">
+  <a href="/" style="display:flex;align-items:center;font-weight:700;font-size:20px;letter-spacing:-0.025em;color:#1B2A4A;"><img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="28" height="28" style="border-radius:6px;margin-right:8px;">Scrappy Stacks</a>
+  <div style="display:flex;align-items:center;gap:clamp(14px,2vw,28px);flex-wrap:wrap;row-gap:10px;">
+    <a href="/build-it-for-me.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Build It For Me</a>
+    <a href="/free-tools.html" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Free Tools</a>
+    <a href="/blog/" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">Blog</a>
+    <a href="/#faq" style="font-size:15px;font-weight:500;color:#475569;white-space:nowrap;">FAQ</a>
+    <a href="/build-it-for-me.html#checkout" style="background:#2563EB;color:#fff;padding:11px 20px;border-radius:7px;font-size:15px;font-weight:600;white-space:nowrap;">Start Today</a>
+  </div>
+</nav>
+<main>
+<div class="container">
+  <div class="intake-wrap">
+    <p class="label">Welcome aboard</p>
+    <h1 class="display">Thanks &mdash; let&rsquo;s build your site.</h1>
+    <p class="lead">Your payment went through. This short form gives me what I need to start. It takes about 10 minutes, and anything you&rsquo;re unsure about can be left blank. I&rsquo;ll follow up.</p>
+
+    <div class="expect">
+      <h2>What happens next</h2>
+      <ol>
+        <li><strong>You fill this out.</strong> Skip anything you don&rsquo;t know yet.</li>
+        <li><strong>I review it</strong> and reach out if I have questions.</li>
+        <li><strong>I build your site.</strong> Usually within a few days.</li>
+        <li><strong>You review it.</strong> Tell me what to change and I&rsquo;ll update it.</li>
+        <li><strong>It goes live</strong> on your own domain, hosted free. From there I handle updates and fixes.</li>
+      </ol>
+    </div>
+
+    <div id="done" class="done">
+      <img src="/images/scrappy-waving.png" alt="Scrappy, the Scrappy Stacks mascot, waving" style="height:200px;width:auto;margin-bottom:16px;">
+      <h2>Got it. Thank you!</h2>
+      <p>I&rsquo;ve received your details and will be in touch within one business day. Questions in the meantime? <a href="mailto:hello@scrappystacks.com" style="color:var(--accent);font-weight:600;">hello@scrappystacks.com</a></p>
+    </div>
+
+    <form class="intake" id="intake" action="https://formspree.io/f/xaqgpkpa" method="POST">
+      <input type="hidden" name="_subject" value="Build It For Me intake form">
+      <input type="hidden" name="form_type" value="build-it-for-me-intake">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset class="fs">
+        <legend>About you</legend>
+        <div class="row2">
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"><span class="hint">Use the same email you paid with, if you can.</span></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="phone">Phone <span class="hint" style="display:inline;">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="business">Business name</label><input id="business" name="business" required autocomplete="organization"></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>About your business</legend>
+        <div class="field"><label for="what">What does your business do?<span class="hint">A few sentences is plenty.</span></label><textarea id="what" name="what_you_do" required></textarea></div>
+        <div class="field"><label for="customers">Who are your customers?<span class="hint">Who do you want the site to speak to?</span></label><textarea id="customers" name="customers"></textarea></div>
+        <div class="field"><label for="area">Where do you work?<span class="hint">City, service area, or &ldquo;online&rdquo;.</span></label><input id="area" name="service_area"></div>
+        <div class="field"><label for="goal">What should visitors do on your site?<span class="hint">Call, book, request a quote, buy something, fill out a form&hellip;</span></label><input id="goal" name="main_goal"></div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Your site</legend>
+        <div class="field"><label for="pages">Pages you want<span class="hint">For example: Home, About, Services, Contact. Not sure? Write &ldquo;you decide&rdquo;.</span></label><textarea id="pages" name="pages"></textarea></div>
+        <div class="field"><label for="services">Services or products to list<span class="hint">Include prices if you want them shown.</span></label><textarea id="services" name="services_list"></textarea></div>
+        <div class="field"><label for="contactinfo">Contact details to show on the site<span class="hint">Phone, email, address, hours. Only what you want public.</span></label><textarea id="contactinfo" name="public_contact_info"></textarea></div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Domain &amp; look</legend>
+        <div class="field"><label for="domain">Do you already own a domain?<span class="hint">If yes, paste it here. If not, list 2&ndash;3 names you&rsquo;d like and I&rsquo;ll check what&rsquo;s available.</span></label><input id="domain" name="domain"></div>
+        <div class="field"><label for="brand">Logo, colors, or fonts<span class="hint">Describe what you have, or paste a link (Google Drive, Dropbox). No logo? Tell me the feel you want.</span></label><textarea id="brand" name="brand"></textarea></div>
+        <div class="field"><label for="examples">Sites you like<span class="hint">Paste 1&ndash;3 links and tell me what you like about them.</span></label><textarea id="examples" name="inspiration"></textarea></div>
+        <div class="field"><label for="social">Social media or review profiles<span class="hint">Facebook, Instagram, Google Business Profile, anything you want linked.</span></label><textarea id="social" name="social_links"></textarea></div>
+        <div class="field"><label for="photos">Photos or files<span class="hint">Paste a link to a shared folder (Google Drive, Dropbox). Or tell me you&rsquo;ll email them to hello@scrappystacks.com.</span></label><input id="photos" name="files_link"></div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Anything else?</legend>
+        <div class="field"><label for="notes">Anything I should know?<span class="hint">Deadlines, things to avoid, special requests.</span></label><textarea id="notes" name="notes"></textarea></div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">Send my details</button>
+      <p class="form-msg" id="msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+</main>
+<script>
+(function(){
+  var f=document.getElementById('intake'),m=document.getElementById('msg'),b=document.getElementById('submitBtn');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); b.disabled=true; m.className='form-msg'; m.textContent='Sending\u2026';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){
+      if(r.ok){ f.style.display='none'; document.querySelector('.expect').style.display='none'; document.getElementById('done').style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); }
+      else { throw new Error('bad'); }
+    }).catch(function(){ b.disabled=false; m.className='form-msg err'; m.textContent='Something went wrong. Please try again, or email hello@scrappystacks.com.'; });
+  });
+})();
+</script>
+
+<footer style="background:#1B2A4A;padding:52px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.025em;color:#FFFFFF;">
+      <img src="/apple-touch-icon.png" alt="Scrappy Stacks logo" width="26" height="26" style="border-radius:6px;">
+      Scrappy Stacks
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:26px;">
+      <a href="/free-tools.html" style="font-size:14px;color:#A6B7CF;">Free Tools</a>
+      <a href="/build-it-for-me.html" style="font-size:14px;color:#A6B7CF;">Build It For Me</a>
+      <a href="/idea-generator.html" style="font-size:14px;color:#A6B7CF;">Business Idea Generator</a>
+      <a href="/blog/" style="font-size:14px;color:#A6B7CF;">Blog</a>
+      <a href="/terms.html" style="font-size:14px;color:#A6B7CF;">Terms and Conditions</a>
+      <a href="/privacy.html" style="font-size:14px;color:#A6B7CF;">Privacy Policy</a>
+    </div>
+    <div style="margin-left:auto;text-align:right;min-width:240px;">
+      <p style="font-size:14px;margin-bottom:8px;"><a href="mailto:hello@scrappystacks.com" style="color:#DDE4EE;">hello@scrappystacks.com</a></p>
+      <p style="font-size:12px;color:#8FA3C4;">© 2026 Scrappy Stacks. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
